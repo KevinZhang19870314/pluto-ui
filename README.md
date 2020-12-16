@@ -1,12 +1,11 @@
 # ngx-pluto组件库
-
-Pluto平台组件库
+常用Angular 7+组件，用于PC端中台管理项目、商户管理平台等。支持主题样式、多语言等常用功能。
 
 ## 开始使用
 
 * npm install ngx-pluto;
 
-* 以使用cil-button为例;
+* 以使用np-button为例;
 
 * 添加主题样式import到style.scss中;
 ```scss
@@ -45,6 +44,6 @@ export class AppModule { }
 
 * 在线示例：
 
-    [示例Demo]https://sso.ipay.so/controls/#/home
+    [示例Demo]https://kevinzhang19870314.github.io/pluto-ui/
     
-    [在线文档]https://sso.ipay.so/controls/doc/index.html
+    [在线文档]https://kevinzhang19870314.github.io/pluto-ui/doc/index.html
