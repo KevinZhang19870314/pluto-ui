@@ -5,13 +5,11 @@ import { ButtonComponent } from './sample/button/button.component';
 import { CheckboxComponent } from './sample/checkbox/checkbox.component';
 import { InputComponent } from './sample/input/input.component';
 import { TreeComponent } from './sample/tree/tree.component';
-import { SelectComponent } from './sample/select/select.component';
 import { PaginatorComponent } from './sample/paginator/paginator.component';
 import { TabComponent } from './sample/tab/tab.component';
 import { TableComponent } from './sample/table/table.component';
 import { TextareaComponent } from './sample/textarea/textarea.component';
 import { DialogPageComponent } from './sample/dialog/dialog-page.component';
-import { DatepickerComponent } from './sample/datepicker/datepicker.component';
 import { RadioButtonComponent } from './sample/radio-button/radio-button.component';
 import { StepperComponent } from './sample/stepper/stepper.component';
 import { TitleComponent } from './sample/title/title.component';
@@ -38,13 +36,11 @@ const routes: Routes = [
   { path: 'checkbox', component: CheckboxComponent },
   { path: 'textarea', component: TextareaComponent },
   { path: 'tree', component: TreeComponent },
-  { path: 'select', component: SelectComponent },
   { path: 'dropdown', component: DropdownComponent },
   { path: 'paginator', component: PaginatorComponent },
   { path: 'tab', component: TabComponent },
   { path: 'table', component: TableComponent },
   { path: 'dialog', component: DialogPageComponent },
-  { path: 'datepicker', component: DatepickerComponent },
   { path: 'date-picker', component: NewDatePickerComponent },
   { path: 'radio-button', component: RadioButtonComponent },
   { path: 'stepper', component: StepperComponent },

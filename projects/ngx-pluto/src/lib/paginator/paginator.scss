@@ -14,22 +14,19 @@
     width: 60px;
     margin: 0 10px;
 
-    np-multiselect {
-      .selected-list>.c-btn {
-        height: 27px;
-        line-height: 17px;
-        box-sizing: border-box;
-      }
+    np-dropdown {
+      .selected-item-wrapper {
+        width: 60px !important;
+        min-width: 60px !important;
+        padding: 0 !important;
 
-      .selected-list .c-angle {
-        top: 23%;
-      }
+        &>span {
+          padding: 8px;
+        }
 
-      .dropdown-list ul li {
-        padding: 0 8px;
-
-        &>label {
-          font-weight: normal;
+        .fas.fa-caret-up,
+        .fas.fa-caret-down {
+          line-height: 28px !important;
         }
       }
     }

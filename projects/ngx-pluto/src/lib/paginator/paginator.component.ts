@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation, OnInit, OnChanges, Input, SimpleChanges, Output, EventEmitter } from "@angular/core";
+import { NpDropdownItem, NpDropdownSettings } from "../dropdown/index";
 
 /**
  * @ignore
@@ -11,6 +12,10 @@ import { Component, ViewEncapsulation, OnInit, OnChanges, Input, SimpleChanges, 
 })
 
 export class NpPaginator implements OnInit, OnChanges {
+
+
+  selectedItem: NpDropdownItem;
+
 
   @Input() total: number;
   @Input() pageCounts = [10, 20, 50, 100];
@@ -29,11 +34,11 @@ export class NpPaginator implements OnInit, OnChanges {
 
   @Input() pageNumber: number = 1;
   totalPagerLength: number;
-  pageCountsDropdownsettings = { singleSelection: true, showCheckbox: false, text: '' };
+  pageCountsDropdownsettings: NpDropdownSettings = { single: true, isShowSearchBox: false, isRequired: true, width: 60, placeHolder: '' };
 
-  bindingRowsPerPage: Array<{ id: number, itemName: number }>;
+  bindingRowsPerPage: NpDropdownItem;
   bindingPagerList: Array<number> = [];
-  bindingPageCounts: Array<any> = [];
+  bindingPageCounts: NpDropdownItem[] = [];
 
   constructor() { }
 
@@ -48,7 +53,7 @@ export class NpPaginator implements OnInit, OnChanges {
       return;
     }
 
-    this.bindingRowsPerPage = [{ id: this.size, itemName: this.size }];
+    this.bindingRowsPerPage = { id: this.size, label: this.size + '' };
     this.calculatePagerLength(this.size);
     this.initBindingData();
     this.buildBindingPagerList();
@@ -56,7 +61,7 @@ export class NpPaginator implements OnInit, OnChanges {
 
   initBindingData() {
     this.bindingPagerList = Array(this.pagerLength).fill(null).map((x, i) => (i + 1));
-    this.bindingPageCounts = this.pageCounts.map(m => { return { id: m, itemName: m }; });
+    this.bindingPageCounts = this.pageCounts.map(m => { return { id: m, label: m + '' } as NpDropdownItem; });
   }
 
   // We already pass in the input params 'pagerLength', but we still
@@ -69,7 +74,7 @@ export class NpPaginator implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes) {
       if (changes.size && changes.size.currentValue) {
-        this.bindingRowsPerPage = [{ id: changes.size.currentValue, itemName: changes.size.currentValue }];
+        this.bindingRowsPerPage = { id: changes.size.currentValue, label: changes.size.currentValue };
       }
 
       if (changes.total && changes.total.currentValue && !changes.total.firstChange) {
@@ -84,10 +89,10 @@ export class NpPaginator implements OnInit, OnChanges {
     }
   }
 
-  onPageCountsDropdownSelect(selectedItem: { id: number, itemName: number }) {
+  onPageCountsDropdownSelect(selectedItem: NpDropdownItem) {
     this.pageNumber = 1;
-    this.size = selectedItem.id;
-    this.calculatePagerLength(selectedItem.id);
+    this.size = +selectedItem.id;
+    this.calculatePagerLength(+selectedItem.id);
     this.buildBindingPagerList();
 
     this.onPageSizeChanged.next(selectedItem.id);

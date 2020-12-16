@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NpPaginator } from './paginator.component';
+import { NpDropdownModule } from '../dropdown/index';
 
 /**
  * @ignore
@@ -9,7 +10,8 @@ import { NpPaginator } from './paginator.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    NpDropdownModule
   ],
   declarations: [NpPaginator],
   exports: [NpPaginator]

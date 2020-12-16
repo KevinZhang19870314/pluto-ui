@@ -15,7 +15,7 @@ export class TextareaComponent implements OnInit {
   public testForm: FormGroup;
   cbkChecked = true;
 
-  selectedItem
+  selectedItem;
 
   constructor(private fb: FormBuilder) { }
 
@@ -28,7 +28,7 @@ export class TextareaComponent implements OnInit {
       shopName: [{ value: '某门店名称', disabled: true }, Validators.maxLength(10)],
       cbkTest: [true],
       radioTest: [{}]
-    })
+    });
   }
 
   onTooglecbkTest() {

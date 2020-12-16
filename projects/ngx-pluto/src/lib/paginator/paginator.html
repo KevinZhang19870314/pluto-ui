@@ -1,9 +1,9 @@
 <div class="np-paginator-wrapper flex-wrap row-flex">
   <span>{{ totalText + ' ' + total + ' ' + itemsPerPageText }}&nbsp;</span>
   <span>
-    <np-multiselect [data]="bindingPageCounts" [(ngModel)]="bindingRowsPerPage" [settings]="pageCountsDropdownsettings"
-      (onSelect)="onPageCountsDropdownSelect($event)">
-    </np-multiselect>
+    <np-dropdown [(ngModel)]="bindingRowsPerPage" [items]="bindingPageCounts" [settings]="pageCountsDropdownsettings"
+      (onSelected)="onPageCountsDropdownSelect($event)">
+    </np-dropdown>
   </span>
   <span class="pager-btn first-btn" [ngClass]="{ 'disabled-btn' : pageNumber === 1 }"
     (click)="onFirstBtnClicked()">{{ firstBtnText }}</span>

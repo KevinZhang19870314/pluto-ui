@@ -21,6 +21,7 @@
         "no-output-on-prefix": false,
         "no-trailing-whitespace": false,
         "use-life-cycle-interface": false,
-        "prefer-const": false
+        "prefer-const": false,
+        "arrow-return-shorthand": false
     }
 }

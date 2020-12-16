@@ -40,7 +40,6 @@ import { ThirdComponent } from './sample/third/third.component';
 import { InputComponent } from './sample/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TreeComponent } from './sample/tree/tree.component';
-import { SelectComponent } from './sample/select/select.component';
 import { NpDialogModule } from 'projects/ngx-pluto/src/lib/dialog/dialog.module';
 import { TDialogComponent } from './sample/dialog/dialog.component';
 import { TAnotherDialogComponent } from './sample/dialog/another-dialog.component';
@@ -50,7 +49,6 @@ import { NpTableModule } from 'projects/ngx-pluto/src/lib/table';
 import { TableComponent } from './sample/table/table.component';
 import { TextareaComponent } from './sample/textarea/textarea.component';
 import { DialogPageComponent } from './sample/dialog/dialog-page.component';
-import { DatepickerComponent } from './sample/datepicker/datepicker.component';
 import { RadioButtonComponent } from './sample/radio-button/radio-button.component';
 import { StepperComponent } from './sample/stepper/stepper.component';
 import { TitleComponent } from './sample/title/title.component';
@@ -118,7 +116,6 @@ const NGX_PLUTO_MODULE = [
     ThirdComponent,
     InputComponent,
     TreeComponent,
-    SelectComponent,
     TDialogComponent,
     TAnotherDialogComponent,
     PaginatorComponent,
@@ -126,7 +123,6 @@ const NGX_PLUTO_MODULE = [
     TableComponent,
     TextareaComponent,
     DialogPageComponent,
-    DatepickerComponent,
     RadioButtonComponent,
     StepperComponent,
     TitleComponent,
