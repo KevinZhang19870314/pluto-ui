@@ -1,0 +1,76 @@
+<div class="lib-title">Radio group示例</div>
+<div class="t-input-wrapper">
+  <pre class="pre-style"><![CDATA[
+    <fieldset style="width: 600px;">
+      <legend>用ngModel绑定的np-radio组件使用:</legend>
+      <label id="example-radio-group-label">Pick your favorite season</label>
+      <np-radio-group [(ngModel)]="favoriteSeason">
+        <np-radio-button [radioShape]="'rectangle'" *ngFor="let season of seasons" [value]="season">
+          {{'season'}}
+        </np-radio-button>
+      </np-radio-group>
+      <div>Your favorite season is: {{favoriteSeason}}</div>
+    </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>用ngModel绑定的np-radio组件使用:</legend>
+    <label id="example-radio-group-label">Pick your favorite season</label>
+    <np-radio-group [(ngModel)]="favoriteSeason">
+      <np-radio-button [radioShape]="'rectangle'" *ngFor="let season of seasons" [value]="season">
+        {{season}}
+      </np-radio-button>
+    </np-radio-group>
+    <div>Your favorite season is: {{favoriteSeason}}</div>
+  </fieldset>
+  <br />
+  <fieldset style="width: 600px;">
+    <legend>用ngModel绑定的np-radio组件使用disabled:</legend>
+    <label id="example-radio-group-label">Pick your favorite season</label>
+    <np-radio-group [(ngModel)]="favoriteSeason">
+      <np-radio-button [isDisabled]="true" [radioShape]="'rectangle'" *ngFor="let season of seasons" [value]="season">
+        {{season}}
+      </np-radio-button>
+    </np-radio-group>
+    <div>Your favorite season is: {{favoriteSeason}}</div>
+  </fieldset>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <fieldset style="width: 600px;">
+        <legend>结合reactive form使用np-radio组件:</legend>
+        <form [formGroup]="testForm">
+          <label id="example-radio-group-label">Pick your favorite season</label>
+          <np-radio-group [label]="'选择季节'" [isRequired]="true" formControlName="radioButton">
+            <np-radio-button *ngFor="let season of seasonstwo" [value]="season">
+              {{'season'}}
+            </np-radio-button>
+          </np-radio-group>
+          <div>Your favorite season is: {{testForm.value.radioButton}}</div>
+        </form>
+      </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>结合reactive form使用np-radio组件:</legend>
+    <form [formGroup]="testForm">
+
+      <label id="example-radio-group-label">Pick your favorite season</label>
+      <np-radio-group [label]="'选择季节'" [isRequired]="true" formControlName="radioButton">
+        <np-radio-button *ngFor="let season of seasonstwo" [value]="season">{{season}}</np-radio-button>
+      </np-radio-group>
+      <div>Your favorite season is: {{testForm.value.radioButton}}</div>
+    </form>
+  </fieldset>
+  <br />
+  <fieldset style="width: 600px;">
+    <legend>结合reactive form使用np-radio组件 disabled:</legend>
+    <form [formGroup]="testForm">
+
+      <label id="example-radio-group-label">Pick your favorite season</label>
+      <np-radio-group [label]="'选择季节'" [isRequired]="true" formControlName="radioButton">
+        <np-radio-button [isDisabled]="true" *ngFor="let season of seasonstwo" [value]="season">{{season}}</np-radio-button>
+      </np-radio-group>
+      <div>Your favorite season is: {{testForm.value.radioButton}}</div>
+    </form>
+  </fieldset>
+  <br />
+</div>

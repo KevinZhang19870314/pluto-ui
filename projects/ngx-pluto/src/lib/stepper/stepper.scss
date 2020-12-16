@@ -1,0 +1,44 @@
+@import '../../theme/style/variables';
+@import '../../index.scss';
+
+.np-stepper-wrapper {
+  .progress-container {
+    width: 100%;
+    min-width: 100px;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .progress-circle,
+    .progress-circle-template {
+      min-width: 20px;
+      min-height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+
+      img {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+    }
+
+    .progress-line {
+      width: auto;
+      margin: auto;
+      min-width: 80px;
+      height: 3px;
+    }
+  }
+
+  .step-title-first {
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+  }
+
+  .step-title-last {
+    width: 100%;
+    max-width: 100px;
+    text-align: center;
+  }
+}

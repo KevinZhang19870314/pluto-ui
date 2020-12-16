@@ -1,0 +1,63 @@
+<div class="lib-title">Badge示例</div>
+<div class="t-badge-wrapper">
+  <pre class="pre-style"><![CDATA[
+      <np-tab-group>
+        <np-tab>
+          <ng-template np-tab-header let-title="title">
+            <span np-badge [badgeContent]="sampleCount" badgePosition="above before">进心中活动</span>
+          </ng-template>
+          <div>
+            这是进心中活动的内容，外面套了个div
+          </div>
+        </np-tab>
+        <np-tab>
+          <ng-template np-tab-header let-title="title">
+            <span np-badge badgeContent="99" badgePosition="above after">历史活动</span>
+          </ng-template>
+          这是历史活动的内容
+        </np-tab>
+        <np-tab>
+          <ng-template np-tab-header let-title="title">
+            <span np-badge badgeContent="20" badgePosition="below before" badgeColor="green">无效活动</span>
+          </ng-template>
+          这是无效活动的内容
+        </np-tab>
+        <np-tab>
+          <ng-template np-tab-header let-title="title">
+            <span np-badge badgeContent="10" badgePosition="below after" badgeRadius="50%">其他的乱七八糟的活动</span>
+          </ng-template>
+          这是其他的乱七八糟的活动的内容
+        </np-tab>
+      </np-tab-group>
+    ]]></pre>
+  <br />
+  <np-tab-group>
+    <np-tab>
+      <ng-template np-tab-header let-title="title">
+        <span np-badge [badgeContent]="sampleCount" badgePosition="above before">进心中活动</span>
+      </ng-template>
+      <div>
+        这是进心中活动的内容，外面套了个div
+      </div>
+    </np-tab>
+    <np-tab>
+      <ng-template np-tab-header let-title="title">
+        <span np-badge badgeContent="99" badgePosition="above after">历史活动</span>
+      </ng-template>
+      这是历史活动的内容
+    </np-tab>
+    <np-tab>
+      <ng-template np-tab-header let-title="title">
+        <span np-badge badgeContent="20" badgePosition="below before" badgeColor="green">无效活动</span>
+      </ng-template>
+      这是无效活动的内容
+    </np-tab>
+    <np-tab>
+      <ng-template np-tab-header let-title="title">
+        <span np-badge badgeContent="10" badgePosition="below after" badgeRadius="50%">其他的乱七八糟的活动</span>
+      </ng-template>
+      这是其他的乱七八糟的活动的内容
+    </np-tab>
+  </np-tab-group>
+  <br />
+</div>

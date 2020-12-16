@@ -1,0 +1,60 @@
+<div id="side-nav-wrapper" class="side-nav-wrapper" [ngClass]="{'collapsed': isCollapsed}"
+  (window:resize)="onResize($event)">
+  <ng-container *ngIf="!isCollapsed">
+    <!-- <img class="bg" [src]="bg" alt=""> -->
+    <div class="profile-element">
+      <div>
+        <img alt="image" class="img-circle" [src]="logo" />
+      </div>
+      <div class="clear font-bold">
+        <div>
+          您好，{{hidenUserName(userInfo.shopName ? userInfo.shopName : userInfo.username)}}
+          <br>欢迎使用Pluto!
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- <ng-container *ngIf="isCollapsed">
+    <img class="bg collapsed" [src]="bg" alt="">
+  </ng-container> -->
+
+  <div class="menu-item" *ngFor="let menu of menus" [ngClass]="{ 'active': menu.active, 'inActive': !menu.active }"
+    (click)="toggleMenuOrNavigate(menu, $event)">
+    <!-- 菜单ICON -->
+    <i class="{{menu.iconName}} menu-icon"></i>
+    <!-- 收缩时候不显示 -->
+    <ng-container *ngIf="!isCollapsed">
+      <!-- 菜单名字 -->
+      <span>{{ menu.displayName }}</span>
+      <!-- 是否二级菜单开启箭头 -->
+      <i *ngIf="menu.children" class="fa"
+        [ngClass]="{'fa-angle-left': !menu.expanded, 'fa-angle-down': menu.expanded}"></i>
+      <ng-container *ngIf="menu.expanded ">
+        <div class="second-level-menu-item animate-if"
+          [ngClass]="{ 'active': secondLevelMenu.active, 'inActive': !secondLevelMenu.active }"
+          *ngFor="let secondLevelMenu of menu.children" (click)="toggleMenuOrNavigate(secondLevelMenu, $event)">
+          <i class="menu-icon {{secondLevelMenu.iconName}}"></i>
+          <span>{{ secondLevelMenu.displayName }}</span>
+          <i class="fa"
+            [ngClass]="{'fa-angle-left': !secondLevelMenu.expanded, 'fa-angle-down': secondLevelMenu.expanded}"
+            *ngIf="secondLevelMenu.children"></i>
+          <ng-container *ngIf="secondLevelMenu.expanded">
+            <div class="third-level-menu-item animate-if"
+              [ngClass]="{ 'active': thirdLevelMenu.active, 'inActive': !thirdLevelMenu.active }"
+              *ngFor="let thirdLevelMenu of secondLevelMenu.children"
+              (click)="toggleMenuOrNavigate(thirdLevelMenu, $event)">
+              <i class="menu-icon" [ngClass]="thirdLevelMenu.iconName"></i>
+              <span>{{ thirdLevelMenu.displayName }}</span>
+              <ng-container *ngIf="thirdLevelMenu.children">
+                <i class="fa"
+                  [ngClass]="{ 'fa-angle-left': !thirdLevelMenu.expanded, 'fa-angle-down': thirdLevelMenu.expanded }"></i>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<!-- <p (click)="collapse()">菜单伸缩开关</p> -->

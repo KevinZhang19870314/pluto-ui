@@ -1,0 +1,9 @@
+<div class="np-checkbox-button-wrapper" ngDefaultControl [(ngModel)]="val" (click)="onChange($event)"
+  [ngStyle]="{'cursor': (forbiddenColor || isDisabled)? 'not-allowed':'pointer'}">
+  <span class="checkbox" [class.checkbox-checked]="ischecked"
+    [class.checkbox-forbiddenColor]="forbiddenColor || isDisabled"></span>
+  <span class="input-helper" [class.checkbox-forbiddenColor]="forbiddenColor || isDisabled"></span>
+  <span style="line-height: 28px;">
+    <ng-content></ng-content>
+  </span>
+</div>

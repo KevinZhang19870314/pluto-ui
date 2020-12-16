@@ -1,0 +1,34 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-checkbox-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-checkbox-button-wrapper {
+    color: np-color($foreground, text);
+
+    span.input-helper {
+      border: 1px solid np-color($primary);
+    }
+
+    .checkbox.checkbox-checked+span::after {
+      background: np-color($primary);
+    }
+
+    .checkbox.checkbox-forbiddenColor+span::after {
+      background: np-color($background, disabled-button);
+    }
+
+    span.input-helper.checkbox-forbiddenColor {
+      border-color: np-color($background, disabled-button) !important;
+    }
+  }
+}

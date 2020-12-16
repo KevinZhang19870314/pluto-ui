@@ -1,0 +1,4 @@
+{
+  "entry": "./src/theme/all/_all-theme.scss",
+  "dest": "../../dist/ngx-pluto/lib/_theming.scss"
+}

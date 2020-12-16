@@ -1,0 +1,53 @@
+<div class="lib-title">进度条示例</div>
+<div class="t-progress-bar-wrapper">
+  <p>百分比进度条 type = 'percent' ： 只支持传入2种颜色，多余颜色会忽略，进度始终100%</p>
+  <pre class="pre-style"><![CDATA[
+    <div style="width: 600px;">
+      <np-progress-bar height="25" [type]="'percent'" [colors]="colors" [percentage]="33">
+      </np-progress-bar>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;">
+    <np-progress-bar height="25" [type]="'percent'" [colors]="colors" [percentage]="33">
+    </np-progress-bar>
+  </div>
+
+  <p>百分比进度条 type = 'percent' ： 只支持传入2种颜色，多余颜色会忽略，进度始终100%</p>
+  <pre class="pre-style"><![CDATA[
+    <div style="width: 600px;">
+      <np-progress-bar [height]="'50'" [type]="'percent'" [colors]="colors" [percentage]="45" leftText="$200"
+        rightText="$500">
+      </np-progress-bar>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;">
+    <np-progress-bar [height]="'50'" [type]="'percent'" [colors]="colors" [percentage]="45" leftText="$200"
+      rightText="$500">
+    </np-progress-bar>
+  </div>
+
+  <p>渐变色进度条 type = 'progress' ： 支持传入多种颜色，显示当前进度，可持续改变进度percentage</p>
+  <pre class="pre-style"><![CDATA[
+    <div style="width: 600px;">
+      <np-progress-bar [percentage]="70"></np-progress-bar>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;">
+    <np-progress-bar [percentage]="66"></np-progress-bar>
+  </div>
+
+  <p>渐变色进度条 type = 'progress' ： 支持传入多种颜色，显示当前进度，可持续改变进度percentage</p>
+  <pre class="pre-style"><![CDATA[
+    <div style="width: 600px;">
+      <np-progress-bar [percentage]="100"></np-progress-bar>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;">
+    <np-progress-bar [percentage]="100" [colors]="manyColors"></np-progress-bar>
+  </div>
+  <br />
+</div>

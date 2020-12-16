@@ -1,0 +1,140 @@
+@import '../typography/typography';
+
+
+// Typography
+$np-body-font-size-base: rem(1.4) !default;
+$np-font-family: Roboto,
+'Helvetica Neue',
+sans-serif !default;
+
+// Media queries
+$np-xsmall: 'max-width: 600px';
+
+// TODO: Revisit all z-indices before beta
+// z-index master list
+
+$z-index-fab: 20 !default;
+$z-index-drawer: 100 !default;
+
+// Overlay z indices.
+$np-z-index-overlay: 1000;
+$np-z-index-overlay-container: 1;
+$np-z-index-overlay-backdrop: 1;
+
+
+// Global constants
+$pi: 3.14159265;
+
+// Padding between input toggles and their labels
+$np-toggle-padding: 8px !default;
+// Width and height of input toggles
+$np-toggle-size: 20px !default;
+
+// Easing Curves
+// TODO: all of these need to be revisited
+
+// The default animation curves used by material design.
+$np-linear-out-slow-in-timing-function: cubic-bezier(0, 0, 0.2, 0.1) !default;
+$np-fast-out-slow-in-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$np-fast-out-linear-in-timing-function: cubic-bezier(0.4, 0, 1, 1) !default;
+
+$ease-in-out-curve-function: cubic-bezier(0.35, 0, 0.25, 1) !default;
+
+$swift-ease-out-duration: 400ms !default;
+$swift-ease-out-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$swift-ease-out: all $swift-ease-out-duration $swift-ease-out-timing-function !default;
+
+$swift-ease-in-duration: 300ms !default;
+$swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$swift-ease-in: all $swift-ease-in-duration $swift-ease-in-timing-function !default;
+
+$swift-ease-in-out-duration: 500ms !default;
+$swift-ease-in-out-timing-function: $ease-in-out-curve-function !default;
+$swift-ease-in-out: all $swift-ease-in-out-duration $swift-ease-in-out-timing-function !default;
+
+$swift-linear-duration: 80ms !default;
+$swift-linear-timing-function: linear !default;
+$swift-linear: all $swift-linear-duration $swift-linear-timing-function !default;
+
+
+// Basic Colors
+$navy: #1ab394; // Primary color
+$dark-gray: #c2c2c2; // Default color
+// $gray: #5f5f5f;
+$blue: #1c84c6; // Success color
+$lazur: #2CC5C6; // Info color
+$yellow: #f8ac59; // Warrning color
+$red: #ED5565; // Danger color
+$black: #333333;
+// Various colors
+$text-color: #666666; // Body text
+$gray: #f3f3f4; // Background wrapper color
+$light-gray: #D1DADE; // Default label, badget
+$label-badget-color: #5E5E5E;
+$light-blue: #f3f6fb;
+// Spiner color and margin
+$spin-color: $navy;
+$spin-margin: 0 auto;
+// IBOX colors ( default panel colors)
+$border-color: #e7eaec; // IBox border
+$ibox-title-bg: #ffffff; // IBox Background header
+$ibox-content-bg: #ffffff; // IBox Background content
+//Sidebar width
+$sidebar-width: 220px;
+// Boxed layout width
+$boxed-width: 1200px;
+// $boxed-backgound: url('patterns/shattered.png');
+//Border radius for buttons
+$btn-border-radius: 5px;
+//Navigation
+$nav-bg: #2F4050;
+$nav-text-color: #a7b1c2;
+// 按钮相关
+$btn-disable-bg: #999;
+$btn-disable-color: #fafafa;
+
+.flex-wrap {
+  display: flex;
+}
+
+.col-flex {
+  flex-direction: column;
+}
+
+.row-flex {
+  flex-direction: row;
+}
+
+.middle-flex {
+  justify-content: center;
+  align-items: center;
+}
+
+.np-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.np-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.backdrop-transparent {
+  opacity: 0;
+}
+
+@mixin np-controls-color($color, $suffix) {
+
+  .np-controls-color#{if($suffix == '', '', '-' + $suffix)} {
+    background-color: np-color($color);
+
+    &:hover {
+      background-color: darken(np-color($color), 5%);
+    }
+  }
+}

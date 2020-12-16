@@ -1,0 +1,81 @@
+<div class="lib-title">弹窗Dialog示例</div>
+<div class="t-dialog-wrapper">
+  <pre class="pre-style"><![CDATA[
+    
+    // DialogPageComponent
+    constructor(public dialog: DialogService) { }
+
+    onOpenDialog() {
+      let dialogRef = this.dialog.open(TDialogComponent, { data: { message: 'Hello dialog' }, userClass: 'dialog-large' });
+      dialogRef.afterClosed.subscribe(res => {
+        console.log('Dialog closed', res);
+      });
+    }
+    ...
+
+    ...
+    // TDialogComponent
+    import { Component, OnInit } from '@angular/core';
+    import { DialogConfig } from 'projects/ngx-pluto/src/lib/dialog/dialog-config';
+    import { DialogRef } from 'projects/ngx-pluto/src/lib/dialog/dialog-ref';
+    import { DialogService } from 'projects/ngx-pluto/src/lib/dialog/dialog.service';
+    import { TAnotherDialogComponent } from './another-dialog.component';
+
+    @Component({
+      selector: 'app-dialog',
+      templateUrl: './dialog.html',
+      styleUrls: ['./dialog.scss']
+    })
+    export class TDialogComponent implements OnInit {
+      constructor(public config: DialogConfig, private dialogRef: DialogRef, private dialog: DialogService) {
+
+      }
+
+      ngOnInit() {
+      }
+
+      onClose() {
+        this.dialogRef.close('close dialog');
+      }
+
+      onOpenAnother() {
+        this.dialogRef.close('555');
+        let dialogRef = this.dialog.open(TAnotherDialogComponent, {
+          data: { message: 'Hello another dialog' }
+        });
+        dialogRef.afterClosed.subscribe(res => {
+          console.log('Another dialog closed', res);
+        });
+      }
+    }
+    ...
+
+    // TAnotherDialogComponent
+    import { Component, OnInit } from '@angular/core';
+    import { DialogConfig } from 'projects/ngx-pluto/src/lib/dialog/dialog-config';
+    import { DialogRef } from 'projects/ngx-pluto/src/lib/dialog/dialog-ref';
+
+    @Component({
+      selector: 'app-another-dialog',
+      templateUrl: './another-dialog.html',
+      styleUrls: ['./another-dialog.scss']
+    })
+    export class TAnotherDialogComponent implements OnInit {
+      constructor(private dialogRef: DialogRef, public config: DialogConfig,) {
+
+      }
+
+      ngOnInit() {
+      }
+
+      onClose() {
+        this.dialogRef.close('close dialog');
+      }
+    }
+    ...
+
+    <np-button (click)="onOpenDialog()">打开弹窗</np-button>
+    ]]></pre>
+  <np-button (click)="onOpenDialog()">打开弹窗</np-button>
+  <br />
+</div>

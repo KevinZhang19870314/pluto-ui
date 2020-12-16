@@ -1,0 +1,12 @@
+<div class="np-draggable-pics-wrapper item-container" cdkDropListGroup>
+  <div cdkDropList [cdkDropListEnterPredicate]="dropListEnterPredicate" (cdkDropListDropped)="dropListDropped()">
+  </div>
+  <div cdkDropList *ngFor="let item of items" [cdkDropListEnterPredicate]="dropListEnterPredicate"
+    (cdkDropListDropped)="dropListDropped()">
+    <div cdkDrag class="item-box" (cdkDragMoved)="dragMoved($event);" [style.width.px]="itemWidth"
+      [style.height.px]="itemHeight">
+      <i class="fas fa-times-circle" *ngIf="!isDisabled" (click)="onRemove(item)"></i>
+      <img [src]="item.url" [style.width.px]="itemWidth" [style.height.px]="itemHeight">
+    </div>
+  </div>
+</div>

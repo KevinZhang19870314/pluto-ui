@@ -1,0 +1,18 @@
+<div class="np-input-wrapper flex-wrap row-flex">
+  <div class="flex-wrap col-flex" *ngIf="label">
+    <label for="np-input" class="np-input-lbl">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+  </div>
+  <div class="flex-wrap col-flex input-container">
+    <input #npInput [id]="'np-input' + uuid" class="np-input" type="text" [(ngModel)]="val" [placeholder]="placeholder"
+      (change)="onChange($event)" (keyup)="onChange($event)" (blur)="onInputBlur($event)"
+      [attr.disabled]="isDisabled ? '' : null" [class.disabled]="isDisabled"
+      [style.padding-right.px]="(maxLen > -1 && maxLen < 1000) ? '65' : '10'" autocomplete="off">
+    <span class="error-message" *ngIf="errorMessage">{{ errorMessage }}</span>
+    <div class="np-len" *ngIf="maxLen > -1 && maxLen < 1000">
+      <span class="cur-length">{{ currentLen }}</span> / <span>{{ maxLen }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-title-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-title-underline {
+    border-bottom: 1px solid np-color($foreground, divider);
+  }
+
+  .np-title-wrapper {
+
+    .title-text {
+      color: np-color($foreground, text);
+    }
+
+    .vBar {
+      &:before {
+        background-color: np-color($primary);
+      }
+    }
+
+    .title-description {
+      color: np-color($foreground, secondary-text);
+    }
+
+    .caption-text {
+      color: np-color($foreground, text);
+
+      &:before {
+        background-color: np-color($primary);
+      }
+    }
+
+    .notice-icon {
+      color: np-color($primary);
+    }
+
+    .notice-text {
+      color: np-color($primary);
+    }
+
+    .notice-description {
+      color: np-color($foreground, text);
+
+      &:hover {
+        color: np-color($primary);
+      }
+    }
+  }
+}

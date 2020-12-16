@@ -1,0 +1,65 @@
+<div class="np-stepper-wrapper">
+  <!-- Step header -->
+  <div class="flex-wrap row-flex" style="align-items: center;">
+    <ng-container *ngFor="let step of steps; let i = index; let isFirst = first; let isLast = last;">
+      <div class="flex-wrap col-flex" style="align-items: center;">
+        <div class="progress-container flex-wrap row-flex">
+          <!-- 第一步不显示左侧连接线 -->
+          <span class="progress-line" *ngIf="!isFirst"
+            [ngClass]="{'progress-line-unselected': selectedIndex < i}"></span>
+
+          <!-- 根据step状态和是否有自定义内容显示 -->
+
+          <!-- wait等待中 -->
+          <span *ngIf="step.status ==='wait'" class="progress-circle"
+            [ngClass]="{'progress-circle-unselected': selectedIndex < i}">
+          </span>
+
+          <!-- 进行中 -->
+          <ng-container *ngIf="step.status ==='process'">
+            <ng-container *ngIf="step.processContent">
+              <span class="progress-circle-template" [ngClass]="{'progress-circle-unselected': selectedIndex < i}">
+                <ng-container *ngTemplateOutlet="step.processContent.template"></ng-container>
+              </span>
+            </ng-container>
+            <ng-container *ngIf="!step.processContent">
+              <span class="progress-circle" [ngClass]="{'progress-circle-unselected': selectedIndex < i}">
+              </span>
+            </ng-container>
+          </ng-container>
+
+          <!-- 已完成 -->
+          <ng-container *ngIf="step.status ==='finish'">
+            <ng-container *ngIf="step.finishContent">
+              <span class="progress-circle-template" [ngClass]="{'progress-circle-unselected': selectedIndex < i}">
+                <ng-container *ngTemplateOutlet="step.finishContent.template"></ng-container>
+              </span>
+            </ng-container>
+            <ng-container *ngIf="!step.finishContent">
+              <span class="progress-circle" [ngClass]="{'progress-circle-unselected': selectedIndex < i}">
+              </span>
+            </ng-container>
+          </ng-container>
+
+          <!-- 最后一步不显示右侧连接线 -->
+          <span class="progress-line" *ngIf="!isLast"
+            [ngClass]="{'progress-line-unselected': selectedIndex < i}"></span>
+        </div>
+        <div class="step-title" *ngIf="!step.headerContent"
+          [ngClass]="{'step-title-first': isFirst, 'step-title-last': isLast, 'step-title-unselected': selectedIndex < i}">
+          {{ step.title }}
+        </div>
+        <div class="step-title" *ngIf="step.headerContent"
+          [ngClass]="{'step-title-first': isFirst, 'step-title-last': isLast, 'step-title-unselected': selectedIndex < i}">
+          <ng-container *ngTemplateOutlet="step.headerContent.template"></ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <!-- Step content -->
+  <ng-container *ngFor="let step of steps; let i = index; let isFirst = first; let isLast = last;">
+    <div class="flex-wrap row-flex" *ngIf="step.content && selectedIndex === i">
+      <ng-container *ngTemplateOutlet="step.content"></ng-container>
+    </div>
+  </ng-container>
+</div>

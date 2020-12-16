@@ -1,0 +1,49 @@
+.img-upload-wrapper {
+
+  .error-message {
+    display: block;
+    font-size: 10px;
+    margin: 5px;
+  }
+
+  .img-thumbnail-container {
+    width: 220px;
+    height: 160px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-left: 100px;
+    border: 2.5px dashed  #aaa;
+    &>img,
+    &>.img-placeholder {
+      width: 160px;
+      height: auto;
+      max-height: 120px;
+    }
+
+    &>.img-placeholder {
+      font-size: 18px;
+      span{
+        font-size: 40px;
+        font-weight: 500;
+        color: #aaa;
+      }
+    }
+  }
+
+  .img-label {
+    width: 80px;
+    text-align: right;
+    margin-right: 20px;
+    font-weight: 700;
+  }
+
+  .img-desc {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 100px;
+  }
+
+  .button-secondary {
+    margin: 0 !important;
+  }
+}

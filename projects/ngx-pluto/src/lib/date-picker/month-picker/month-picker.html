@@ -1,0 +1,8 @@
+<div class="np-month-picker-wrapper flex-wrap col-flex" (mouseenter)="onMouseenter()" (mouseleave)="onMouseleave()">
+  <i *ngIf="!isHover" class="far fa-calendar"></i>
+  <i *ngIf="isHover" class="fas fa-times-circle" (click)="onClear()"></i>
+  <np-input #monthPickerInput [label]="label" [isRequired]="isRequired" [isDisabled]="isDisabled"
+    [placeholder]="placeholder" [errorMessage]="errorMessage" [(ngModel)]="value" (click)="onToggleDatePickerPopup()"
+    (onBlur)="onBlur($event)">
+  </np-input>
+</div>

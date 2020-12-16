@@ -1,0 +1,35 @@
+{
+  "name": "ngx-pluto",
+  "version": "1.0.11",
+  "description": "ngx-pluto组件库",
+  "repository": {
+    "type": "git",
+    "url": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/tree/np-package/ngx-pluto"
+  },
+  "keywords": [
+    "pluto",
+    "ngx",
+    "angular",
+    "typescript"
+  ],
+  "author": "kevinzhang19870314",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/issues"
+  },
+  "homepage": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/blob/np-package/ngx-pluto/README.md",
+  "peerDependencies": {
+    "@angular/common": ">=6.0.0",
+    "@angular/core": ">=6.0.0",
+    "@angular/forms": ">=6.0.0",
+    "@angular/animations": ">=6.0.0",
+    "@angular/cdk": ">=6.0.0",
+    "@angular/elements": ">=6.0.0"
+  },
+  "bundledDependencies": [
+    "jquery",
+    "jquery.fancytree",
+    "cropperjs",
+    "moment"
+  ]
+}

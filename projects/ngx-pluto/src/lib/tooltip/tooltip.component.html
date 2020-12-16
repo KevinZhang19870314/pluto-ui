@@ -1,0 +1,9 @@
+<ng-container *ngIf="text">
+  <div @tooltip [ngStyle]="{'background-color': bgColor}" [innerHtml]="text | safeHtml" class="padding-div"></div>
+</ng-container>
+
+<ng-container *ngIf="template">
+  <div @tooltip [ngStyle]="{'background-color': bgColor}">
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  </div>
+</ng-container>

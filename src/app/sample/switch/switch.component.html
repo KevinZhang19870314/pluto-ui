@@ -1,0 +1,49 @@
+<div>
+  <pre class="pre-style"><![CDATA[
+    ischecked = false;
+    ...
+    <np-switch [(ngModel)]="ischecked" [label]="'测试switch'"></np-switch>
+      ]]>
+    </pre>
+  <p>正常ngModel</p>
+  <np-switch [(ngModel)]="ischecked" [label]="'测试switch'"></np-switch>
+  <p>绑定的值{{ischecked}}</p>
+</div>
+
+<div>
+  <pre class="pre-style"><![CDATA[
+    ischecked = false;
+    ...
+    <np-switch [(ngModel)]="ischecked" [label]="'测试switch'"></np-switch>
+      ]]>
+    </pre>
+  <p>正常ngModel - disabled</p>
+  <np-switch [(ngModel)]="ischecked" [label]="'测试switch'" [isDisabled]="true"></np-switch>
+  <p>绑定的值{{ischecked}}</p>
+</div>
+
+<div>
+  <pre class="pre-style"><![CDATA[
+    ischecked2 = 'yes';
+    ...
+    <np-switch [(ngModel)]="ischecked2" [label]="'测试switch2'" [trueValue]="'yes'" [falseValue]="'no'"></np-switch>
+      ]]>
+    </pre>
+  <p>正常ngModel，自定义trueValue和fasleValue</p>
+  <np-switch [(ngModel)]="ischecked2" [label]="'测试switch2'" [trueValue]="'yes'" [falseValue]="'no'"></np-switch>
+  <p>绑定的值{{ischecked2}}</p>
+</div>
+<form [formGroup]="testForm">
+  <pre class="pre-style"><![CDATA[
+      this.testForm = this.fb.group({
+        check: [true],
+      })
+      ...
+      <np-switch formControlName="check" [direction]="'right'"  [isDisabled]="true" [isRequired]="true" [label]="'测试sw3'"></np-switch>
+      ]]>
+    </pre>
+  <p>reactive form反方向</p>
+  <np-switch formControlName="check" [direction]="'right'" [isDisabled]="true" [isRequired]="true" [label]="'测试sw3'">
+  </np-switch>
+  <p>绑定的值{{testForm.controls['check'].value | json}}</p>
+</form>

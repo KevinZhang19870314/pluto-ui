@@ -1,0 +1,30 @@
+{
+    "name": "ngx-pluto doc",
+    "open": true,
+    "output": "documentation",
+    "serve": true,
+    "theme": "default",
+    "tsconfig": "projects/ngx-pluto/tsconfig.lib.json",
+    "watch": true,
+    "hideGenerator": true,
+    "disableCoverage": true,
+    "disablePrivate": true,
+    "disableLifeCycleHooks": true,
+    "disableProtected": true,
+    "disableInternal": true,
+    "disableDependencies": true,
+    "customFavicon": "src/favicon.ico",
+    "customLogo": "src/lingxi-logo.png",
+    "includes": "projects/doc",
+    "includesName": "使用",
+    "navTabConfig": [
+        {
+            "id": "info",
+            "label": "通用API"
+        },
+        {
+            "id": "example",
+            "label": "在线样例"
+        }
+    ]
+}

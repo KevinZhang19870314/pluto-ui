@@ -1,0 +1,23 @@
+<div class="np-date-range-picker-wrapper flex-wrap row-flex" (mouseenter)="onMouseenter()"
+  (mouseleave)="onMouseleave()">
+  <i *ngIf="!isHover" class="far fa-calendar"></i>
+  <i *ngIf="isHover" class="fas fa-times-circle" (click)="onClear()"></i>
+  <div class="flex-wrap col-flex" *ngIf="label">
+    <label class="np-date-lbl">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+  </div>
+  <div>
+    <div #dateRangeWrapper class="date-range-wrapper flex-wrap row-flex">
+      <np-input #dateRangeStartPicker class="date-range-start-picker" [(ngModel)]="sValue" [isRequired]="isRequired"
+        [isDisabled]="isDisabled" [placeholder]="startPlaceholder" (click)="onStartPickerClicked()" (onBlur)="onStartDateBlur($event)">
+      </np-input>
+      <span class="range-picker-divider" [ngClass]="{'disabled': isDisabled}">&nbsp;~&nbsp;</span>
+      <np-input #dateRangeEndPicker class="date-range-end-picker" [(ngModel)]="eValue" [isDisabled]="isDisabled"
+        [placeholder]="endPlaceholder" (click)="onEndPickerClicked()" (onBlur)="onEndDateBlur($event)">
+      </np-input>
+    </div>
+    <span class="error-message" *ngIf="errorMessage">{{ errorMessage }}</span>
+  </div>
+</div>

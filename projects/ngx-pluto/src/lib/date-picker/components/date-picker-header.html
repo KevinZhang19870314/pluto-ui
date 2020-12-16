@@ -1,0 +1,15 @@
+<div class="date-picker-header flex-wrap row-flex">
+  <div class="arrow-container flex-wrap row-flex">
+    <span class="double-pre-btn" (click)="onArrowBtnClicked('double-pre')"></span>
+    <span class="pre-btn" *ngIf="isShowPreBtn" (click)="onArrowBtnClicked('pre')"></span>
+  </div>
+  <div class="date-container flex-wrap row-flex">
+    <span class="year" (click)="onYearLabelClicked()">{{ year }}</span>
+    &nbsp;&nbsp;
+    <span class="month" *ngIf="isShowMonthLabel" (click)="onMonthLabelClicked()">{{ month }}</span>
+  </div>
+  <div class="arrow-container flex-wrap row-flex">
+    <span class="next-btn" *ngIf="isShowPreBtn" (click)="onArrowBtnClicked('next')"></span>
+    <span class="double-next-btn" (click)="onArrowBtnClicked('double-next')"></span>
+  </div>
+</div>

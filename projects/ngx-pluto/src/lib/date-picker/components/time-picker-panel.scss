@@ -1,0 +1,53 @@
+.np-time-picker-panel {
+  width: 169px;
+
+  .time-picker-header {
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .time-picker-body {
+    height: 232px;
+    justify-content: space-between;
+
+    .hours,
+    .minutes,
+    .seconds {
+      width: 56px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      padding-bottom: 204px;
+      scroll-behavior: smooth;
+
+      &:hover {
+        overflow-y: auto;
+
+        &>span {
+          margin-left: -8.5px;
+        }
+      }
+
+      &>span {
+        width: 56px;
+        height: 28px;
+        text-align: center;
+        line-height: 28px;
+      }
+    }
+  }
+
+  .time-picker-footer {
+    height: 41px;
+    justify-content: center;
+    align-items: flex-end;
+
+    .np-button-wrapper {
+      width: auto;
+      letter-spacing: initial;
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+}

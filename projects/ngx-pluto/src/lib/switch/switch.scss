@@ -1,0 +1,91 @@
+@import '../../theme/style/variables';
+@import '../../index.scss';
+
+.np-switch-wrapper {
+  align-items: center;
+  width: fit-content;
+
+  .np-switch-lbl {
+    width: 80px;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 700;
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .switch-container {
+    position: relative;
+    .switch {
+      box-sizing: content-box;
+      width: 55px;
+      height: 25px;
+      position: relative;
+      border-radius: 15px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      background-clip: content-box;
+      display: inline-block;
+      -webkit-appearance: none;
+      user-select: none;
+      outline: none;
+    }
+
+    .switch:before {
+      content: '';
+      width: 25px !important;
+      height: 25px !important;
+      position: absolute;
+      top: 0 !important;
+      left: 0 !important;
+      // background: none !important;
+      border-radius: 15px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+
+    .switch.checked:before {
+      left: 30.4px !important;
+      position: absolute;
+      top: 0;
+      content: '';
+    }
+
+    .switch.switch-animbg {
+      transition: background-color ease 0.4s;
+    }
+
+    .switch.switch-animbg:before {
+      transition: left 0.3s;
+    }
+
+    .switch.switch-animbg:checked {
+      transition: border-color 0.4s, background-color ease 0.4s;
+    }
+
+    .switch.switch-animbg:checked:before {
+      transition: left 0.3s;
+    }
+
+    .switch.switch-anim {
+      transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+    }
+
+    .switch.switch-anim:before {
+      transition: left 0.3s;
+    }
+
+    .switch.switch-anim.checked {
+      transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+    }
+
+    .switch.switch-anim.checked:before {
+      transition: left 0.3s;
+    }
+  }
+}

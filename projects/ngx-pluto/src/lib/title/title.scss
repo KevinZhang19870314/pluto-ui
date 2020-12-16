@@ -1,0 +1,75 @@
+.np-title-wrapper {
+  min-height: 45px;
+  width: 96%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  align-items: baseline;
+
+  .title-text {
+    position: relative;
+    margin: 0;
+    font-size: 18px;
+    line-height: 45px;
+    font-weight: 500;
+    margin-right: 15px;
+  }
+
+  .vBar {
+    padding-left: 10px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 15px;
+      position: absolute;
+      left: 0;
+      top: 15px;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .title-description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 45px;
+  }
+
+  .caption-text {
+    position: relative;
+    margin: 0;
+    font-size: 16px;
+    line-height: 45px;
+    font-weight: 600;
+    padding-left: 10px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 15px;
+      position: absolute;
+      left: 0;
+      top: 15px;
+    }
+  }
+
+  .notice-icon {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  .notice-text {
+    font-size: 16px;
+  }
+
+  .notice-description {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}

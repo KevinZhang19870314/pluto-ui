@@ -1,0 +1,22 @@
+<div class="np-paginator-wrapper flex-wrap row-flex">
+  <span>{{ totalText + ' ' + total + ' ' + itemsPerPageText }}&nbsp;</span>
+  <span>
+    <np-multiselect [data]="bindingPageCounts" [(ngModel)]="bindingRowsPerPage" [settings]="pageCountsDropdownsettings"
+      (onSelect)="onPageCountsDropdownSelect($event)">
+    </np-multiselect>
+  </span>
+  <span class="pager-btn first-btn" [ngClass]="{ 'disabled-btn' : pageNumber === 1 }"
+    (click)="onFirstBtnClicked()">{{ firstBtnText }}</span>
+  <span class="pager-btn pre-btn" [ngClass]="{ 'disabled-btn' : pageNumber === 1 }"
+    (click)="onPreBtnClicked()">{{ preBtnText }}</span>
+
+  <span *ngFor="let pageIndex of bindingPagerList" class="number-pager"
+    [ngClass]="{ 'selected-btn' : pageIndex === pageNumber }" (click)="onNumberPagerClicked(pageIndex)">
+    {{ pageIndex }}
+  </span>
+
+  <span class="pager-btn next-btn" [ngClass]="{ 'disabled-btn' : pageNumber === totalPagerLength }"
+    (click)="onNextBtnClicked()">{{ nextBtnText }}</span>
+  <span class="pager-btn last-btn" [ngClass]="{ 'disabled-btn' : pageNumber === totalPagerLength }"
+    (click)="onLastBtnClicked()">{{ lastBtnText }}</span>
+</div>

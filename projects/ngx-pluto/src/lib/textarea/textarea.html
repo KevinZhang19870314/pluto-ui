@@ -1,0 +1,17 @@
+<div id="np-textarea-wrapper" class="np-textarea-wrapper np-row">
+  <div class="np-column np-lbl-container"  *ngIf="label">
+    <label for="np-textarea" class="np-textarea-lbl">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+  </div>
+  <div class="np-column np-textarea-container">
+    <textarea  class="np-textarea" id="np-textarea" [(ngModel)]="val" [placeholder]="placeholder" [attr.disabled]="isDisabled ? '' : null"
+      [class.disabled]="isDisabled" (change)="onChange($event)" (keyup)="onChange($event)" cols="30" rows="10" >
+    </textarea>
+    <span class="error-message" *ngIf="errorMessage">{{ errorMessage }}</span>
+    <div class="np-len" *ngIf="maxLen > -1 && maxLen < 1000">
+      <span class="cur-length">{{ currentLen }}</span> / <span>{{ maxLen }}</span>
+    </div>
+  </div>
+</div>

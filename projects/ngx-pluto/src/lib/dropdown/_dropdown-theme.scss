@@ -1,0 +1,87 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-dropdown-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-dropdown-wrapper {
+    color: np-color($foreground, text);
+
+    .selected-item-wrapper {
+      background: np-color($background, control);
+      border: 1px solid np-color($foreground, divider);
+
+      & .placeholder {
+        color: np-color($foreground, placeholder);
+      }
+
+      &:hover {
+        background-color: np-color($background, hover);
+        border: 1px solid np-color($primary);
+      }
+
+      &:focus {
+        border: 1px solid np-color($primary);
+      }
+
+      .mul-item-container {
+
+        .mul-item {
+          background-color: np-color($primary, 200);
+        }
+      }
+    }
+
+    .disabled {
+      background-color: np-color($background, disabled-button) !important;
+      cursor: not-allowed !important;
+    }
+  }
+
+  .np-dropdown-viewport {
+    border: 1px solid np-color($primary);
+    background: np-color($background, control);
+    box-shadow: 0 1px 5px np-color($background, shadow);
+    border-top: none;
+
+    .search-container {
+
+      .fas.fa-search {
+        color: np-color($foreground, disabled-text);
+      }
+    }
+
+    .select-item {
+      &:hover {
+        background-color: np-color($background, hover);
+      }
+
+      &.active {
+        background-color: np-color($primary, lighter);
+      }
+    }
+
+    &>cdk-virtual-scroll-viewport {
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: np-color($background, hover);
+      }
+    }
+  }
+}

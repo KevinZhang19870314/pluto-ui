@@ -1,0 +1,4 @@
+{
+  "entry": "./src/lib/common-style/_styles.scss",
+  "dest": "../../dist/ngx-pluto/_styles.scss"
+}

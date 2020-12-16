@@ -1,0 +1,57 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-badge-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-badge-wrapper {
+    position: relative;
+    display: block;
+
+    .np-badge-content {
+      position: absolute;
+      text-align: center;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      pointer-events: none;
+      color: white;
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+    }
+
+    &.np-badge-above {
+      .np-badge-content {
+        top: -16px;
+      }
+    }
+
+    &.np-badge-below {
+      .np-badge-content {
+        bottom: -16px;
+      }
+    }
+
+    &.np-badge-before {
+      .np-badge-content {
+        left: -16px;
+      }
+    }
+
+    &.np-badge-after {
+      .np-badge-content {
+        right: -16px;
+      }
+    }
+  }
+}

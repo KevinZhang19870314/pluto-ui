@@ -1,0 +1,82 @@
+@import '../../../theme/theming/palette';
+@import '../../../theme/theming/theming';
+
+@mixin np-date-range-picker-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-date-range-picker-wrapper {
+    color: np-color($foreground, text);
+
+    .form-required {
+      color: np-color($warn);
+      vertical-align: middle;
+    }
+
+    &>.far.fa-calendar {
+      color: np-color($foreground, secondary-text);
+    }
+
+    &>.fas.fa-times-circle {
+      color: np-color($background, contrast);
+
+      &:hover {
+        color: np-color($background, contrast, .8);
+
+        +np-input .np-input {
+          border: 1px solid np-color($primary);
+        }
+      }
+    }
+
+    .date-range-wrapper {
+      border: 1px solid np-color($foreground, divider);
+      position: relative;
+
+      .range-picker-divider {
+        background-color: np-color($background, control);
+        line-height: 32px;
+      }
+
+      .disabled {
+        background-color: np-color($background, disabled-button) !important;
+      }
+
+      &:hover {
+        border: 1px solid np-color($primary);
+      }
+
+      &:focus {
+        border: 1px solid np-color($primary) !important;
+        box-shadow: 0 0px 3px 0px np-color($primary);
+        transition: all 200ms linear;
+        outline: none;
+      }
+
+      .np-input {
+        border: none !important;
+
+        &:hover {
+          border: none !important;
+        }
+
+        &:focus {
+          border: none !important;
+          box-shadow: none !important;
+          transition: none !important;
+        }
+      }
+    }
+
+    .error-message {
+      color: np-color($warn);
+    }
+  }
+}

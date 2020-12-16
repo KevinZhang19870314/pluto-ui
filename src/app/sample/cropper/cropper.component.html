@@ -1,0 +1,23 @@
+<div class="lib-title">Tooltip示例</div>
+<div class="t-cropper-wrapper">
+  <pre class="pre-style"><![CDATA[
+    
+    ]]></pre>
+  <br />
+  <np-button buttonType="secondary" [file]="file" (fileChange)="onFileChanged($event)" [funcType]="'upload'"
+    [uploadFileType]="'jpg|png|jpeg'" (uploadErrorMessage)="onUploadError($event)">
+    点击上传</np-button>
+  <br />
+  <div style="width:320px; height: auto;">
+    <np-cropper #npCropper [cropperOptions]="config" [imageUrl]="imageUrl" (export)="onExportCropper($event)">
+    </np-cropper>
+  </div>
+  <br />
+  <np-button (click)="onCrop()">剪裁{{ width + '*' + height }}</np-button>
+  <br>
+  <ng-container *ngIf="croppedImgUrl">
+    <img [src]="croppedImgUrl">
+  </ng-container>
+  <br>
+  <br>
+</div>

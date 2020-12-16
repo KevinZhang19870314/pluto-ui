@@ -1,0 +1,44 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-box-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-box-wrapper {
+    background-color: np-color($background, control);
+
+    .np-box-header {
+      color: white;
+    }
+
+    .np-box-content {
+      margin: auto 0;
+      justify-content: space-evenly;
+      align-items: center;
+
+      &>div.center,
+      &>div.left-right {
+
+        &>span:first-child {
+          color: np-color($foreground, secondary-text);
+        }
+
+        &>span:last-child {
+          color: np-color($foreground, text);
+        }
+      }
+
+      .vertical-line {
+        border-left: 1px solid np-color($foreground, divider);
+      }
+    }
+  }
+}

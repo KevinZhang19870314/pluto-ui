@@ -1,0 +1,89 @@
+@import '../../theme/style/variables';
+@import '../../index.scss';
+
+.np-radio-group-wrapper {
+  align-items: baseline;
+  width: fit-content;
+
+  .np-lbl {
+    width: 80px;
+    margin-right: 20px;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
+
+// 新版的输入框
+.np-radio-button-wrapper {
+  margin: .5em 1.428571em 0 0;
+  padding-left: 1.785714em;
+  position: relative;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5em;
+  cursor: pointer;
+  display: inline-block;
+
+  // 矩形时候要取消掉父容器的padding-left样式，不然样式会很空
+  &.rectangle {
+    padding-left: 0;
+  }
+
+  // 正常圆按钮样式
+  .radio {
+    opacity: 0;
+    z-index: 1;
+    left: .214286em;
+    top: 0;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    margin: 0;
+    display: block;
+
+    &.radio-checked+span::after {
+      position: absolute;
+      content: '';
+      width: .857142em;
+      height: .857142em;
+      top: .071429em;
+      left: .071429em;
+    }
+
+    &.radio-checked+span::after {
+      border-radius: 1em;
+    }
+  }
+
+  // 矩形样式
+  .rectangle-radio {
+    text-align: center;
+    padding: 6px 10px;
+  }
+
+  span.input-helper {
+    position: absolute;
+    left: .142857em;
+    top: .142857em;
+    width: 1.142857em;
+    height: 1.142857em;
+    box-sizing: border-box;
+  }
+
+  .radio+span.input-helper {
+    border-radius: 1em;
+  }
+
+  ///////////////
+  // 覆盖原来的样式
+  //////////////
+
+  input[type=radio]::before {
+    content: none;
+  }
+
+  input[type=radio]:checked::before {
+    content: none;
+  }
+}

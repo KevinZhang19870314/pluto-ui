@@ -1,0 +1,48 @@
+<div @date-picker-animations class="np-date-picker-popup-wrapper flex-wrap row-flex">
+  <div class="date-wrapper flex-wrap col-flex">
+    <np-date-picker-header #datePickerHeader [date]="date" (onYearClicked)="onYearInHeaderClicked($event)"
+      (onMonthClicked)="onMonthInHeaderClicked()" (onArrowClicked)="onArrowClicked($event)">
+    </np-date-picker-header>
+    <div class="date-picker-body">
+      <!-- 日期面板 -->
+      <ng-container *ngIf="isShowDaysPanel">
+        <div class="days-panel flex-wrap row-flex wrap">
+          <span #dayLabel class="day flex-wrap col-flex" [ngClass]="{
+            'now-day': nowDay.format('YYYYMMDD') === (day.date && day.date.format('YYYYMMDD')), 
+            'selected-day': day.isSelected, 
+            'non-available-day': !day.available && !day.isWeekDayMin,
+            'within-hover': day.hoverDateType === 'within-hover' && day.available,
+            'within-selected': day.hoverDateType === 'within-selected' && day.available,
+            'within-selected-hover': day.hoverDateType === 'within-selected-hover' && day.available
+          }" *ngFor="let day of days" (click)="onDayLabelClicked(day)"
+            (mouseover)="onDayLabelMouseover(day)">{{ day.value }}</span>
+        </div>
+      </ng-container>
+
+      <!-- 月份面板 -->
+      <ng-container *ngIf="isShowMonthsPanel">
+        <div class="months-panel flex-wrap row-flex wrap">
+          <span class="month flex-wrap col-flex" [ngClass]="{'selected-month': month.isSelected}"
+            *ngFor="let month of months" (click)="onMonthLabelClicked(month)">{{ month.value }}</span>
+        </div>
+      </ng-container>
+
+      <!-- 年份面板 -->
+      <ng-container *ngIf="isShowYearsPanel">
+        <div class="years-panel flex-wrap row-flex wrap">
+          <span class="year flex-wrap col-flex"
+            [ngClass]="{'selected-year': year.isSelected, 'non-available-year': !year.available}"
+            *ngFor="let year of years" (click)="onYearLabelClicked(year)">{{ year.value }}</span>
+        </div>
+      </ng-container>
+    </div>
+    <np-date-picker-footer
+      *ngIf="datePickerType === 'date-picker' || datePickerType === 'datetime-picker' || datePickerType === 'date-range-picker'"
+      [datePickerType]="datePickerType" [footerItems]="footerItems"
+      (onItemLabelClicked)="onFooterItemLabelClicked($event)">
+    </np-date-picker-footer>
+  </div>
+  <np-time-picker-panel #timePickerPanel *ngIf="isShowTime" [time]="time" [confirmButtonText]="confirmButtonText"
+    (onTimeClicked)="onTimeLabelClicked($event)" (onConfirmClicked)="onConfirmButtonClicked($event)">
+  </np-time-picker-panel>
+</div>

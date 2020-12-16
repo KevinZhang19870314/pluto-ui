@@ -1,0 +1,50 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-tree-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-tree-wrapper {
+
+    .np-kebab-wrapper {
+      display: inline;
+      float: right;
+    }
+
+    ul.fancytree-container {
+      background-color: np-color($background, control);
+      border: 1px dotted np-color($foreground, divider);
+    }
+
+    span.fancytree-node:hover {
+      background-color: np-color($background, highlight) !important;
+      border-color: np-color($background, highlight) !important;
+    }
+
+    .fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-focused {
+      border-color: np-color($background, highlight);
+    }
+
+    .fancytree-plain span.fancytree-node.fancytree-active,
+    .fancytree-plain span.fancytree-node.fancytree-selected {
+      background-color: np-color($background, highlight, .6);
+      border-color: np-color($background, highlight);
+    }
+
+    .fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-active,
+    .fancytree-plain.fancytree-container.fancytree-treefocus span.fancytree-node.fancytree-selected,
+    .fancytree-plain span.fancytree-node.fancytree-active:hover,
+    .fancytree-plain span.fancytree-node.fancytree-selected:hover {
+      background-color: np-color($background, highlight, .6);
+      border-color: np-color($background, highlight);
+    }
+  }
+}

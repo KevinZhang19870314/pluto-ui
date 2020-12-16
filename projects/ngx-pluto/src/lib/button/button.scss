@@ -1,0 +1,76 @@
+@import '../../theme/style/variables';
+
+:host {
+  width: fit-content;
+  display: block;
+}
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 15px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.button-size-large {
+  width: 300px;
+}
+
+.button-size-default {
+  width: 180px;
+}
+
+.button-size-small {
+  width: 80px;
+}
+
+.button-disabled {
+
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    // background-color: $btn-disable-bg !important;
+    // color: $btn-disable-color !important;
+    text-shadow: none;
+    box-shadow: none;
+    cursor: not-allowed;
+    // border-color: #d9d9d9;
+  }
+}
+
+.button-default {
+  @extend .btn;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.button-primary {
+  @extend .btn;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.button-secondary {
+  @extend .btn;
+  font-weight: 600;
+  border: 1px solid;
+  letter-spacing: 2px;
+  padding: 5px 12px; // button-secondary has border, so minus 2px for padding top and bottom to balance
+}
+
+.button-cancel,
+.button-search {
+  @extend .btn;
+  font-weight: 600;
+  letter-spacing: 2px;
+}

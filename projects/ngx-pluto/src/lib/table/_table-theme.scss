@@ -1,0 +1,56 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-table-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-table-wrapper {
+    font-size: 14px;
+    color: np-color($foreground, text);
+    // box-shadow: 0 1px 3px np-color($background, highlight);
+    background-color: np-color($background, control);
+
+    .table-header {
+      background-color: np-color($background, highlight, .8);
+      color: np-color($foreground, text);
+      font-size: 13px;
+      border-bottom: 1px solid np-color($background, highlight);
+
+      .table-header-text {
+
+        &>.fas.fa-arrow-up,
+        &>.fas.fa-arrow-down {
+          color: np-color($foreground, text);
+        }
+      }
+    }
+
+    .table-body {
+
+      .table-body-row {
+        color: np-color($foreground, text, .95);
+        border-bottom: 1px solid np-color($background, shadow);
+
+        &:nth-of-type(odd) {
+          background-color: np-color($background, shadow, .8);
+        }
+
+        &:nth-of-type(even) {
+          background-color: np-color($background, control);
+        }
+
+        &:hover {
+          background-color: np-color($background, highlight, .6);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<div ngDefaultControl [(ngModel)]="val" class="np-switch-wrapper flex-wrap row-flex" (click)="onChange($event)"
+  [ngStyle]="{'flex-direction': direction==='right'?'row-reverse':'row', 'cursor': isDisabled ? 'not-allowed' : 'pointer'}">
+  <div class="flex-wrap col-flex" *ngIf="label">
+    <label for="np-switch" class="np-switch-lbl">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+  </div>
+  <div class="flex-wrap col-flex switch-container">
+    <span class="switch switch-anim" [ngClass]="{'checked': ischecked, 'disabled': isDisabled}">
+    </span>
+  </div>
+</div>

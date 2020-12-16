@@ -1,0 +1,27 @@
+.np-date-picker-footer {
+  height: 41px;
+  font-weight: 500;
+
+  .today,
+  .footer-items-and-today {
+    width: 100%;
+    line-height: 41px;
+    padding: 0 15px;
+
+    & span {
+      cursor: pointer;
+    }
+  }
+
+  .footer-items-and-today {
+    justify-content: space-between;
+
+    & span {
+      margin-right: 10px;
+    }
+  }
+
+  .today {
+    justify-content: center;
+  }
+}

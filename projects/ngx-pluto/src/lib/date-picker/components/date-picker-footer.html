@@ -1,0 +1,19 @@
+<div class="np-date-picker-footer flex-wrap row-flex">
+  <ng-container
+    *ngIf="datePickerType === 'date-picker' || datePickerType === 'datetime-picker' || datePickerType === 'date-range-picker'">
+    <ng-container *ngIf="footerItems && footerItems.length > 0">
+      <div class="footer-items-and-today flex-wrap row-flex">
+        <div class="flex-wrap row-flex">
+          <span *ngFor="let item of footerItems" (click)="onItemClicked(item)">{{ item.label }}</span>
+        </div>
+        <span *ngIf="datePickerType === 'date-picker'" [title]="todayTitle"
+          (click)="onTodayLabelClicked()">{{ today }}</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="(!footerItems || footerItems.length === 0) && datePickerType === 'date-picker'">
+      <div class="today flex-wrap row-flex middle-flex">
+        <span [title]="todayTitle" (click)="onTodayLabelClicked()">{{ today }}</span>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,86 @@
+<div class="lib-title">Tab示例</div>
+<div class="t-tab-wrapper">
+  <pre class="pre-style"><![CDATA[
+    selectedIndex = 1;
+    tabList = [{ displayName: '菜品信息', value: 'menu', visible: true },
+    { displayName: '套餐信息', value: 'comnbo', visible: true },
+    { displayName: '菜品分类', value: 'catorage', visible: true },
+    ];
+
+    ngOnInit() {
+      setTimeout(() => {
+        // this.selectedIndex = 0;
+        this.tabList[0].visible = false;
+      }, 2000);
+      setTimeout(() => {
+        // this.selectedIndex = 0;
+        this.tabList[0].visible = true;
+      }, 5000);
+    }
+    ...
+
+    <np-tab-group [selectedIndex]="selectedTabIndex" (selectedIndexChange)="indexChange($event)">
+      <np-tab *ngIf="tabList[0].visible" [tabTitle]="tabList[0].displayName" [disabled]="toggleDisable">
+        <div>
+          这是{{tabList[0].displayName}}的内容，外面套了个div
+        </div>
+        <np-table [columns]="columns" [datasource]="emptyDatasource" [total]="0" [pageSize]="10" [showCheckbox]="'true'">
+        </np-table>
+      </np-tab>
+      <np-tab *ngIf="tabList[1].visible" [tabTitle]="tabList[1].displayName">
+        这是{{tabList[1].displayName}}的内容
+      </np-tab>
+      <np-tab *ngIf="tabList[2].visible" [tabTitle]="tabList[2].displayName">
+        这是{{tabList[2].displayName}}的内容
+      </np-tab>
+    </np-tab-group>
+    ]]></pre>
+  <h3 (click)="onGetSelectedIndex()">第一种：每个tab有独立的内容，不能用ngfor</h3>
+  <np-button (click)="onToggleDisable()">Toggle disable</np-button>
+  <np-button (click)="onChangeSelectedIndex()">Change Selected Index</np-button>
+  <np-tab-group [selectedIndex]="selectedTabIndex" (selectedIndexChange)="indexChange($event)">
+    <np-tab *ngIf="tabList[0].visible" [tabTitle]="tabList[0].displayName" [disabled]="toggleDisable">
+      <div>
+        这是{{tabList[0].displayName}}的内容，外面套了个div
+      </div>
+      <div>
+        这是{{tabList[0].displayName}}的内容，外面套了个div2
+      </div>
+      <np-table [columns]="columns" [datasource]="emptyDatasource" [total]="0" [pageSize]="10" [showCheckbox]="'true'">
+      </np-table>
+    </np-tab>
+    <np-tab *ngIf="tabList[1].visible" [tabTitle]="tabList[1].displayName">
+      这是{{tabList[1].displayName}}的内容
+    </np-tab>
+    <np-tab *ngIf="tabList[2].visible" [tabTitle]="tabList[2].displayName">
+      这是{{tabList[2].displayName}}的内容
+    </np-tab>
+  </np-tab-group>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    tabListTwo = [{ displayName: '菜品信息', value: 'menu' },
+      { displayName: '套餐信息', value: 'comnbo' },
+      { displayName: '菜品分类', value: 'catorage' },
+    ];
+
+    ...
+
+    <np-tab-group>
+        <np-tab *ngFor="let tab of tabListTwo" [tabTitle]="tab.displayName"></np-tab>
+        <div>这是他们公用的内容</div>
+    </np-tab-group>
+    ]]></pre>
+  <h3>第二种：每个tab共用同一个内容，可以用ngfor</h3>
+  <np-tab-group>
+    <np-tab *ngFor="let tab of tabListTwo" [tabTitle]="tab.displayName"></np-tab>
+    <div>这是他们公用的内容</div>
+  </np-tab-group>
+  <br />
+  <br />
+  <h3>第三种：chrome-like tab</h3>
+  <np-tab-group [type]="'chrome-like'">
+    <np-tab *ngFor="let tab of tabListThree" [tabTitle]="tab.displayName"></np-tab>
+    <div>这是他们公用的内容</div>
+  </np-tab-group>
+</div>

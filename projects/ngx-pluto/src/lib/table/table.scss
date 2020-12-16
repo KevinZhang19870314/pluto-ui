@@ -1,0 +1,55 @@
+@import '../../theme/style/variables';
+@import '../../index.scss';
+
+.np-table-wrapper {
+  width: 100%;
+  display: block;
+
+  .table-header {
+    height: 34px;
+    line-height: 34px;
+    font-weight: 700;
+
+    &>span {
+      flex: 1 1 0;
+      text-align: center;
+      align-self: center;
+    }
+
+    .table-header-text {
+      align-items: center;
+      justify-content: center;
+
+      &>.fas.fa-arrow-up,
+      &>.fas.fa-arrow-down {
+        margin-left: 6px;
+        transition: all 200ms ease-in;
+      }
+
+      &>.table-header-arrow-default {
+        opacity: 0.54;
+      }
+
+      &>.table-header-arrow-down {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  .table-body {
+    &>.table-body-row {
+      padding: 5px 0;
+
+      &>span {
+        flex: 1 1 0;
+        text-align: center;
+        align-self: center;
+      }
+    }
+  }
+
+  .table-footer {
+    justify-content: flex-end;
+    padding: 20px 5px 20px 0;
+  }
+}

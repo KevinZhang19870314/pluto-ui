@@ -1,0 +1,55 @@
+<div class="lib-title">分页示例</div>
+<div class="t-paginator-wrapper">
+  <pre class="pre-style"><![CDATA[
+    pageInfo = {
+      size: 20,
+      total: 0,
+    }
+    total = 0;
+  
+    currentPageNumber = 1;
+  
+    constructor() { }
+  
+    ngOnInit() {
+      this.total = 44;
+    }
+  
+    onPageChanged(currentPageNumber: number) {
+      console.log('currentPageNumber = ' + currentPageNumber);
+  
+    }
+  
+    onPageSizeChanged(currentPageSize: number) {
+      console.log('currentPageSize = ' + currentPageSize);
+    }
+    
+    mock(number) {
+      this.total = number;
+    }
+
+    ...
+
+    <np-paginator [size]="pageInfo.size" [total]="total" [pageNumber]="currentPageNumber" (onPageChanged)="onPageChanged($event)"
+    (onPageSizeChanged)="onPageSizeChanged($event)"></np-paginator>
+    <br />
+    <np-button (click)="mock(100)">后台传来数据100条</np-button>
+    <br />
+    <np-button (click)="mock(66)">后台传来数据66条</np-button>
+    <br />
+    <div class="flex-wrap row-flex">
+      <np-input [label]="'当前页数'" [(ngModel)]="currentPageNumber"></np-input>
+    </div>
+    ]]></pre>
+  <np-paginator [size]="pageInfo.size" [total]="total" [pageNumber]="currentPageNumber"
+    (onPageChanged)="onPageChanged($event)" (onPageSizeChanged)="onPageSizeChanged($event)"></np-paginator>
+  <br />
+  <np-button (click)="mock(100)">后台传来数据100条</np-button>
+  <br />
+  <np-button (click)="mock(66)">后台传来数据66条</np-button>
+  <br />
+  <div class="flex-wrap row-flex">
+    <np-input [label]="'当前页数'" [(ngModel)]="currentPageNumber"></np-input>
+  </div>
+  <br />
+</div>

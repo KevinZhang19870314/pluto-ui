@@ -1,0 +1,114 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-button-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-button-wrapper {
+    user-select: none;
+
+    &.button-primary {
+      background-color: np-color($primary);
+      color: white;
+
+      &:hover,
+      &:focus {
+        background-color: darken(np-color($primary), 3%);
+      }
+
+      &:active,
+      &.active {
+        background-color: darken(np-color($primary), 8%);
+      }
+
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        border-color: np-color($foreground, divider);
+        color: white;
+      }
+    }
+
+    &.button-secondary {
+      background-color: np-contrast($primary, 500);
+      border-color: np-color($primary);
+      color: np-color($primary);
+
+      &:hover,
+      &:focus {
+        background-color: darken(np-color($primary), 3%);
+      }
+
+      &:active,
+      &.active {
+        background-color: darken(np-color($primary), 8%);
+      }
+
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        border-color: np-color($foreground, divider);
+        color: white;
+      }
+    }
+
+    &.button-disabled {
+
+      &,
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        background-color: np-color($background, disabled-button) !important;
+        color: np-color($foreground, disabled-text) !important;
+        border-color: np-color($foreground, divider);
+      }
+    }
+
+    &.button-default {
+      background: np-color($background, background);
+      border-color: np-color($foreground, control);
+      color: np-color($foreground, control);
+
+      &:hover,
+      &:focus {
+        color: np-color($foreground, control);
+      }
+
+      &:active,
+      &.active {
+        color: np-color($foreground, control);
+      }
+    }
+
+    &.button-cancel,
+    &.button-search {
+      color: white;
+      background-color: #444444;
+
+      &:hover,
+      &:focus {
+        background-color: lighten(#444444, 3%);
+        border-color: #444444;
+        color: white;
+      }
+
+      &:active,
+      &.active {
+        background-color: lighten(#444444, 8%);
+        border-color: #444444;
+        color: white;
+      }
+    }
+  }
+}

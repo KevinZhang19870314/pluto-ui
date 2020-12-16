@@ -1,0 +1,196 @@
+<div class="lib-title">Date picker示例</div>
+<div class="t-date-picker-wrapper">
+  <div class="lib-title">1. Date picker示例NgModel</div>
+  <pre class="pre-style"><![CDATA[
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-picker [label]="'日期选择'" [isRequired]="true" [footerItems]="footerItems" [(ngModel)]="date"
+        (onDateChanged)="onDateChanged($event)">
+      </np-date-picker>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (date ? date.format('YYYY-MM-DD'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-picker [label]="'时间选择'" [isShowTime]="true" [isRequired]="true" [footerItems]="footerItems"
+        [(ngModel)]="datetime" (onDateChanged)="onDatetimeChanged($event)">
+      </np-date-picker>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (datetime ? datetime.format('YYYY-MM-DD HH:mm:ss'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-month-picker [label]="'月份选择'" [isRequired]="true" [errorMessage]="'已发车，请上车'"
+        [isDisabled]="isMonthPickerDisabled" [(ngModel)]="month" (onMonthChanged)="onMonthChanged($event)">
+      </np-month-picker>
+      <np-button (click)="onToggleMonthPicker()">{{ isMonthPickerDisabled? '启用': '禁用' }}</np-button>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (month ? month.format('YYYY-MM'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-year-picker [label]="'年份选择'" [isRequired]="true" [errorMessage]="'快发车，请上车'" [isDisabled]="isYearPickerDisabled"
+        [(ngModel)]="year" (onYearChanged)="onYearChanged($event)">
+      </np-year-picker>
+      <np-button (click)="onToggleYearPicker()">{{ isYearPickerDisabled? '启用': '禁用' }}</np-button>
+      <span style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (year ? year.format('YYYY'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-range-picker [label]="'发车时间'" [isRequired]="true" [(ngModel)]="dates" [isShowTime]="true"
+        [footerItems]="footerItemsForRange" [isDisabled]="isRangePickerDisabled" [errorMessage]="'上车吗，老铁？'">
+      </np-date-range-picker>
+      <np-button (click)="onToggleRangePicker()">{{ isRangePickerDisabled? '启用': '禁用' }}</np-button>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (dates && dates.length === 2 ? (dates[0].format('YYYY-MM-DD HH:mm:ss') + ' ~ ' + dates[1].format('YYYY-MM-DD HH:mm:ss')): '[]') }}</span>
+    </div>
+    ]]></pre>
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <np-date-picker [label]="'日期选择'" [placeholder]="'请选择日期'" [isRequired]="isRequired" [footerItems]="footerItems"
+      [(ngModel)]="date" (onDateChanged)="onDateChanged($event)">
+    </np-date-picker>
+    <span style="margin-left: 100px; font-weight: bold;"
+      (click)="test()">{{ 'ngModel = ' + (date ? date.format('YYYY-MM-DD'): '') }}</span>
+  </div>
+  <br />
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <np-date-picker [label]="'时间选择'" [isShowTime]="true" [isRequired]="true" [footerItems]="dtFooterItems"
+      [(ngModel)]="datetime" (onDateChanged)="onDatetimeChanged($event)">
+    </np-date-picker>
+    <span
+      style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (datetime ? datetime.format('YYYY-MM-DD HH:mm:ss'): '') }}</span>
+  </div>
+  <br />
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <np-month-picker [label]="'月份选择'" [isRequired]="true" [errorMessage]="'已发车，请上车'"
+      [isDisabled]="isMonthPickerDisabled" [(ngModel)]="month" (onMonthChanged)="onMonthChanged($event)">
+    </np-month-picker>
+    <np-button (click)="onToggleMonthPicker()">{{ isMonthPickerDisabled? '启用': '禁用' }}</np-button>
+    <span
+      style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (month ? month.format('YYYY-MM'): '') }}</span>
+  </div>
+  <br />
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <np-year-picker [label]="'年份选择'" [isRequired]="true" [errorMessage]="'快发车，请上车'" [isDisabled]="isYearPickerDisabled"
+      [(ngModel)]="year" (onYearChanged)="onYearChanged($event)">
+    </np-year-picker>
+    <np-button (click)="onToggleYearPicker()">{{ isYearPickerDisabled? '启用': '禁用' }}</np-button>
+    <span style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (year ? year.format('YYYY'): '') }}</span>
+  </div>
+  <br />
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <np-date-range-picker [label]="'发车时间'" [startPlaceholder]="'起始时间'" [endPlaceholder]="'结束时间'" [isRequired]="true"
+      [(ngModel)]="dates" [isShowTime]="true" [footerItems]="footerItemsForRange" [isDisabled]="isRangePickerDisabled"
+      [errorMessage]="'上车吗，老铁？'">
+    </np-date-range-picker>
+    <np-button (click)="onToggleRangePicker()">{{ isRangePickerDisabled? '启用': '禁用' }}</np-button>
+    <span
+      style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (dates && dates.length === 2 ? (dates[0].format('YYYY-MM-DD HH:mm:ss') + ' ~ ' + dates[1].format('YYYY-MM-DD HH:mm:ss')): '[]') }}</span>
+  </div>
+
+  <br />
+  <br />
+  <div class="lib-title">1. Date picker示例Reactive forms</div>
+  <pre class="pre-style"><![CDATA[
+    this.testForm = this.fb.group({
+      date: [moment('2020-08-01'), []],
+      datetime: [moment(), []],
+      month: ['', []],
+      year: ['', []],
+      dates: [[moment(), moment().add(100, 'day')], []]
+    });
+
+    ``````````````````
+    
+    <div class="flex-wrap col-flex" [formGroup]="testForm">
+      <div class="flex-wrap row-flex" style="align-items: baseline;">
+        <np-date-picker formControlName="date" [label]="'日期选择'" [isRequired]="true" [footerItems]="footerItems">
+        </np-date-picker>
+        <span
+          style="margin-left: 100px; font-weight: bold;">{{ 'f.date.value = ' + (f.date.value ? f.date.value.format('YYYY-MM-DD'): '') }}</span>
+      </div>
+      <br />
+      <div class="flex-wrap row-flex" style="align-items: baseline;">
+        <np-date-picker formControlName="datetime" [label]="'时间选择'" [isShowTime]="true" [isRequired]="true"
+          [footerItems]="footerItems">
+        </np-date-picker>
+        <span
+          style="margin-left: 100px; font-weight: bold;">{{ 'f.datetime.value = ' + (f.datetime.value ? f.datetime.value.format('YYYY-MM-DD HH:mm:ss'): '') }}</span>
+      </div>
+      <br />
+      <div class="flex-wrap row-flex" style="align-items: baseline;">
+        <np-month-picker formControlName="month" [label]="'月份选择'" [placeholder]="'请选择月份'" [isRequired]="true"
+          [errorMessage]="'已发车，请上车'" [isDisabled]="isMonthPickerDisabled">
+        </np-month-picker>
+        <np-button (click)="onToggleMonthPicker()">{{ isMonthPickerDisabled? '启用': '禁用' }}</np-button>
+        <span
+          style="margin-left: 100px; font-weight: bold;">{{ 'f.month.value = ' + (f.month.value ? f.month.value.format('YYYY-MM'): '') }}</span>
+      </div>
+      <br />
+      <div class="flex-wrap row-flex" style="align-items: baseline;">
+        <np-year-picker formControlName="year" [label]="'年份选择'" [placeholder]="'请选择年份'" [isRequired]="true"
+          [errorMessage]="'快发车，请上车'" [isDisabled]="isYearPickerDisabled">
+        </np-year-picker>
+        <np-button (click)="onToggleYearPicker()">{{ isYearPickerDisabled? '启用': '禁用' }}</np-button>
+        <span
+          style="margin-left: 100px; font-weight: bold;">{{ 'f.year.value = ' + (f.year.value ? f.year.value.format('YYYY'): '') }}</span>
+      </div>
+      <br />
+      <div class="flex-wrap row-flex" style="align-items: baseline;">
+        <np-date-range-picker [label]="'发车时间'" [isRequired]="true" formControlName="dates" [isShowTime]="true"
+          [footerItems]="footerItemsForRange" [isDisabled]="isRangePickerDisabled" [errorMessage]="'上车吗，老铁？'">
+        </np-date-range-picker>
+        <np-button (click)="onToggleRangePicker()">{{ isRangePickerDisabled? '启用': '禁用' }}</np-button>
+        <span
+          style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (f.dates && f.dates.value && f.dates.value.length === 2 ? (f.dates.value[0].format('YYYY-MM-DD HH:mm:ss') + ' ~ ' + f.dates.value[1].format('YYYY-MM-DD HH:mm:ss')): '[]') }}</span>
+      </div>
+    ]]></pre>
+  <div class="flex-wrap col-flex" [formGroup]="testForm">
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-picker formControlName="date" [label]="'日期选择'" [isRequired]="true" [footerItems]="footerItems">
+      </np-date-picker>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'f.date.value = ' + (f.date.value ? f.date.value.format('YYYY-MM-DD'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-picker formControlName="datetime" [label]="'时间选择'" [isShowTime]="true" [isRequired]="true"
+        [footerItems]="footerItems">
+      </np-date-picker>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'f.datetime.value = ' + (f.datetime.value ? f.datetime.value.format('YYYY-MM-DD HH:mm:ss'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-month-picker formControlName="month" [label]="'月份选择'" [placeholder]="'请选择月份'" [isRequired]="true"
+        [errorMessage]="'已发车，请上车'" [isDisabled]="isMonthPickerDisabled">
+      </np-month-picker>
+      <np-button (click)="onToggleMonthPicker()">{{ isMonthPickerDisabled? '启用': '禁用' }}</np-button>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'f.month.value = ' + (f.month.value ? f.month.value.format('YYYY-MM'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-year-picker formControlName="year" [label]="'年份选择'" [placeholder]="'请选择年份'" [isRequired]="true"
+        [errorMessage]="'快发车，请上车'" [isDisabled]="isYearPickerDisabled">
+      </np-year-picker>
+      <np-button (click)="onToggleYearPicker()">{{ isYearPickerDisabled? '启用': '禁用' }}</np-button>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'f.year.value = ' + (f.year.value ? f.year.value.format('YYYY'): '') }}</span>
+    </div>
+    <br />
+    <div class="flex-wrap row-flex" style="align-items: baseline;">
+      <np-date-range-picker [label]="'发车时间'" [isRequired]="true" formControlName="dates" [isShowTime]="true"
+        [footerItems]="footerItemsForRange" [isDisabled]="isRangePickerDisabled" [errorMessage]="'上车吗，老铁？'">
+      </np-date-range-picker>
+      <np-button (click)="onToggleRangePicker()">{{ isRangePickerDisabled? '启用': '禁用' }}</np-button>
+      <span
+        style="margin-left: 100px; font-weight: bold;">{{ 'ngModel = ' + (f.dates && f.dates.value && f.dates.value.length === 2 ? (f.dates.value[0].format('YYYY-MM-DD HH:mm:ss') + ' ~ ' + f.dates.value[1].format('YYYY-MM-DD HH:mm:ss')): '[]') }}</span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+</div>

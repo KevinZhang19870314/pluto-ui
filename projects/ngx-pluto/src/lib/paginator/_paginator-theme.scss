@@ -1,0 +1,40 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-paginator-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-paginator-wrapper {
+    font-size: 14px;
+    color: np-color($foreground, text);
+
+    .pager-btn {
+      border: 1px solid np-color($foreground, divider);
+      border-right: none;
+      background-color: np-color($background, control);
+    }
+
+    .number-pager {
+      border: 1px solid np-color($foreground, divider);
+      border-right: none;
+      background-color: np-color($background, control);
+    }
+
+    .last-btn {
+      border-right: 1px solid np-color($foreground, divider);
+    }
+
+    .selected-btn {
+      background-color: np-color($background, highlight, .8);
+      border-color: np-color($foreground, divider);
+    }
+  }
+}

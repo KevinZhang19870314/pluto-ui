@@ -1,0 +1,58 @@
+<div class="lib-title">Kebab示例</div>
+<div class="t-kebab-wrapper">
+  <label>1. items全部在kebab里面</label>
+  <pre class="pre-style"><![CDATA[
+    kebabData2: KebabComponentData = {
+      items: [
+        { value: '新增订单', id: 0 },
+        { value: '修改订单', type: 'text', id: 1 },
+        { value: '删除订单', id: 2 },
+        { value: '联系我们', type: 'text', id: 3 },
+        { value: '', type: 'separator', color: 'gray' },
+        { value: 'fas fa-question-circle', type: 'icon', color: '#F8AF12' }
+      ],
+      limit: 6
+    };
+    ```
+    <np-kebab [data]="kebabData2" (onItemClicked)="onItemClicked($event)"></np-kebab>
+    ]]></pre>
+  <np-kebab [data]="kebabData2" (onItemClicked)="onItemClicked($event)"></np-kebab>
+  <br />
+  <label>2. item部分在kebab里面</label>
+  <pre class="pre-style"><![CDATA[
+    kebabData3: KebabComponentData = {
+      items: [
+        { value: '新增订单', id: 0 },
+        { value: '修改订单', type: 'text', id: 1 },
+        { value: '删除订单', id: 2 },
+        { value: '联系我们', type: 'text', id: 3 },
+        { value: '', type: 'separator', color: 'gray' },
+        { value: 'fas fa-question-circle', type: 'icon', color: '#F8AF12' }
+      ],
+      limit: 4
+    };
+    ```
+    <np-kebab [data]="kebabData3" (onItemClicked)="onItemClicked($event)"></np-kebab>
+    ]]></pre>
+  <np-kebab [data]="kebabData3" (onItemClicked)="onItemClicked($event)"></np-kebab>
+  <br />
+  <label>3. items全部展开</label>
+  <pre class="pre-style"><![CDATA[
+    kebabData1: KebabComponentData = {
+      items: [
+        { value: '新增订单', id: 0 },
+        { value: '修改订单', type: 'text', id: 1 },
+        { value: '删除订单', id: 2 },
+        { value: '联系我们', type: 'text', id: 3 },
+        { value: '', type: 'separator', color: 'gray' },
+        { value: 'fas fa-question-circle', type: 'icon', color: '#F8AF12' }
+      ],
+      limit: 0
+    };
+    ```
+    <np-kebab [data]="kebabData1" (onItemClicked)="onItemClicked($event)"></np-kebab>
+    ]]></pre>
+  <np-kebab [data]="kebabData1" (onItemClicked)="onItemClicked($event)"></np-kebab>
+  <br />
+  <br />
+</div>

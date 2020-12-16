@@ -1,0 +1,72 @@
+<div class="np-table-wrapper">
+  <div class="table-header flex-wrap row-flex">
+    <span *ngFor="let item of internalColumns" [style.flex]="'0 1 ' + item.width">
+      <ng-container *ngIf="item.isCheckbox">
+        <!-- We need to re-style or re-design the checkbox control, its ugly and not easy to use -->
+        <span style="width: 100%; height: 34px; display: flex; justify-content: center;">
+          <np-checkbox style="width: 5px;" [(ngModel)]="item.checked"
+            (inputModelChange)="onSelectAllChecked(item.checked)"></np-checkbox>
+        </span>
+      </ng-container>
+      <span *ngIf="!item.isCheckbox">
+        <ng-container *ngIf="!item.headerTemplate">
+          <div class="flex-wrap row-flex table-header-text" [ngStyle]="{'cursor': item.sort ? 'pointer': 'inherit'}"
+            (click)="onSort(item)">
+            <span>{{ item.headerDisplayName }}</span>
+            <i *ngIf="['default', 'asc', 'desc'].indexOf(item.sortedBy) > -1" class="fas fa-arrow-up" [ngClass]="{
+              'table-header-arrow-default': item.sortedBy === 'default', 
+              'table-header-arrow-up': item.sortedBy === 'asc', 
+              'table-header-arrow-down': item.sortedBy === 'desc'}"></i>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="item.headerTemplate">
+          <div class="flex-wrap row-flex table-header-text" [ngStyle]="{'cursor': item.sort ? 'pointer': 'inherit'}"
+            (click)="onSort(item)">
+            <ng-container *ngTemplateOutlet="item.headerTemplate; context: { row: item }">
+            </ng-container>
+            <i *ngIf="['default', 'asc', 'desc'].indexOf(item.sortedBy) > -1" class="fas fa-arrow-up" [ngClass]="{
+              'table-header-arrow-default': item.sortedBy === 'default', 
+              'table-header-arrow-up': item.sortedBy === 'asc', 
+              'table-header-arrow-down': item.sortedBy === 'desc'}"></i>
+          </div>
+        </ng-container>
+      </span>
+    </span>
+  </div>
+  <div class="table-body flex-wrap col-flex">
+    <div class="table-body-row flex-wrap row-flex" *ngFor="let row of datasource">
+      <ng-container *ngFor="let column of internalColumns">
+        <ng-container *ngIf="column.isCheckbox">
+          <!-- We need to re-style or re-design the checkbox control, its ugly and not easy to use -->
+          <span [style.flex]="'0 1 ' + column.width"
+            style="width: 100%; height: 34px; display: flex; justify-content: center;">
+            <np-checkbox style="width: 5px;" [(ngModel)]="row.checked" (inputModelChange)="onRowSelectChecked(row)">
+            </np-checkbox>
+          </span>
+        </ng-container>
+        <span *ngIf="!column.isCheckbox" [style.flex]="'0 1 ' + column.width">
+          <ng-container *ngIf="!column.template">{{ row[column.headerName] }}</ng-container>
+          <ng-container *ngIf="column.template">
+            <ng-container *ngTemplateOutlet="column.template; context: { row: row }">
+            </ng-container>
+          </ng-container>
+        </span>
+      </ng-container>
+    </div>
+    <div *ngIf="!datasource || datasource.length === 0" class="table-body-row flex-wrap row-flex middle-flex">
+      <ng-container *ngIf="!emptyContent || !emptyContent.template">
+        <span class="no-data">{{ noDataLabel }}</span>
+      </ng-container>
+      <ng-container *ngIf="emptyContent && emptyContent.template">
+        <ng-container *ngTemplateOutlet="emptyContent.template;">
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="table-footer flex-wrap row-flex" *ngIf="showPager && datasource && datasource.length > 0">
+    <np-paginator [size]="pageSize" [total]="total" [pageNumber]="pageNumber" [firstBtnText]="firstBtnText"
+      [preBtnText]="preBtnText" [nextBtnText]="nextBtnText" [lastBtnText]="lastBtnText" [totalText]="totalText"
+      [itemsPerPageText]="itemsPerPageText" (onPageChanged)="onTablePageChanged($event)"
+      (onPageSizeChanged)="onTablePageSizeChanged($event)"></np-paginator>
+  </div>
+</div>

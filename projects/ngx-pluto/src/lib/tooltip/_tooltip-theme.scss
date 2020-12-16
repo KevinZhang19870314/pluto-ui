@@ -1,0 +1,68 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-tooltip-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-tooltip-wrapper {
+    div {
+      color: white;
+    }
+
+    &.arrow-top {
+      &::before {
+        border-bottom: 6px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-right {
+      &::before {
+        border-left: 6px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-bottom {
+      &::before {
+        border-top: 6px solid rgba(73, 89, 106, .7);
+      }
+    }
+
+    &.arrow-left {
+      &::before {
+        border-right: 6px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-bottomRight {
+      &::before {
+        border-right: 10px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-bottomLeft {
+      &::before {
+        border-left: 10px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-topRight {
+      &::before {
+        border-right: 10px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+
+    &.arrow-topLeft {
+      &::before {
+        border-left: 10px solid rgba(73, 89, 106, 0.7);
+      }
+    }
+  }
+}

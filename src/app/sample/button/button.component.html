@@ -1,0 +1,121 @@
+<div class="lib-title">按钮示例</div>
+<div class="t-button-wrapper">
+
+  <pre class="pre-style"><![CDATA[<np-button>确定</np-button>]]></pre>
+  <np-button>确定</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[<np-button buttonType="secondary">点击上传</np-button>]]></pre>
+  <np-button buttonType="secondary">点击上传</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[<np-button buttonType="cancel" buttonSize="300px">取消</np-button>]]></pre>
+  <np-button buttonType="cancel" buttonSize="300px">取消</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[<np-button buttonType="search">查询</np-button>]]></pre>
+  <np-button buttonType="search">查询</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[<np-button buttonType buttonSize="large">默认大按钮</np-button>]]></pre>
+  <np-button buttonType buttonSize="large">默认大按钮</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <np-title text="今日数据概览">
+      <title-template (click)="onRefresh()">
+        <i class="fas fa-sync-alt" style="color: #2cc5c6; font-size: 18px; cursor: pointer;"></i>
+      </title-template>
+    </np-title>]]></pre>
+  <div class="flex-wrap col-flex" style="width:400px; border: 1px dashed red;">
+    <np-button id="2" buttonBlock>继承父宽度</np-button>
+    <np-button buttonBlock [isDisabled]="true">继承父宽度不可用状态</np-button>
+  </div>
+  <br />
+
+  <pre class="pre-style"><![CDATA[<np-button (click)="onOpenDialog()">打开弹窗</np-button>]]></pre>
+  <np-button (click)="onOpenDialog()">打开弹窗</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    constructor(private loadingService: LoadingService) { }
+
+    ...
+
+    beginLoading() {
+      this.loadingService.begin();
+      setTimeout(() => {
+        this.endLoading();
+      }, 3000);
+    }
+
+    ...
+
+    <np-button buttonSize="large" (click)="beginLoading()">beginLoading 3秒结束</np-button>
+    ]]></pre>
+  <np-button buttonSize="large" (click)="beginLoading()">beginLoading 3秒结束</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    constructor(private loadingService: LoadingService) { }
+
+    ...
+
+    endLoading() {
+      this.loadingService.end();
+    }
+
+    ...
+
+    <np-button (click)="endLoading()">endLoading</np-button>]]></pre>
+  <np-button (click)="endLoading()">endLoading</np-button>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <form [formGroup]="testForm">
+        <div style="padding: 5px; border: 1px dashed red;">
+          <div>上传文件 - Reactive form</div>
+          <br />
+          <np-button buttonSize="large" [funcType]="'upload'" [uploadFileType]="'jpg|png|jpeg'"
+            (uploadErrorMessage)="show($event);" formControlName="uploadFile">测试只能上传jpg，png，jpeg</np-button>
+          <br />
+          <np-button [funcType]="'upload'" [uploadFileType]="'xlsx'" (uploadErrorMessage)="show($event);"
+            formControlName="uploadFiletwo">测试只能上传xlsx</np-button>
+        </div>
+      </form>
+    ]]></pre>
+  <form [formGroup]="testForm">
+    <div style="padding: 5px; border: 1px dashed red;">
+      <div>上传文件 - Reactive form</div>
+      <br />
+      <np-button buttonSize="large" [funcType]="'upload'" [uploadFileType]="'jpg|png|jpeg'"
+        (uploadErrorMessage)="show($event);" formControlName="uploadFile">测试只能上传jpg，png，jpeg</np-button>
+      <br />
+      <np-button [funcType]="'upload'" [uploadFileType]="'xlsx'" (uploadErrorMessage)="show($event);"
+        formControlName="uploadFiletwo" [isDisabled]="true">测试只能上传xlsx</np-button>
+    </div>
+  </form>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <div style="padding: 5px; border: 1px dashed red;">
+        <div>上传文件 - NgModel</div>
+        <br />
+        <np-button buttonSize="large" [(file)]="file" [funcType]="'upload'" [uploadFileType]="'jpg|png|jpeg'"
+          (uploadErrorMessage)="show($event);">
+          测试只能上传jpg，png，jpeg</np-button>
+        <p>{{file?.name}}</p>
+        <p>{{file?.size}}</p>
+      </div>
+    ]]></pre>
+  <div style="padding: 5px; border: 1px dashed red;">
+    <div>上传文件 - NgModel</div>
+    <br />
+    <np-button buttonSize="large" [(file)]="file" [funcType]="'upload'" [uploadFileType]="'jpg|png|jpeg'"
+      (uploadErrorMessage)="show($event);">
+      测试只能上传jpg，png，jpeg</np-button>
+    <p>{{file?.name}}</p>
+    <p>{{file?.size}}</p>
+  </div>
+  <br />
+</div>

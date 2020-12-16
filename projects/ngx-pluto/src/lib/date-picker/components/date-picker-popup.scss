@@ -1,0 +1,47 @@
+.np-date-picker-popup-wrapper {
+
+  .date-wrapper {
+    width: 280px;
+
+    .date-picker-body {
+
+      .days-panel {
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+
+        &>.day {
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          user-select: none;
+          width: 26px;
+          height: 24px;
+          line-height: 24px;
+          margin: 3px 5px;
+          box-sizing: border-box;
+        }
+      }
+
+      .months-panel,
+      .years-panel {
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+
+        &>.month,
+        &>.year {
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          user-select: none;
+
+          width: 60px;
+          height: 24px;
+          line-height: 66px;
+          margin: 22px 14px;
+        }
+      }
+    }
+  }
+}

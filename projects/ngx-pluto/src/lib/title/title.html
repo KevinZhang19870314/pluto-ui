@@ -1,0 +1,17 @@
+<div class="np-title-wrapper flex-wrap row-flex" [ngClass]="{'np-title-underline': type === 'title'}">
+  <ng-container *ngIf="type === 'title'">
+    <span class="title-text" [ngClass]="{ vBar: vBar, bold: bold }">{{ text }}</span>
+    <span *ngIf="description" class="title-description">{{ description }}</span>
+    <ng-container *ngIf="!description">
+      <ng-content select="title-template"></ng-content>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="type === 'caption'">
+    <span class="caption-text">{{ text }}</span>
+  </ng-container>
+  <ng-container *ngIf="type === 'notice'">
+    <i class="fas fa-volume-up notice-icon"></i>
+    <span class="notice-text">{{ text ? text : '最新公告 | &nbsp;' }}</span>
+    <span class="notice-description">{{ description }}</span>
+  </ng-container>
+</div>

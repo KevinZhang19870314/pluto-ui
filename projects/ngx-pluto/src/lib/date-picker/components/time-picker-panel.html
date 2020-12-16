@@ -1,0 +1,20 @@
+<div class="np-time-picker-panel flex-wrap col-flex">
+  <div class="time-picker-header">{{ time }}</div>
+  <div class="time-picker-body flex-wrap row-flex">
+    <div #hoursElementRef class="hours flex-wrap col-flex">
+      <span *ngFor="let hour of hours" [ngClass]="{'selected-item': selectedHour === hour}"
+        (click)="onHourClicked(hour)">{{ hour }}</span>
+    </div>
+    <div #minutesElementRef class="minutes flex-wrap col-flex">
+      <span *ngFor="let minute of minutes" [ngClass]="{'selected-item': selectedMinute === minute}"
+        (click)="onMinuteClicked(minute)">{{ minute }}</span>
+    </div>
+    <div #secondsElementRef class="seconds flex-wrap col-flex">
+      <span *ngFor="let second of seconds" [ngClass]="{'selected-item': selectedSecond === second}"
+        (click)="onSecondClicked(second)">{{ second }}</span>
+    </div>
+  </div>
+  <div class="time-picker-footer flex-wrap col-flex">
+    <np-button *ngIf="confirmButtonText" (click)="onConfirmButtonClicked()">{{ confirmButtonText }}</np-button>
+  </div>
+</div>

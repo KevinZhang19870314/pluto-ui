@@ -1,0 +1,84 @@
+<div class="lib-title">ngModel时间选择示例（format：yyyy-MM-dd HH:mm:ss）</div>
+<div class="t-datepicker-wrapper">
+
+  <pre class="pre-style"><![CDATA[
+  dateRangeVal = { start: '2019-06-06 19:53:08', end: '2019-07-12 19:53:08' };
+    
+  ...
+
+  <np-datepicker [(ngModel)]="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+    placeholderEnd="请输入活动结束时间">
+  </np-datepicker>
+    ]]></pre>
+  <np-datepicker [(ngModel)]="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+    placeholderEnd="请输入活动结束时间">
+  </np-datepicker>
+  <np-button (click)="onGetDateRange()">Get Date</np-button>
+  <span>{{ 'resultRange: ' + resultRange }}</span>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    dateVal = '2019-06-06 19:53:08';
+      
+    ...
+  
+    <np-datepicker [(ngModel)]="dateVal" type="single" label="活动时间" isRequired="true" placeholder="请输入活动时间">
+    </np-datepicker>
+      ]]></pre>
+  <np-datepicker [(ngModel)]="dateVal" type="single" label="活动时间" isRequired="true" placeholder="请输入活动时间">
+  </np-datepicker>
+  <np-button (click)="onGetDate()">Get Date</np-button>
+  <span>{{ 'result: ' + result }}</span>
+  <br />
+</div>
+<br />
+
+<div class="lib-title">reactive form时间选择示例（format：yyyy-MM-dd HH:mm:ss）</div>
+<div class="t-datepicker-wrapper">
+
+  <pre class="pre-style"><![CDATA[
+    <form [formGroup]="dateFormRange">
+        <np-datepicker formControlName="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+          placeholderEnd="请输入活动结束时间">
+        </np-datepicker>
+    </form>
+        ]]></pre>
+  <form [formGroup]="dateFormRange">
+    <np-datepicker formControlName="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+      placeholderEnd="请输入活动结束时间">
+    </np-datepicker>
+  </form>
+  <np-button (click)="onGetReactiveFormRangeDate()">Get Date</np-button>
+  <span>{{ 'rangeDateResult: ' + rangeDateResult }}</span>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <form [formGroup]="dateForm">
+        <np-datepicker formControlName="singleDate" type="single" label="活动时间" isRequired="true" placeholder="请输入活动时间">
+        </np-datepicker>
+    </form>
+        ]]></pre>
+  <form [formGroup]="dateForm">
+    <np-datepicker formControlName="singleDate" type="single" label="活动时间" isRequired="true" placeholder="请输入活动时间">
+    </np-datepicker>
+  </form>
+  <np-button (click)="onGetReactiveFormDate()">Get Date</np-button>
+  <span>{{ 'singleDateResult: ' + singleDateResult }}</span>
+  <br />
+  <br />
+  <pre class="pre-style"><![CDATA[
+    <form [formGroup]="dateFormRange">
+        <np-datepicker [isDisabled]="true" formControlName="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+          placeholderEnd="请输入活动结束时间">
+        </np-datepicker>
+    </form>
+        ]]></pre>
+  <form [formGroup]="dateFormRange">
+    <np-datepicker [isDisabled]="true" formControlName="dateRangeVal" label="活动时间" isRequired="true" placeholderStart="请输入活动开始时间"
+      placeholderEnd="请输入活动结束时间">
+    </np-datepicker>
+  </form>
+  <np-button (click)="onGetReactiveFormRangeDate()">Get Date</np-button>
+  <span>{{ 'rangeDateResult: ' + rangeDateResult }}</span>
+  <br />
+</div>

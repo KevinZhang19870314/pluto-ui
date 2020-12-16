@@ -1,0 +1,201 @@
+@import '../projects/ngx-pluto/src/theme/theming/prebuilt/teal-light.scss';
+// Custom specific component
+@import './app/theme/all-theme';
+@include angular-material-theme($theme);
+$primary: map-get($theme, primary);
+$accent: map-get($theme, accent);
+$warn: map-get($theme, warn);
+$background: map-get($theme, background);
+$foreground: map-get($theme, foreground);
+$is-dark: map-get($theme, is-dark);
+
+.app-wrapper {
+  background-color: np-color($background, background);
+}
+
+.teal-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/teal-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.blue-light {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/blue-light.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.blue-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/blue-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.green-light {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/green-light.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.green-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/green-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.orange-light {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/orange-light.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.orange-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/orange-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.purple-light {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/purple-light.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.purple-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/purple-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.red-light {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/red-light.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}
+
+.red-dark {
+  @import '../projects/ngx-pluto/src/theme/theming/prebuilt/red-dark.scss';
+  // Custom specific component
+  @import './app/theme/all-theme';
+  @include angular-material-theme($theme);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  &>.app-wrapper {
+    background-color: np-color($background, background);
+  }
+}

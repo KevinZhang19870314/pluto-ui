@@ -1,0 +1,167 @@
+<div class="lib-title">Table示例：支持自定义列，列宽度设置，分页等</div>
+<div class="t-table-wrapper">
+  <pre class="pre-style"><![CDATA[
+    // TableComponent
+    import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+    import { ColumnDef } from "projects/ngx-pluto/src/lib/table/table.component";
+    import { mockdata } from './mock-data';
+
+    @Component({
+      selector: 'app-table',
+      templateUrl: './table.component.html',
+      styleUrls: ['./table.component.scss'],
+      encapsulation: ViewEncapsulation.None
+    })
+    export class TableComponent implements OnInit {
+
+      columns: Array<ColumnDef> = [{
+        headerName: 'id',
+        headerDisplayName: 'ID',
+        width: '80px'
+      },
+      {
+        headerName: 'name',
+        headerDisplayName: '名称',
+        width: '320px'
+      },
+      {
+        headerName: 'age',
+        headerDisplayName: '年龄'
+      },
+      {
+        headerName: 'stature',
+        headerDisplayName: '身高'
+      },
+      {
+        headerName: 'desc',
+        headerDisplayName: '描述'
+      },
+      {
+        headerName: 'operator',
+        headerDisplayName: '操作'
+      }];
+      datasource = [];
+      total = mockdata.length;
+      pageSize = 10;
+      currentPageNumber = 1;
+
+      emptyDatasource = [];
+
+      selectedRows: any;
+
+      searchName: string;
+
+      constructor() { }
+
+      ngOnInit() {
+        setTimeout(() => {
+          this.setPagedData(1);
+        }, 500);
+      }
+
+      onPageChanged(currentPageNumber: number) {
+        this.setPagedData(currentPageNumber);
+      }
+
+      onPageSizeChanged(currentPageSize: number) {
+        this.pageSize = currentPageSize;
+        this.setPagedData(1);
+      }
+
+      onRowsChecked(rows: Array<any>) {
+        this.selectedRows = JSON.stringify(rows);
+      }
+
+      onSearchName() {
+        this.currentPageNumber = 1;
+        this.setPagedData(this.currentPageNumber);
+      }
+
+      // Mock data
+      private setPagedData(currentPageNumber: number) {
+        let dt = [];
+        if (this.searchName) {
+          dt = mockdata.filter(f => f.name.indexOf(this.searchName) > -1);
+        } else {
+          dt = mockdata;
+        }
+
+        this.total = dt.length;
+        this.datasource = dt.slice(this.pageSize * (currentPageNumber - 1), this.pageSize * currentPageNumber);
+      }
+    }
+    ...
+
+    <div class="flex-wrap row-flex">
+      <np-input [label]="'名称'" [(ngModel)]="searchName"></np-input>
+      <np-button (click)="onSearchName()">查询</np-button>
+    </div>
+    <br />
+    <np-table [columns]="columns" [datasource]="datasource" [total]="total" [(pageNumber)]="currentPageNumber"
+      [pageSize]="pageSize" [showCheckbox]="'true'" (onPageChanged)="onPageChanged($event)"
+      (onPageSizeChanged)="onPageSizeChanged($event)" (onRowsChecked)="onRowsChecked($event)">
+
+      <!-- 自定义列: 如果此处没有自定义列，则选择默认列显示纯文本 -->
+      <np-column [name]="'name'">
+        <ng-template let-row="row">
+          <div class="flex-wrap col-flex">
+            <np-input [label]="'姓名'" [isRequired]="true" [(ngModel)]="row.name" [placeholder]="'请输入您的姓名'"></np-input>
+          </div>
+        </ng-template>
+      </np-column>
+
+      <np-column [name]="'operator'">
+        <ng-template>
+          <span style="cursor: pointer">启用</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          <span style="cursor: pointer">修改</span>
+        </ng-template>
+      </np-column>
+    </np-table>
+    ]]></pre>
+  <div class="flex-wrap row-flex">
+    <np-input [label]="'名称'" [(ngModel)]="searchName"></np-input>
+    <np-button (click)="onSearchName()">查询</np-button>
+  </div>
+  <br />
+  <np-table [serverSideSort]="false" [columns]="columns" [datasource]="datasource" [total]="total"
+    [(pageNumber)]="currentPageNumber" [pageSize]="pageSize" [showCheckbox]="'true'"
+    (onPageChanged)="onPageChanged($event)" (onPageSizeChanged)="onPageSizeChanged($event)"
+    (onRowsChecked)="onRowsChecked($event)" (onRows)="onRows($event)">
+    <!-- 自定义列: 如果此处没有自定义列，则选择默认列显示纯文本 -->
+    <np-column [name]="'name'">
+      <ng-template let-row="row">
+        <div class="flex-wrap col-flex">
+          <np-input [label]="'姓名'" [isRequired]="true" [(ngModel)]="row.name" [placeholder]="'请输入您的姓名'"></np-input>
+        </div>
+      </ng-template>
+    </np-column>
+
+    <np-column [name]="'operator'">
+      <ng-template>
+        <span style="cursor: pointer">启用</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="cursor: pointer">修改</span>
+      </ng-template>
+    </np-column>
+  </np-table>
+  <div>
+    <span>Current rows: {{ rows }}</span>
+  </div>
+  <br />
+  <pre class="pre-style"><![CDATA[
+  <np-table [columns]="columns" [datasource]="emptyDatasource" [total]="0" [pageSize]="10" [showCheckbox]="'true'"
+    (onPageChanged)="onPageChanged($event)" (onPageSizeChanged)="onPageSizeChanged($event)"
+    (onRowsChecked)="onRowsChecked($event)">
+    <!-- <np-empty>
+      <ng-template>
+        <span>数据去哪儿了</span>
+      </ng-template>
+    </np-empty> -->
+  </np-table>
+     ]]></pre>
+  <np-table [columns]="columns" [datasource]="emptyDatasource" [total]="0" [pageSize]="10" [showCheckbox]="'true'"
+    (onPageChanged)="onPageChanged($event)" (onPageSizeChanged)="onPageSizeChanged($event)"
+    (onRowsChecked)="onRowsChecked($event)">
+  </np-table>
+  <br />
+  <br />
+</div>

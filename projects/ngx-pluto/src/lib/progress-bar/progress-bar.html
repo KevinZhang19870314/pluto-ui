@@ -1,0 +1,9 @@
+<div class="progress-bar-wrapper" [ngStyle]="{'height.px': height}">
+  <div class="progress-bar progress" [ngStyle]="{'background': background}"></div>
+  <div [@fill]="fillState" class="progress-bar shrinker"></div>
+  <span class="left-percent-text" [ngStyle]="{'line-height.px': height}"
+    *ngIf="type === 'percent'">{{ leftText }}</span>
+  <span class="right-percent-text"
+    [ngStyle]="{'right': 'calc(' + (100 - percentage) + '% + 5px)', 'line-height.px': height}"
+    *ngIf="type === 'percent'">{{ rightText }}</span>
+</div>

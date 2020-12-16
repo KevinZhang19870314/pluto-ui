@@ -1,0 +1,8 @@
+<div class="np-date-range-picker-popup-wrapper flex-wrap row-flex">
+  <np-date-picker-popup class="start-picker" #startPicker [date]="startDate" [footerItems]="footerItems"
+    (onItemLabelClicked)="onFooterItemLabelClicked($event)" (onDayClicked)="onStartPickerDayClicked($event)"
+    (onDayMouseover)="onStartPickerDayMouseover($event)">
+  </np-date-picker-popup>
+  <np-date-picker-popup class="end-picker" #endPicker [date]="endDate" (onDayClicked)="onEndPickerDayClicked($event)"
+    (onDayMouseover)="onEndPickerDayMouseover($event)"></np-date-picker-popup>
+</div>

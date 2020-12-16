@@ -1,0 +1,72 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+@import '../../theme/style/variables';
+
+@mixin np-tab-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .tab-title-container {
+    color: np-color($foreground, text);
+    background-color: np-color($background, control);
+    border-bottom: 1px solid np-color($foreground, divider);
+
+    .tab-title {
+      color: np-color($foreground, text);
+
+      &.active {
+        color: np-color($primary);
+        border-bottom: 3px solid np-color($primary);
+        z-index: 1;
+      }
+
+      &.disabled {
+        color: np-color($foreground, disabled-button) !important;
+        cursor: not-allowed !important;
+      }
+    }
+
+    &.chrome-like-tabs {
+      background: np-color($background, highlight);
+      border-bottom: none;
+
+      .tab-title:first-child {
+        margin-left: 15px;
+      }
+
+      .tab-title {
+        background: np-color($background, highlight);
+
+        &.active {
+          background-color: white;
+          border-bottom: none;
+
+          &::before {
+            border-color: transparent transparent np-color($background, highlight);
+          }
+
+          &::after {
+            border-color: transparent transparent np-color($background, highlight);
+          }
+        }
+
+        .tab-divider {
+          border-left: 1px solid np-color($background, contrast);
+        }
+      }
+    }
+  }
+
+  np-tab-group {
+    display: block;
+    color: np-color($foreground, text);
+    background-color: np-color($background, control);
+  }
+}

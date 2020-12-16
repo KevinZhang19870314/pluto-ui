@@ -1,0 +1,40 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-img-upload-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .img-upload-wrapper {
+    color: np-color($foreground, text);
+
+    .form-required {
+      color: np-color($warn);
+      vertical-align: middle;
+    }
+
+    .error-message {
+      color: np-color($warn);
+    }
+
+    .img-thumbnail-container {
+      background-color: np-color($background, control);
+
+      &>.img-placeholder {
+        color: np-color($foreground, text);
+      }
+    }
+
+    .img-desc {
+      color: np-color($foreground, secondary-text);
+      ;
+    }
+  }
+}

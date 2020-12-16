@@ -1,0 +1,76 @@
+.np-box-wrapper {
+  box-shadow: 0px 8px 16px 0px rgba(174, 180, 180, 0.16);
+  border-radius: 10px;
+  min-height: 155px;
+  transition: box-shadow ease .5s, -webkit-box-shadow ease .5s;
+
+  &:hover {
+    &.blue-shadow {
+      box-shadow: 0px 8px 16px 0px rgba(78, 136, 221, 0.2) !important;
+    }
+
+    &.green-shadow {
+      box-shadow: 0px 8px 16px 0px rgba(44, 197, 198, 0.2) !important;
+    }
+
+    &.red-shadow {
+      box-shadow: 0px 8px 16px 0px rgba(244, 107, 120, 0.2) !important;
+    }
+
+    &.orange-shadow {
+      box-shadow: 0px 8px 16px 0px rgba(253, 137, 34, 0.2) !important;
+    }
+  }
+
+  .np-box-header {
+    justify-content: center;
+    align-items: baseline;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 17px;
+    line-height: 48px;
+
+    &.blue {
+      background: url("//image.ipay.so/upload/voucher/assets/images/activity/pin-order_amt.png") 0% 0% / 100% 100% no-repeat;
+    }
+
+    &.green {
+      background: url("//image.ipay.so/upload/voucher/assets/images/activity/pin-order_count.png") 0% 0% / 100% 100% no-repeat;
+    }
+
+    &.red {
+      background: url("//image.ipay.so/upload/voucher/assets/images/activity/pin-user_count.png") 0% 0% / 100% 100% no-repeat;
+    }
+
+    &.orange {
+      background: url("//image.ipay.so/upload/voucher/assets/images/activity/pin-product_count.png") 0% 0% / 100% 100% no-repeat;
+    }
+  }
+
+  .np-box-content {
+    margin: auto 0;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &>div.center,
+    &>div.left-right {
+      align-items: center;
+
+      &>span:first-child {
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      &>span:last-child {
+        font-weight: bold;
+        font-size: 35px;
+      }
+    }
+
+    .vertical-line {
+      width: 1px;
+      height: 51px;
+    }
+  }
+}

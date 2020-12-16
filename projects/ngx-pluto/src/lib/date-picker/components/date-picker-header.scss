@@ -1,0 +1,72 @@
+.date-picker-header {
+  position: relative;
+  justify-content: space-between;
+  height: 41px;
+  line-height: 41px;
+  font-weight: 500;
+
+  .arrow-container {
+    position: relative;
+    padding-top: 17px;
+
+    .arrow-btn {
+      position: absolute;
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border: 0 solid;
+      border-width: 1.5px 0 0 1.5px;
+      content: "";
+    }
+
+    .double-pre-btn,
+    .double-next-btn {
+      &::before {
+        @extend .arrow-btn;
+        top: 0;
+        left: 0;
+      }
+
+      &::after {
+        @extend .arrow-btn;
+        top: 4px;
+        left: 4px;
+      }
+    }
+
+    .pre-btn,
+    .next-btn {
+      &::before {
+        @extend .arrow-btn;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .double-pre-btn,
+    .pre-btn {
+      transform: rotate(-45deg);
+      position: relative;
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-left: 17px;
+      cursor: pointer;
+    }
+
+    .double-next-btn,
+    .next-btn {
+      transform: rotate(135deg);
+      position: relative;
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 17px;
+      cursor: pointer;
+    }
+  }
+
+  .date-container {
+    cursor: pointer;
+  }
+}

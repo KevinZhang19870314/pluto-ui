@@ -1,0 +1,16 @@
+﻿@import '../theming';
+@import '../palette';
+@import '../../core';
+// @import '../../all/all-theme';
+
+$primary: np-palette($np-blue);
+$accent:  np-palette($np-deep-orange, A200, A100, A400);
+$warn:    np-palette($np-red);
+
+$theme: np-login-light-theme($primary, $accent, $warn, $np-large);
+
+// Include non-theme styles for core.
+@include np-core();
+
+// Include all theme-styles for the components based on the current theme.
+@include angular-material-theme($theme);

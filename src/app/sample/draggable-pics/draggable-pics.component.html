@@ -1,0 +1,60 @@
+<div class="lib-title">Kebab示例</div>
+<div class="t-draggable-pics-wrapper">
+  <label>1. 展示可拖动图片</label>
+  <pre class="pre-style"><![CDATA[
+    items: [
+        { url: 'assets/images/draggable-pics/1.png' },
+        { url: 'assets/images/draggable-pics/2.png' },
+        { url: 'assets/images/draggable-pics/3.png' },
+        { url: 'assets/images/draggable-pics/4.png' },
+        { url: 'assets/images/draggable-pics/5.png' },
+        { url: 'assets/images/draggable-pics/6.png' },
+        { url: 'assets/images/draggable-pics/7.png' },
+        { url: 'assets/images/draggable-pics/8.png' }
+      ];
+    ]]></pre>
+  <np-draggable-pics [items]="items" [itemWidth]="200" [itemHeight]="100" style="width: 700px;"></np-draggable-pics>
+  <br />
+  <div *ngFor="let item of items" class="flex-wrap row-flex">
+    <span>{{ item.url }}</span>
+  </div>
+  <br />
+  <br />
+  <label>2. 动态添加图片到可展示区域</label>
+  <pre class="pre-style"><![CDATA[
+    dynaticItems = [];
+    imgUrl: any = "";
+    imgFile = null;
+    
+    ````````````````````
+
+    onImgFileChange($event) {
+      console.log($event);
+      this.imgFile = $event;
+      if (this.imgFile) {
+        this.imgUrl = this.sanitizer.bypassSecurityTrustUrl(
+          URL.createObjectURL(this.imgFile)
+        );
+  
+        this.dynaticItems.push({ url: this.imgUrl, file: this.imgFile });
+      }
+    }
+  
+    onUploadErrorMessage($event: any) {
+      alert($event);
+      this.imgUrl = null;
+    }
+    ]]></pre>
+  <np-button [funcType]="'upload'" [uploadFileType]="'jpg|png|jpeg'"
+    (uploadErrorMessage)="onUploadErrorMessage($event);" [file]="imgFile" (fileChange)="onImgFileChange($event)">上传图片
+  </np-button>
+  <br />
+  <np-draggable-pics [items]="dynaticItems" [itemWidth]="110" [itemHeight]="110" style="width: 700px;">
+  </np-draggable-pics>
+  <br />
+  <div *ngFor="let item of dynaticItems" class="flex-wrap row-flex">
+    <span>{{ item.file.name }}</span>
+  </div>
+  <br />
+  <br />
+</div>

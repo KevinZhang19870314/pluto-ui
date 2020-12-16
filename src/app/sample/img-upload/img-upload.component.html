@@ -1,0 +1,64 @@
+<div class="lib-title">图片上传示例</div>
+<div class="t-img-upload-wrapper">
+
+  <div class="lib-title">1. 上传图片NgModel绑定</div>
+  <pre class="pre-style"><![CDATA[
+    imgObj: { file?: File, src?: string } = {};
+    onImgFileChanged($event: { file: File, src: any }) {
+      let x = $event;
+    }
+  
+    onUploadError($event) {
+      this.msg = $event;
+    }
+    ```````````````````````
+    <np-img-upload width="500" height="500" imgDesc="尺寸500*500，格式jpg、png、jpeg，大小不超过500kb"
+    (onImgFileChanged)="onImgFileChanged($event)" [(ngModel)]="imgObj">
+    </np-img-upload>
+    <br />
+    ]]></pre>
+  <np-img-upload isRequired="true"  width="500" height="500" imgDesc="尺寸500*500，格式jpg、png、jpeg，大小不超过500kb"
+    (onImgFileChanged)="onImgFileChanged($event)" [(ngModel)]="imgObj">
+  </np-img-upload>
+  <br />
+
+  <br>
+  <br>
+  <div class="lib-title">1. 上传图片绑定Reactive Forms</div>
+  <pre class="pre-style"><![CDATA[
+    testForm: FormGroup;
+    ngOnInit() {
+      this.testForm = this.fb.group({
+        imgObj: [{}]
+      });
+    }
+    get f() { return this.testForm.controls; }
+    ```````````````````````
+    <div [formGroup]="testForm">
+      <np-img-upload formControlName="imgObj" width="500" height="500" imgDesc="尺寸500*500，格式jpg、png、jpeg，大小不超过500kb">
+      </np-img-upload>
+    </div>
+    <br />
+    <span style="margin-left: 100px;">{{ f.imgObj.value.file? f.imgObj.value.file.name: '' }}</span>
+    <br>
+    <span style="margin-left: 100px;">{{ 'testForm.valid = ' + testForm.valid }}</span>
+    <br>
+    <span style="margin-left: 100px;">{{ 'f.imgObj.valid = ' + f.imgObj.valid }}</span>
+    <br />
+    <br />
+    <br />
+    ]]></pre>
+  <div [formGroup]="testForm">
+    <np-img-upload isRequired="true" formControlName="imgObj" (onImgClick)="clickImg($event)" width="500" height="500" imgDesc="尺寸500*500，格式jpg、png、jpeg，大小不超过500kb">
+    </np-img-upload>
+  </div>
+  <br />
+  <span style="margin-left: 100px;">{{ f.imgObj.value.file? f.imgObj.value.file.name: '' }}</span>
+  <br>
+  <span style="margin-left: 100px;">{{ 'testForm.valid = ' + testForm.valid }}</span>
+  <br>
+  <span style="margin-left: 100px;">{{ 'f.imgObj.valid = ' + f.imgObj.valid }}</span>
+  <br />
+  <br />
+  <br />
+</div>

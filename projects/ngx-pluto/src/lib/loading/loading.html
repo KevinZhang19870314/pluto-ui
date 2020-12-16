@@ -1,0 +1,26 @@
+<div class="np-loading-wrapper">
+  <div [ngStyle]="{'left': 'calc(50% - ' + r + 'px)', 'width.px': 2*r, 'height.px': 2*r}">
+    <div *ngIf="colors[0]" [ngStyle]="{'background-color': colors[0], 
+    'width.px': (+r + +r / 2), 
+    'height.px': (+r + +r / 2),
+    'animation': (2/speed) + 's linear 1s infinite normal none running cssload-move'}">
+    </div>
+    <div *ngIf="colors[1]" [ngStyle]="{'background-color': colors[1], 
+    'width.px': (+r + +r / 2), 
+    'height.px': (+r + +r / 2),
+    'animation': (1/speed) + 's linear 0s infinite normal none running cssload-move'}">
+    </div>
+    <div *ngIf="colors[2]" [ngStyle]="{'background-color': colors[2], 
+    'width.px': (+r + +r / 2), 
+    'height.px': (+r + +r / 2),
+    'animation': (3/speed) + 's linear 2s infinite normal none running cssload-move'}">
+    </div>
+  </div>
+  <div [ngStyle]="{'left': 'calc(50% - ' + (r - thickness) + 'px)', 
+    'width.px': 2*(r - thickness), 
+    'height.px': 2*(r - thickness), 
+    'line-height.px': 2*(r - thickness), 
+    'top.px': (thickness - 2*r)}">
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+@import '../../../theme/theming/palette';
+@import '../../../theme/theming/theming';
+
+@mixin np-date-picker-popup-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-date-picker-popup-wrapper {
+    background-color: np-color($background, control);
+    color: np-color($foreground, text);
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+
+    .date-picker-header {
+      .arrow-container {
+        color: np-color($foreground, hint-text);
+
+        &>*:hover {
+          color: np-color($foreground, text);
+        }
+      }
+
+      .date-container {
+        &>*:hover {
+          color: np-color($primary);
+        }
+      }
+    }
+
+    .date-picker-body {
+      border-top: 1px solid np-color($foreground, divider);
+      border-bottom: 1px solid np-color($foreground, divider);
+
+      .days-panel {
+        &>.day {
+          &:hover {
+            background-color: np-color($background, highlight);
+          }
+        }
+
+        &>.now-day {
+          border: 1px solid np-color($primary) !important;
+        }
+
+        &>.selected-day {
+          background-color: np-color($primary) !important;
+        }
+
+        &>.non-available-day {
+          color: np-color($foreground, disabled-text);
+        }
+
+        &>.normal {}
+
+        &>.within-hover {
+          border: 1px dashed np-color($primary);
+        }
+
+        &>.within-selected {
+          background-color: np-color($primary, lighter);
+        }
+
+        &>.within-selected-hover {
+          background-color: np-color($primary, darker);
+        }
+      }
+
+      .months-panel {
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+
+        &>.month {
+          &:hover {
+            background-color: np-color($background, highlight);
+          }
+        }
+
+        &>.selected-month {
+          background-color: np-color($primary) !important;
+        }
+      }
+
+      .years-panel {
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+
+        &>.year {
+          &:hover {
+            background-color: np-color($background, highlight);
+          }
+        }
+
+        &>.selected-year {
+          background-color: np-color($primary) !important;
+        }
+
+        &>.non-available-year {
+          color: np-color($foreground, disabled-text);
+        }
+      }
+    }
+
+    .np-date-picker-footer {
+
+      .today,
+      .footer-items-and-today {
+        color: np-color($primary);
+      }
+    }
+
+    .np-time-picker-panel {
+
+      .time-picker-body {
+        border-top: 1px solid np-color($foreground, divider);
+        border-bottom: 1px solid np-color($foreground, divider);
+        box-sizing: border-box;
+      }
+
+      .selected-item {
+        background-color: np-color($primary, lighter);
+      }
+
+      .hours,
+      .minutes,
+      .seconds {
+
+        &>span:hover {
+          background-color: np-color($background, highlight);
+        }
+      }
+    }
+  }
+}

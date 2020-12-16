@@ -1,0 +1,40 @@
+<div class="lib-title home-wrapper">
+  Pluto组件库使用示例（angular 6 +）
+  <div class="theme-container flex-wrap row-flex">
+    <span class="teal-light" (click)="setTheme('teal', false)">Teal light</span>
+    <span class="teal-dark" (click)="setTheme('teal', true)">Teal dark</span>
+    <span class="blue-light" (click)="setTheme('blue', false)">Blue light</span>
+    <span class="blue-dark" (click)="setTheme('blue', true)">Blue dark</span>
+    <span class="green-light" (click)="setTheme('green', false)">Green light</span>
+    <span class="green-dark" (click)="setTheme('green', true)">Green dark</span>
+    <span class="orange-light" (click)="setTheme('orange', false)">Orange light</span>
+    <span class="orange-dark" (click)="setTheme('orange', true)">Orange dark</span>
+    <span class="purple-light" (click)="setTheme('purple', false)">Purple light</span>
+    <span class="purple-dark" (click)="setTheme('purple', true)">Purple dark</span>
+    <span class="red-light" (click)="setTheme('red', false)">Red light</span>
+    <span class="red-dark" (click)="setTheme('red', true)">Red dark</span>
+    <label style="padding: 5px; text-align: center;">{{ 'ActiveTheme: ' + activeTheme }}</label>
+  </div>
+</div>
+<div class="home-wrapper" style="margin-left: 50px;">
+  <div>1. npm install ngx-pluto</div>
+  <br />
+  <div>2. 以使用np-button为例</div>
+  <br />
+  <div>3. 添加样式import到style.scss中
+    <br />
+    <pre class="pre-style" style="width: 768px; display: inline-block;"><![CDATA[
+      @import '../node_modules/ngx-pluto/theme/core';
+      @import '../node_modules/ngx-pluto/lib/theming';
+      @import '../node_modules/ngx-pluto/theme/theming/prebuilt/teal-dark.scss';
+      @import '../node_modules/ngx-pluto/theme/theming/prebuilt/select/default.theme.scss';
+      ]]></pre>
+  </div>
+  <br />
+  <div>4. import NpButtonModule到AppModule</div>
+  <div>5. 在App.component.html使用
+    <pre class="pre-style" style="width: 200px; display: inline-block;"><![CDATA[<np-button>确定</np-button>]]></pre>即可
+  </div>
+  <br />
+  <div>此组件库仅供内部使用，使用过程中如有任何问题欢迎交流、提PR等。</div>
+</div>

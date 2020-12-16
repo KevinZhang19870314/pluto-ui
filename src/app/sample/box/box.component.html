@@ -1,0 +1,119 @@
+<div class="lib-title">Box示例</div>
+<div class="t-box-wrapper">
+  <div class="lib-title">1. 默认box支持左右布局、居中布局，默认可以传入4中头部背景图片</div>
+  <pre class="pre-style"><![CDATA[
+    options1: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '实收订单金额（元）',
+      layout: 'leftRight',
+      lCaption: '昨日',
+      lContent: 100.05,
+      rCaption: '今日',
+      rContent: 298,
+      rColor: '#4E88DD'
+    };
+    options2: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '完成订单数量（笔）',
+      bg: 'green',
+      layout: 'leftRight',
+      lCaption: '昨日',
+      lContent: 199.05,
+      rCaption: '今日',
+      rContent: 265.9,
+      rColor: '#2CC5C6'
+    };
+    options3: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '完成付款人数（人）',
+      bg: 'red',
+      cCaption: '2019年10月03日 ~ 2019年10月09日',
+      cContent: 0.02,
+      cColor: '#F46B78'
+    };
+    options4: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '销售商品数量（个）',
+      bg: 'orange',
+      cCaption: '2019年10月03日 ~ 2019年10月09日',
+      cContent: 8,
+      cColor: '#FD8922'
+    };
+
+    ``````
+
+    .boxes-wrapper {
+      np-box {
+        width: 24%;
+      }
+    }
+
+    ``````
+
+    <div class="flex-wrap row-flex boxes-wrapper" style="justify-content: space-evenly">
+        <np-box [options]="options1"></np-box>
+        <np-box [options]="options2"></np-box>
+        <np-box [options]="options3"></np-box>
+        <np-box [options]="options4"></np-box>
+    </div>
+    ]]></pre>
+  <br />
+  <np-button (click)="onRefreshData()">刷新数据</np-button>
+  <br />
+  <div class="flex-wrap row-flex boxes-wrapper" style="justify-content: space-evenly">
+    <np-box [options]="options1"></np-box>
+    <np-box [options]="options2"></np-box>
+    <np-box [options]="options3"></np-box>
+    <np-box [options]="options4"></np-box>
+  </div>
+  <br />
+  <div class="lib-title">2. 自定义头部背景颜色、box的hover阴影、自定义内容布局、高度等</div>
+  <pre class="pre-style"><![CDATA[
+    options5: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '实收订单金额（元）',
+      hoverColor: '100, 100, 100',
+      bg: 'gray',
+      layout: 'custom'
+    };
+
+    options6: NpBoxOptions = {
+      faIcon: 'fas fa-file-invoice-dollar',
+      title: '本月工资（美元）',
+      hoverColor: '100, 100, 100',
+      bg: '//image.ipay.so/upload/voucher/assets/images/activity/pin-order_amt.png',
+      cCaption: '2019年10月01日 ~ 2019年10月31日',
+      cContent: '$99999',
+      cColor: '#F46B78',
+      height: '300'
+    };
+
+    ``````
+
+    <div style="width: 520px;">
+      <np-box [options]="options5">
+        <div class="flex-wrap col-flex middle-flex" style="height: 200px;">
+          <span>自定义头部背景颜色、box的hover阴影、自定义内容布局等</span>
+        </div>
+      </np-box>
+    </div>
+    <div style="width: 600px;">
+      <np-box [options]="options6"></np-box>
+    </div>
+    ]]></pre>
+  <div class="flex-wrap row-flex">
+    <div style="width: 520px;">
+      <np-box [options]="options5">
+        <div class="flex-wrap col-flex middle-flex" style="height: 200px;">
+          <span>自定义头部背景颜色、box的hover阴影、自定义内容布局等</span>
+        </div>
+      </np-box>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div style="width: 600px;">
+      <np-box [options]="options6"></np-box>
+    </div>
+  </div>
+  <br />
+  <br />
+</div>

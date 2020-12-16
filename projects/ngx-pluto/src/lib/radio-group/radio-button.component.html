@@ -1,0 +1,13 @@
+<div class="np-radio-button-wrapper" [class.rectangle]="radioShape === 'rectangle'" (click)="onChange()"
+  [ngStyle]="{'cursor':  isDisabled? 'not-allowed':'pointer'}">
+  <ng-container>
+    <div [class.rectangle-radio]="radioShape === 'rectangle'" [class.radio-checked]="checked"
+      [class.radio-forbidden]="isDisabled && radioShape === 'rectangle'">
+      <span *ngIf="radioShape === 'radio'" class="radio" [class.radio-checked]="checked"
+        [class.radio-forbidden]="isDisabled"></span>
+      <span *ngIf="radioShape === 'radio'" class="input-helper" [class.radio-forbidden]="isDisabled"></span>
+      <ng-content></ng-content>
+    </div>
+  </ng-container>
+</div>
+<!-- <span class="input-helper"></span> -->

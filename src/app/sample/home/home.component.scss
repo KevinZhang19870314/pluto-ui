@@ -1,0 +1,70 @@
+.lib-title {
+  position: relative;
+
+  .theme-container {
+    position: absolute;
+    right: 0;
+    flex-wrap: wrap;
+    width: 520px;
+
+    &>span {
+      width: 100px;
+      margin-right: 5px;
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: normal;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .teal-light {
+      background: teal;
+    }
+
+    .teal-dark {
+      background: darken(teal, 10%);
+    }
+
+    .blue-light {
+      background: blue;
+    }
+
+    .blue-dark {
+      background: darken(blue, 10%);
+    }
+
+    .green-light {
+      background: green;
+    }
+
+    .green-dark {
+      background: darken(green, 10%);
+    }
+
+    .orange-light {
+      background: orange;
+    }
+
+    .orange-dark {
+      background: darken(orange, 10%);
+    }
+
+    .purple-light {
+      background: purple;
+    }
+
+    .purple-dark {
+      background: darken(purple, 10%);
+    }
+
+    .red-light {
+      background: red;
+    }
+
+    .red-dark {
+      background: darken(red, 10%);
+    }
+  }
+}

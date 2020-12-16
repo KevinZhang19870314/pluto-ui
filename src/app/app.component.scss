@@ -1,0 +1,64 @@
+.app-wrapper {
+  position: relative;
+
+  .side-nav-wrapper .menu-item {
+    overflow: initial !important;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #DEDEDE;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888888;
+  }
+}
+
+.demo-control {
+  background-color: #2cc5c5;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  height: 25px;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: #29b8b8;
+    color: white;
+  }
+}
+
+.flex-wrap {
+  display: flex;
+}
+
+.col-flex {
+  flex-direction: column;
+}
+
+.row-flex {
+  flex-direction: row;
+}
+
+.middle-flex {
+  justify-content: center;
+  align-items: center;
+}
+
+.t-menu-wrapper {}
+
+.wrapper {
+  display: flex;
+}

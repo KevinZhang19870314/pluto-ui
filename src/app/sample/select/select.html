@@ -1,0 +1,125 @@
+<div class="lib-title">下拉框示例</div>
+<div class="t-select-wrapper">
+
+  <pre class="pre-style"><![CDATA[
+
+    // css
+    .dropdown-container {
+      width: 300px;
+      margin: 0 50px;
+    }
+
+    ...
+
+    this.settings = {
+      text: "请选择",
+      selectAllText: '全选',
+      unSelectAllText: '取消全选',
+      classes: "myclass custom-class",
+      primaryKey: "countryId",
+      showCheckbox: true,
+      badgeShowLimit: 5,
+      enableSingleRemoveIcon: false
+    };
+    this.itemList = [
+      { "countryId": 1, "itemName": "胡月的门店" },
+      { "countryId": 2, "itemName": "胡月的门店导入002" },
+      { "countryId": 3, "itemName": "胡月的门店导入001" },
+      { "countryId": 4, "itemName": "五塔店" },
+      { "countryId": 5, "itemName": "宝山店" },
+      { "countryId": 6, "itemName": "长青店" }
+    ];
+    this.selectedItems = [
+      { "countryId": 1, "itemName": "胡月的门店" },
+      { "countryId": 2, "itemName": "胡月的门店导入002" },
+      { "countryId": 3, "itemName": "胡月的门店导入001" },
+      { "countryId": 4, "itemName": "五塔店" }];
+
+    ...
+
+    <div class="dropdown-container">
+        <np-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings"
+          (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </np-multiselect>
+    </div>
+    ]]></pre>
+  <div class="dropdown-container">
+    <np-multiselect [data]="itemList" [(ngModel)]="selectedItems" [settings]="settings"
+      (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+    </np-multiselect>
+  </div>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+
+    // css
+    .dropdown-container {
+      width: 300px;
+      margin: 0 50px;
+    }
+
+    ...
+
+    this.singleSettings = {
+      text: "请选择",
+      selectAllText: '全选',
+      unSelectAllText: '取消全选',
+      classes: "myclass custom-class",
+      primaryKey: "countryId",
+      badgeShowLimit: 5,
+      singleSelection: true,
+      enableSingleRemoveIcon: true
+    }
+    this.itemList = [
+      { "countryId": 1, "itemName": "胡月的门店" },
+      { "countryId": 2, "itemName": "胡月的门店导入002" },
+      { "countryId": 3, "itemName": "胡月的门店导入001" },
+      { "countryId": 4, "itemName": "五塔店" },
+      { "countryId": 5, "itemName": "宝山店" },
+      { "countryId": 6, "itemName": "长青店" }
+    ];
+    selectedItem = [];
+
+    ...
+
+    <div class="dropdown-container">
+        <np-multiselect [label]="'选择'" [data]="itemList" [(ngModel)]="selectedItem" [settings]="singleSettings"
+          (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+          (onDeSelectAll)="onDeSelectAll($event)">
+        </np-multiselect>
+    </div>
+
+    <div class="dropdown-container">
+      <np-multiselect [label]="'选择'" [data]="itemList" [(ngModel)]="selectedItem" [settings]="singleSettings"
+        [isDisabled]="isDisabled">
+      </np-multiselect>
+    </div>
+  
+    <np-button (click)="onDisabled()">禁用/启用</np-button>
+    ]]></pre>
+  <div class="dropdown-container">
+    <np-multiselect [label]="'选择'" [data]="itemList" [(ngModel)]="selectedItem" [settings]="singleSettings"
+      (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+    </np-multiselect>
+  </div>
+  <div class="dropdown-container" [formGroup]="testForm">
+    <np-multiselect [label]="'选择'" [data]="itemList" formControlName="single" [settings]="singleSettings"
+      (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+    </np-multiselect>
+  </div>
+  <br />
+  <br />
+  <div class="dropdown-container">
+    <np-multiselect [label]="'选择'" [data]="itemList" [(ngModel)]="selectedItem" [settings]="singleSettings"
+      [isDisabled]="isDisabled">
+    </np-multiselect>
+  </div>
+
+  <np-button (click)="onDisabled()">禁用/启用</np-button>
+  <br />
+  <br />
+</div>

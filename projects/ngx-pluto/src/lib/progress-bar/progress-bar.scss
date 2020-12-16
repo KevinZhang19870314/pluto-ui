@@ -1,0 +1,69 @@
+.progress-bar-wrapper {
+
+  // width: 800px;
+  height: 15px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow: hidden;
+
+  .progress-bar {
+    width: 100%;
+    height: 100%;
+  }
+
+  .progress {
+    color: white;
+    text-align: center;
+    // line-height: 75px;
+    // font-size: 35px;
+    animation-direction: reverse;
+    // background: #e5405e;
+    /* Old browsers */
+    // background: -moz-linear-gradient(left, #e5405e 0%, #ffdb3a 25%, #3fffa2 50%, #3fffa2 50%, #1a9be0 73%, #ba68ed 100%);
+    /* FF3.6-15 */
+    // background: -webkit-linear-gradient(left, #e5405e 0%, #ffdb3a 25%, #3fffa2 50%, #3fffa2 50%, #1a9be0 73%, #ba68ed 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    // background: linear-gradient(to right, #22BABB, #22BABB, #22BABB, #CCFDD7, #CCFDD7, #CCFDD7);
+    // background: linear-gradient(to right, #22BABB, #CCFDD7);
+  }
+
+  .shrinker {
+    background-color: #ECEFF4;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  // .timelapse {
+  //   animation-name: timelapse;
+  //   animation-fill-mode: forwards;
+  //   animation-duration: 2s;
+  //   animation-timing-function: cubic-bezier(.86, .05, .4, .96);
+  // }
+
+  // @keyframes timelapse {
+  //   from {
+  //     width: 100%;
+  //   }
+
+  //   to {
+  //     width: 0%;
+  //   }
+  // }
+
+  .left-percent-text {
+    position: absolute;
+    color: white;
+    left: 5px;
+    top: 0;
+  }
+
+  .right-percent-text {
+    position: absolute;
+    color: white;
+    top: 0;
+  }
+}

@@ -1,0 +1,41 @@
+<div #npBoxWrapper class="np-box-wrapper flex-wrap col-flex" [ngClass]="{
+        'blue-shadow': options.bg === 'blue', 
+        'green-shadow': options.bg === 'green', 
+        'red-shadow': options.bg === 'red', 
+        'orange-shadow': options.bg === 'orange'
+    }" [ngStyle]="{'box-shadow': showCustomHoverColor ? '0px 8px 16px 0px rgba(' + options.hoverColor + ', 0.2)' : ''}"
+  (mouseenter)="buildCustomHoverColor(true)" (mouseleave)="buildCustomHoverColor(false)">
+  <div #npBoxHeader class="np-box-header flex-wrap row-flex" [ngClass]="{
+        'blue': options.bg === 'blue', 
+        'green': options.bg === 'green', 
+        'red': options.bg === 'red', 
+        'orange': options.bg === 'orange'
+    }">
+    <i [ngClass]="options.faIcon"></i>
+    &nbsp;&nbsp;
+    <span>{{ options.title }}</span>
+  </div>
+  <div class="np-box-content flex-wrap row-flex" *ngIf="options.layout === 'leftRight'"
+    [ngStyle]="{'height.px': options.height}">
+    <div class="flex-wrap col-flex" [ngClass]="{'left-right': options.layout === 'leftRight'}">
+      <span>{{ options.lCaption }}</span>
+      <span [style.color]="options.lColor">{{ options.lContent }}</span>
+    </div>
+    <span class="vertical-line"></span>
+    <div class="flex-wrap col-flex" [ngClass]="{'left-right': options.layout === 'leftRight'}">
+      <span>{{ options.rCaption }}</span>
+      <span [style.color]="options.rColor">{{ options.rContent }}</span>
+    </div>
+  </div>
+  <div class="np-box-content flex-wrap row-flex" *ngIf="options.layout === 'center'"
+    [ngStyle]="{'height.px': options.height}">
+    <div class="flex-wrap col-flex" [ngClass]="{'center': options.layout === 'center'}">
+      <span>{{ options.cCaption }}</span>
+      <span [style.color]="options.cColor">{{ options.cContent }}</span>
+    </div>
+  </div>
+  <div class="np-box-content flex-wrap row-flex" *ngIf="options.layout === 'custom'"
+    [ngStyle]="{'height.px': options.height}">
+    <ng-content></ng-content>
+  </div>
+</div>

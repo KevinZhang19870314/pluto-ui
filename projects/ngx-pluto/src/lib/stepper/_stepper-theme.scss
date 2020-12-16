@@ -1,0 +1,45 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-stepper-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-stepper-wrapper {
+    color: np-color($foreground, text);
+    background-color: np-color($background, control);
+
+    .progress-container {
+      .progress-circle {
+        background-color: np-color($primary);
+      }
+
+      .progress-line {
+        background-color: np-color($primary);
+      }
+
+      .progress-circle-unselected {
+        background-color: np-color($foreground, disabled);
+      }
+
+      .progress-line-unselected {
+        background-color: np-color($foreground, disabled);
+      }
+    }
+
+    .step-title {
+      color: np-color($primary);
+    }
+
+    .step-title-unselected {
+      color: np-color($foreground, disabled);
+    }
+  }
+}

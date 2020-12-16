@@ -1,0 +1,12 @@
+.t-panel-wrapper {
+  margin-top: 100px;
+  width: 100%;
+  height: calc(100% - 150px);
+
+  .panel-template-container {
+    .np-title-wrapper {
+      width: 100%;
+      margin-top: -15px;
+    }
+  }
+}

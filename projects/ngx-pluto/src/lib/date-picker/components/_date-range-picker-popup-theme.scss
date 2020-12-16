@@ -1,0 +1,32 @@
+@import '../../../theme/theming/palette';
+@import '../../../theme/theming/theming';
+
+@mixin np-date-range-picker-popup-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-date-range-picker-popup-wrapper {
+    background-color: np-color($background, control);
+    color: np-color($foreground, text);
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
+
+    .start-picker {
+      .np-date-picker-popup-wrapper {
+        box-shadow: none;
+      }
+    }
+
+    .end-picker {
+      .np-date-picker-popup-wrapper {
+        box-shadow: none;
+      }
+    }
+  }
+}

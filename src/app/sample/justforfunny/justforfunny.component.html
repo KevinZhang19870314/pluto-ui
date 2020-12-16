@@ -1,0 +1,9 @@
+<div class="justforfunny-wrapper flex-wrap col-flex">
+  <div style="margin-top: 50px; margin-left: 50px;">
+    <np-button (click)="onUploadImg()">Pure css image</np-button>
+  </div>
+  <div class="flex-wrap row-flex" style="margin: 20px 0 0 20px;">
+    <img *ngIf="imgUrl" [src]="imgUrl">
+    <div class="box-shadow-img" [style.box-shadow]="boxShadowStyle" style="margin-left: 100px;"></div>
+  </div>
+</div>

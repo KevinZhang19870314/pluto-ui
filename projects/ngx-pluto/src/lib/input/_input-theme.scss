@@ -1,0 +1,55 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-input-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-input-wrapper {
+    color: np-color($foreground, text);
+
+    .form-required {
+      color: np-color($warn);
+      vertical-align: middle;
+    }
+
+    .error-message {
+      color: np-color($warn);
+    }
+
+    .disabled {
+      background-color: np-color($background, disabled-button) !important;
+    }
+
+    .np-input {
+      background-color: np-color($background, control);
+      border: 1px solid np-color($foreground, divider);
+      color: inherit;
+      font-size: 14px;
+
+      &:hover {
+        border: 1px solid np-color($primary);
+      }
+    }
+
+    .np-input:focus {
+      border-color: np-color($primary) !important;
+      box-shadow: 0 0px 3px 0px np-color($primary);
+      transition: all 200ms linear;
+    }
+
+    .input-container {
+
+      .np-len {
+        color: np-color($foreground, disabled-text);
+      }
+    }
+  }
+}

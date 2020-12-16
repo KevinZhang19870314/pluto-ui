@@ -1,0 +1,15 @@
+<div class="tab-title-container" [ngClass]="{'chrome-like-tabs': type === 'chrome-like'}">
+  <div class="tab-title" *ngFor="let tab of tabs;let $index=index" (click)="selectTab(tab, $index)"
+    [class.active]="tab.active" [class.disabled]="tab.disabled">
+    <span *ngIf="type === 'chrome-like'" class="square-block-before"></span>
+    <ng-container *ngIf="tab.headerTemplate">
+      <ng-container *ngTemplateOutlet="tab.headerTemplate.template; context: { title: tab.tabTitle }"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="!tab.headerTemplate">
+      {{tab.tabTitle }}
+    </ng-container>
+    <span *ngIf="type === 'chrome-like'" class="square-block-after"></span>
+    <span *ngIf="type === 'chrome-like' && isShowDivider(tabs, tab, $index) " class="tab-divider"></span>
+  </div>
+</div>
+<ng-content></ng-content>

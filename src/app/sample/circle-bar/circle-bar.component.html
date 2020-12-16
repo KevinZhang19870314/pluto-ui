@@ -1,0 +1,131 @@
+<div class="lib-title">圆形图百分比示例</div>
+<div class="t-circle-bar-wrapper">
+  <p>常规环形图</p>
+  <pre class="pre-style"><![CDATA[
+    fill = { gradient: ['#37C4CA'] };
+    startAngle = 0;
+    value = 0.25;
+  
+    fill1 = { gradient: [['#0681c4', .5], ['#4ac5f8', .5]], gradientAngle: Math.PI / 4 };
+    startAngle1 = 3 / 5 * Math.PI;
+  
+    fill2 = { gradient: ['#ff1e41', '#4ac5f8'] };
+    startAngle2 = 2 * Math.PI;
+  
+    fill3 = { gradient: ['#4ac5f8'] };
+    startAngle3 = 0;
+
+    ....
+
+    <div style="width: 600px;" class="flex-wrap row-flex">
+        <np-circle-bar [value]="value" [fill]="fill" [thickness]="15" [size]="156" [startAngle]="startAngle">
+        </np-circle-bar>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-circle-bar [value]="0.75" [fill]="fill1" [thickness]="15" [size]="156" lineCap="butt"
+          [startAngle]="startAngle1">
+        </np-circle-bar>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-circle-bar [value]="0.75" [fill]="fill2" [thickness]="15" [size]="156" lineCap="butt"
+          [startAngle]="startAngle2">
+        </np-circle-bar>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-circle-bar [value]="1" [fill]="fill3" [startAngle]="startAngle3">
+        </np-circle-bar>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-loading>加载中...</np-loading>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-loading speed="0.5" thickness="15" r="78" [colors]="loadingColors">加载中...</np-loading>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-loading speed="3">加载中...</np-loading>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <np-solid-loading label="加载中..." [colors]="solidLoadingColors" (animatedDidEnd)="animatedDidEnd()" #npLoading>
+        </np-solid-loading>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;" class="flex-wrap row-flex">
+    <np-circle-bar [value]="value" [fill]="fill" [thickness]="15" [size]="156" [startAngle]="startAngle">
+    </np-circle-bar>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-circle-bar [value]="0.75" [fill]="fill1" [thickness]="15" [size]="156" lineCap="butt"
+      [startAngle]="startAngle1">
+    </np-circle-bar>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-circle-bar [value]="0.75" [fill]="fill2" [thickness]="15" [size]="156" lineCap="butt"
+      [startAngle]="startAngle2">
+    </np-circle-bar>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-circle-bar [value]="1" [fill]="fill3" [startAngle]="startAngle3">
+    </np-circle-bar>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-loading>加载中...</np-loading>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-loading speed="0.5" thickness="15" r="78" [colors]="loadingColors">加载中...</np-loading>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-loading speed="3">加载中...</np-loading>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <np-solid-loading label="加载中..." [colors]="solidLoadingColors" (animatedDidEnd)="animatedDidEnd()" #npLoading>
+    </np-solid-loading>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="flex-wrap col-flex middle-flex">
+      <np-percent-circle-bar #percentCircleBar [data]="data" [animationTime]="500" *ngIf="showAfter3s">
+        <div class="flex-wrap col-flex middle-flex" style="font-size: 12px;">
+          <i class="far fa-clock" style="font-size: 13px;"></i>
+          <span><span style="font-size: 24px; font-weight: bold;">6</span>&nbsp;&nbsp;项</span>
+          <span>待处理</span>
+          <span (click)="onCheckClicked()"
+            style="z-index: 11; cursor: pointer; background-color: #FC9B3A; padding: 5px 16px; border-radius: 12px; line-height: 13px; text-align: center; vertical-align: middle; margin-top: 4px;">检测
+            > </span>
+        </div>
+      </np-percent-circle-bar>
+      <br />
+      <np-button buttonSize="100px" (click)="onRefresh()">刷新</np-button>
+    </div>
+  </div>
+  <br />
+  <p>百分比环形图</p>
+  <pre class="pre-style"><![CDATA[
+    data: PercentCircleBarData[] = [{
+      color: '#37C4CA',
+      percentage: 0.3
+    }, {
+      color: '#5189DA',
+      percentage: 0.3
+    }, {
+      color: '#FB8933',
+      percentage: 0.15
+    }]
+
+    ...
+
+    <div style="width: 600px;">
+        <np-percent-circle-bar [data]="data">
+          <div class="flex-wrap col-flex middle-flex" style="font-size: 12px;">
+            <i class="far fa-clock" style="color: #e4dfdf; font-size: 13px;"></i>
+            <span><span style="color: black; font-size: 24px; font-weight: bold;">6</span>&nbsp;&nbsp;项</span>
+            <span>待处理</span>
+            <span
+              style="background-color: #FC9B3A; color: white; padding: 5px 16px; border-radius: 12px; line-height: 13px; text-align: center; vertical-align: middle; margin-top: 4px;">检测
+              > </span>
+          </div>
+        </np-percent-circle-bar>
+    </div>
+    ]]></pre>
+  <br />
+  <div style="width: 600px;" class="flex-wrap row-flex">
+    <np-percent-circle-bar [data]="data">
+      <div class="flex-wrap col-flex middle-flex" style="font-size: 12px;">
+        <i class="far fa-clock" style="color: #e4dfdf; font-size: 13px;"></i>
+        <span><span style="color: black; font-size: 24px; font-weight: bold;">6</span>&nbsp;&nbsp;项</span>
+        <span>待处理</span>
+        <span
+          style="background-color: #FC9B3A; color: white; padding: 5px 16px; border-radius: 12px; line-height: 13px; text-align: center; vertical-align: middle; margin-top: 4px;">检测
+          > </span>
+      </div>
+    </np-percent-circle-bar>
+
+  </div>
+  <br />
+  <br />
+  <br />
+</div>

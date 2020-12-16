@@ -1,0 +1,24 @@
+.np-panel-wrapper {
+  padding: 15px;
+
+  .panel-header {
+    display: block;
+    flex: 1 1 0;
+  }
+
+  .panel-body {
+    display: block;
+    flex: 10 1 0;
+  }
+
+  .panel-footer {
+    display: block;
+    flex: 1 1 0;
+  }
+
+  .np-title {
+    .np-title-wrapper {
+      width: 100%;
+    }
+  }
+}

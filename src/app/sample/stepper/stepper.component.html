@@ -1,0 +1,255 @@
+<div class="lib-title">Stepper示例</div>
+<div class="t-stepper-wrapper">
+  <p>使用自定义template的Stepper</p>
+  <pre class="pre-style"><![CDATA[
+    @ViewChild('npStepper') npStepper: NpStepperComponent;
+
+    // go to next step
+    this.npStepper.next();
+
+    // reset to first step
+    this.npStepper.reset();
+
+    // go to pre step
+    this.npStepper.previous();
+
+    ...
+
+    <np-stepper [selectedIndex]="currentStepIndex" #npStepper>
+        <np-step>
+
+          <ng-template npStepHeader>卡片样式设置</ng-template>
+          <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+              alt=""></ng-template>
+          <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+          </ng-template>
+          <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+            <span style="margin-bottom: 10px;">step 1 content...</span>
+            <span style="margin-bottom: 10px;">step 1 content 2...</span>
+            <span style="margin-bottom: 10px;">step 1 content 3...</span>
+            <np-button buttonSize="100px" (click)="onStep1NextClicked()">下一步</np-button>
+          </div>
+        </np-step>
+        <np-step title="会员权益">
+          <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+              alt=""></ng-template>
+          <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+          </ng-template>
+          <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+            <span>step 2 content</span>
+            <np-textarea [label]="'会员权益'" [isRequired]="true" [placeholder]="'请输入您的会员权益'">
+            </np-textarea>
+            <div class="flex-wrap row-flex" style="margin-top: 10px;">
+              <np-button buttonType="cancel" buttonSize="100px" (click)="onStep2PreviousClicked()">上一步</np-button>
+              <np-button buttonSize="100px" (click)="onStep2NextClicked()">下一步</np-button>
+            </div>
+          </div>
+        </np-step>
+        <np-step>
+          <ng-template npStepHeader>领卡及开发设置</ng-template>
+          <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+              alt=""></ng-template>
+          <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+          </ng-template>
+          <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+            <span>step 3 content</span>
+            <np-input [label]="'设置'" [isRequired]="true" [placeholder]="'请输入领卡及开发设置'" [maxLen]="50"></np-input>
+            <div class="flex-wrap row-flex" style="margin-top: 10px;">
+              <np-button buttonType="cancel" buttonSize="100px" (click)="onStep3PreviousClicked()">上一步</np-button>
+              <np-button buttonSize="100px" (click)="onStep3NextClicked()">下一步</np-button>
+            </div>
+          </div>
+        </np-step>
+        <np-step>
+          <ng-template npStepHeader>完成</ng-template>
+          <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+              alt=""></ng-template>
+          <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+          </ng-template>
+          <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+            <span style="margin-top: 10px;">step 4 content</span>
+            <span style="margin-top: 10px;">恭喜你，完成流程！</span>
+            <div class="flex-wrap row-flex" style="margin-top: 10px;">
+              <np-button buttonType="cancel" buttonSize="100px" (click)="onStep4ResetClicked()">重新开始</np-button>
+            </div>
+          </div>
+        </np-step>
+      </np-stepper>
+    ]]></pre>
+  <div style="margin-left: 50px;">
+    <np-stepper [selectedIndex]="currentStepIndex" #npStepper>
+      <np-step>
+
+        <ng-template npStepHeader>卡片样式设置</ng-template>
+        <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+            alt=""></ng-template>
+        <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+        </ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span style="margin-bottom: 10px;">step 1 content...</span>
+          <span style="margin-bottom: 10px;">step 1 content 2...</span>
+          <span style="margin-bottom: 10px;">step 1 content 3...</span>
+          <np-button buttonSize="100px" (click)="onStep1NextClicked()">下一步</np-button>
+        </div>
+      </np-step>
+      <np-step title="会员权益1">
+        <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+            alt=""></ng-template>
+        <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+        </ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span>step 2 content</span>
+          <np-textarea [label]="'会员权益'" [isRequired]="true" [placeholder]="'请输入您的会员权益'">
+          </np-textarea>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep2PreviousClicked()">上一步</np-button>
+            <np-button buttonSize="100px" (click)="onStep2NextClicked()">下一步</np-button>
+          </div>
+        </div>
+      </np-step>
+      <np-step>
+        <ng-template npStepHeader>领卡及开发设置</ng-template>
+        <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+            alt=""></ng-template>
+        <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+        </ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span>step 3 content</span>
+          <np-input [label]="'设置'" [isRequired]="true" [placeholder]="'请输入领卡及开发设置'" [maxLen]="50"></np-input>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep3PreviousClicked()">上一步</np-button>
+            <np-button buttonSize="100px" (click)="onStep3NextClicked()">下一步</np-button>
+          </div>
+        </div>
+      </np-step>
+      <np-step>
+        <ng-template npStepHeader>完成</ng-template>
+        <ng-template npStepProcess><img style="width: 50px;height:50px" src="assets/images/icon_step_process.png"
+            alt=""></ng-template>
+        <ng-template npStepFinish><img style="width: 50px;height:50px" src="assets/images/icon_step_finish.png" alt="">
+        </ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span style="margin-top: 10px;">step 4 content</span>
+          <span style="margin-top: 10px;">恭喜你，完成流程！</span>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep4ResetClicked()">重新开始</np-button>
+          </div>
+        </div>
+      </np-step>
+    </np-stepper>
+  </div>
+  <br />
+</div>
+<div class="t-stepper-wrapper">
+  <p>使用默认样式的Stepper</p>
+  <pre class="pre-style"><![CDATA[
+      @ViewChild('npStepper') npStepper: NpStepperComponent;
+
+      // go to next step
+      this.npStepper.next();
+
+      // reset to first step
+      this.npStepper.reset();
+
+      // go to pre step
+      this.npStepper.previous();
+
+      ...
+
+      <np-stepper [selectedIndex]="currentStepIndex" #npStepper>
+          <np-step>
+            <ng-template npStepHeader>卡片样式设置</ng-template>
+            <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+              <span style="margin-bottom: 10px;">step 1 content...</span>
+              <span style="margin-bottom: 10px;">step 1 content 2...</span>
+              <span style="margin-bottom: 10px;">step 1 content 3...</span>
+              <np-button buttonSize="100px" (click)="onStep1NextClicked()">下一步</np-button>
+            </div>
+          </np-step>
+          <np-step title="会员权益">
+            <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+              <span>step 2 content</span>
+              <np-textarea [label]="'会员权益'" [isRequired]="true" [placeholder]="'请输入您的会员权益'">
+              </np-textarea>
+              <div class="flex-wrap row-flex" style="margin-top: 10px;">
+                <np-button buttonType="cancel" buttonSize="100px" (click)="onStep2PreviousClicked()">上一步</np-button>
+                <np-button buttonSize="100px" (click)="onStep2NextClicked()">下一步</np-button>
+              </div>
+            </div>
+          </np-step>
+          <np-step>
+            <ng-template npStepHeader>领卡及开发设置</ng-template>
+            <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+              <span>step 3 content</span>
+              <np-input [label]="'设置'" [isRequired]="true" [placeholder]="'请输入领卡及开发设置'" [maxLen]="50"></np-input>
+              <div class="flex-wrap row-flex" style="margin-top: 10px;">
+                <np-button buttonType="cancel" buttonSize="100px" (click)="onStep3PreviousClicked()">上一步</np-button>
+                <np-button buttonSize="100px" (click)="onStep3NextClicked()">下一步</np-button>
+              </div>
+            </div>
+          </np-step>
+          <np-step>
+            <ng-template npStepHeader>完成</ng-template>
+            <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+              <span style="margin-top: 10px;">step 4 content</span>
+              <span style="margin-top: 10px;">恭喜你，完成流程！</span>
+              <div class="flex-wrap row-flex" style="margin-top: 10px;">
+                <np-button buttonType="cancel" buttonSize="100px" (click)="onStep4ResetClicked()">重新开始</np-button>
+              </div>
+            </div>
+          </np-step>
+        </np-stepper>
+      ]]></pre>
+  <div style="margin-left: 50px;">
+    <np-stepper [selectedIndex]="currentStepIndex" #npStepperTwo>
+      <np-step>
+        <ng-template npStepHeader>卡片样式设置</ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span style="margin-bottom: 10px;">step 1 content...</span>
+          <span style="margin-bottom: 10px;">step 1 content 2...</span>
+          <span style="margin-bottom: 10px;">step 1 content 3...</span>
+          <np-button buttonSize="100px" (click)="onStep1NextClicked()">下一步</np-button>
+        </div>
+      </np-step>
+      <np-step title="会员权益">
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span>step 2 content</span>
+          <np-textarea [label]="'会员权益'" [isRequired]="true" [placeholder]="'请输入您的会员权益'">
+          </np-textarea>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep2PreviousClicked()">上一步</np-button>
+            <np-button buttonSize="100px" (click)="onStep2NextClicked()">下一步</np-button>
+          </div>
+        </div>
+      </np-step>
+      <np-step>
+        <ng-template npStepHeader>领卡及开发设置</ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span>step 3 content</span>
+          <np-input [label]="'设置'" [isRequired]="true" [placeholder]="'请输入领卡及开发设置'" [maxLen]="50"></np-input>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep3PreviousClicked()">上一步</np-button>
+            <np-button buttonSize="100px" (click)="onStep3NextClicked()">下一步</np-button>
+          </div>
+        </div>
+      </np-step>
+      <np-step>
+        <ng-template npStepHeader>完成</ng-template>
+        <div class="flex-wrap col-flex" style="margin: 10px; justify-content: flex-start;">
+          <span style="margin-top: 10px;">step 4 content</span>
+          <span style="margin-top: 10px;">恭喜你，完成流程！</span>
+          <div class="flex-wrap row-flex" style="margin-top: 10px;">
+            <np-button buttonType="cancel" buttonSize="100px" (click)="onStep4ResetClicked()">重新开始</np-button>
+          </div>
+        </div>
+      </np-step>
+    </np-stepper>
+  </div>
+  <br />
+</div>
+<div style="margin-top: 100px; ">
+  <np-input [label]="'步骤'" [(ngModel)]="currentStepIndex" [placeholder]="'从0开始'" [maxLen]="1"></np-input>
+  <br />
+  <br />
+  <br />
+</div>

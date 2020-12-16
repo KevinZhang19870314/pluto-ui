@@ -1,0 +1,26 @@
+{
+    "extends": "../../tslint.json",
+    "rules": {
+        "directive-selector": [
+            false,
+            "attribute",
+            "lib",
+            "camelCase"
+        ],
+        "component-selector": [
+            false,
+            "element",
+            "lib",
+            "kebab-case"
+        ],
+        "eofline": false,
+        "component-class-suffix": false,
+        "no-inferrable-types": false,
+        "max-line-length": false,
+        "quotemark": false,
+        "no-output-on-prefix": false,
+        "no-trailing-whitespace": false,
+        "use-life-cycle-interface": false,
+        "prefer-const": false
+    }
+}

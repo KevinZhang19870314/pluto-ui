@@ -1,0 +1,79 @@
+/****************** Import from npm package ******************/
+// @import '../node_modules/ngx-pluto/lib/theming';
+// @import '../node_modules/ngx-pluto/theme/theming/prebuilt/teal-dark.scss';
+
+/****************** Import from local ******************/
+@import '../projects/ngx-pluto/src/theme/all/all-theme';
+// Include non-theme styles for core.
+@include np-core();
+@import './themes.scss';
+// @import '../projects/ngx-pluto/src/theme/theming/prebuilt/teal-dark.scss';
+// @import '../projects/ngx-pluto/src/theme/theming/prebuilt/teal-light.scss';
+// @import '../projects/ngx-pluto/src/theme/theming/prebuilt/orange-dark.scss';
+// @import '../projects/ngx-pluto/src/theme/theming/prebuilt/orange-light.scss';
+// @import '../projects/ngx-pluto/src/theme/theming/prebuilt/select/default.theme.scss';
+@import '../projects/ngx-pluto/src/lib/common-style/styles';
+
+// Custom specific component
+// @import './app/theme/all-theme';
+// @include angular-material-theme($theme);
+
+// angular cdk prebuilt css
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+// $primary: map-get($theme, primary);
+// $accent: map-get($theme, accent);
+// $warn: map-get($theme, warn);
+// $background: map-get($theme, background);
+// $foreground: map-get($theme, foreground);
+// $is-dark: map-get($theme, is-dark);
+
+body {
+  font-size: 13px;
+  margin: 0;
+  // background-color: np-color($background, control);
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Microsoft Yahei, Arial, -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Roboto, PingFang SC, Hiragino Sans GB, Microsoft Jhenghei, sans-serif;
+  // background-color: np-color($background, background);
+
+  .lib-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px;
+  }
+
+  .pre-style {
+    background-color: #444444;
+    color: #ECFDF0;
+    width: 1000px;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.dialog-large {
+  background: red;
+}
+
+.flex-wrap {
+  display: flex;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.col-flex {
+  flex-direction: column;
+}
+
+.row-flex {
+  flex-direction: row;
+}
+
+.middle-flex {
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,24 @@
+<div class="np-kebab-wrapper flex-wrap row-flex" [style.display]="display">
+  <!-- items out of kebab -->
+  <span *ngFor="let item of itemsOutKebab" [ngClass]="{'interact-expand': item.type !== 'separator'}"
+    [style.color]="item.color" (click)="onKebabItemClicked($event, item)">
+    <ng-container *ngIf="!item.type || item.type === 'text'">{{ item.value }}</ng-container>
+    <ng-container *ngIf="item.type === 'icon'"><i [ngClass]="item.value"></i></ng-container>
+    <ng-container *ngIf="item.type === 'separator'">|</ng-container>
+  </span>
+
+  <!-- items in kebab -->
+  <ng-container *ngIf="data.limit">
+    <span npTooltip [template]="dropdownTemplate" trigger="click" [position]="position" bgColor="transparent"
+      [showArrow]="false" style="cursor: pointer;"><i class="fas fa-ellipsis-v" style="font-size: 14px;"></i></span>
+    <ng-template #dropdownTemplate>
+      <div class="flex-wrap col-flex kebab-dropdown-container">
+        <span *ngFor="let item of itemsInKebab" [ngClass]="{'h-line': item.type === 'separator'}"
+          (click)="onKebabItemClicked($event, item, true)">
+          <ng-container *ngIf="!item.type || item.type === 'text'">{{ item.value }}</ng-container>
+          <ng-container *ngIf="item.type === 'icon'"><i [ngClass]="item.value"></i></ng-container>
+        </span>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

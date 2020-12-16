@@ -1,0 +1,16 @@
+.percent-circle-bar-wrapper {
+  position: relative;
+
+  .percent-circle-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .percent-circle-bar-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+  }
+}

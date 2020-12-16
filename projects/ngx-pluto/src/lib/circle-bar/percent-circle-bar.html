@@ -1,0 +1,11 @@
+<div class="percent-circle-bar-wrapper">
+  <div class="percent-circle-bar-text" [ngStyle]="{'width.px': size, 'height.px': size}">
+    <ng-content></ng-content>
+  </div>
+  <ng-container *ngFor="let item of bindingData; let i = index; let isFirst = first; let isLast = last;">
+    <np-circle-bar class="percent-circle-bar" [value]="item.value" [fill]="item.fill" [thickness]="thickness"
+      [size]="size" [startAngle]="item.startAngle" [emptyFill]="isFirst ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)'"
+      [ngStyle]="{'z-index': (10 - i)}" [animation]="animation">
+    </np-circle-bar>
+  </ng-container>
+</div>

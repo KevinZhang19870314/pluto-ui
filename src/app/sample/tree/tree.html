@@ -1,0 +1,15 @@
+<div class="lib-title">树形控件示例</div>
+<div class="t-tree-wrapper flex-wrap row-flex">
+  <div style="width: 600px;">
+    <np-tree #npTree [name]="'testTree'" [options]="options" (onNpTreeNodeClick)="onTreeClicked($event)"
+      (onNpTreeNodeSelect)="onTreeSelected($event)" (onNpTreeNodeKebabClick)="onNpTreeNodeKebabClick($event)">
+    </np-tree>
+  </div>
+  <div style="width: 50px;"></div>
+  <div style="width: 600px;">
+    <np-tree #npTree1 [name]="'testTree1'" [options]="options1" (onNpTreeNodeClick)="onTreeClicked($event)"
+      (onNpTreeNodeSelect)="onTreeSelected($event)"></np-tree>
+  </div>
+
+  <div (click)="onTest()">过滤包含“中心”的节点</div>
+</div>

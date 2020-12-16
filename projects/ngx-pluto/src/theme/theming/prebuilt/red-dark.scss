@@ -1,0 +1,16 @@
+@import '../theming';
+@import '../palette';
+@import '../../core';
+// @import '../../all/all-theme';
+
+$primary: np-palette($np-red);
+$accent:  np-palette($np-lime, A200, A100, A400);
+$warn:    np-palette($np-red);
+
+$theme: np-dark-theme($primary, $accent, $warn, $np-large);
+
+// Include non-theme styles for core.
+// @include np-core();
+
+// Include all theme-styles for the components based on the current theme.
+@include np-controls-theme($theme);

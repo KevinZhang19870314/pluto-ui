@@ -1,0 +1,43 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-kebab-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .kebab-dropdown-container {
+    box-shadow: 0px 5px 19px 2px np-color($background, shadow, .1);
+    border: 1px solid np-color($foreground, divider);
+    background: np-color($background, background);
+
+    &>span {
+      color: np-color($foreground, text);
+
+      &:hover:not(.h-line) {
+        background-color: np-color($background, hover);
+      }
+    }
+
+    .h-line {
+      border: none;
+      border-bottom: 1px solid np-color($foreground, divider);
+    }
+  }
+
+  .np-kebab-wrapper {
+    .fas.fa-ellipsis-v {
+      color: np-color($foreground, text);
+    }
+
+    .interact-expand {
+      color: np-color($primary);
+    }
+  }
+}

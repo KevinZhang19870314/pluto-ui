@@ -1,0 +1,20 @@
+<div class="img-upload-wrapper flex-wrap col-flex">
+  <div class="flex-wrap row-flex" style="align-items: baseline;">
+    <label class="img-label">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+    <np-button buttonType="secondary" [funcType]="'upload'" [isDisabled]="isDisabled" [uploadFileType]="imgFormat"
+      (uploadErrorMessage)="onUploadImgFormatError($event)" [file]="currentImgFile"
+      (fileChange)="onCurrentImgFileChanged($event)">{{ btnText }}
+    </np-button>
+  </div>
+  <span class="error-message" *ngIf="errorMessage" style="margin-left: 100px;">{{ errorMessage }}</span>
+  <div class="img-thumbnail-container flex-wrap col-flex middle-flex" (click)="onCurrentImgClick()">
+    <img *ngIf="currentImgSrc" [src]="currentImgSrc">
+    <div *ngIf="!currentImgSrc" class="img-placeholder flex-wrap col-flex middle-flex">
+      <span>+</span>
+    </div>
+  </div>
+  <span [innerHtml]="imgDesc | safeHtml" class="img-desc"></span>
+</div>

@@ -1,0 +1,22 @@
+// @import '../../node_modules/ngx-pluto/theme/theming/palette';
+// @import '../../node_modules/ngx-pluto/theme/theming/theming';
+
+/****************** Import from local ******************/
+@import '../projects/ngx-pluto/src/theme/theming/palette';
+@import '../projects/ngx-pluto/src/theme/theming/theming';
+
+@mixin app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .app-wrapper {
+    // background-color: np-color($accent);
+  }
+}

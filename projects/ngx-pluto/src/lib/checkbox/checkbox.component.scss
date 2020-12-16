@@ -1,0 +1,51 @@
+@import '../../theme/style/variables';
+
+// 新版的输入框
+.np-checkbox-button-wrapper {
+  font-size: 14px;
+  padding-left: 25px;
+  position: relative;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: baseline;
+
+  .checkbox {
+    opacity: 0;
+    z-index: 1;
+    left: 1px;
+    top: 1px;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    display: block;
+  }
+
+  .checkbox.checkbox-checked+span::after {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    top: 1px;
+    left: 1px;
+  }
+
+  .checkbox.checkbox-checked+span::after {
+    border-radius: 4px;
+  }
+
+  span.input-helper {
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+  }
+
+  .checkbox+span.input-helper {
+    border-radius: 4px;
+  }
+}

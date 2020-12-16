@@ -1,0 +1,105 @@
+$border-radius: 10px;
+
+.tab-title-container {
+  margin-bottom: 40px;
+  height: 34px;
+  width: 100%;
+  display: flex;
+  padding-bottom: 2px;
+
+  .tab-title {
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 18px;
+    padding-right: 18px;
+    height: 35px;
+    cursor: pointer;
+    padding-bottom: 2px;
+    line-height: 35px;
+    user-select: none;
+
+    &.active {
+      padding-bottom: 0px;
+    }
+  }
+
+  &.chrome-like-tabs {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    .tab-title:first-child {
+      margin-left: 15px;
+    }
+
+    .tab-title {
+      position: relative;
+      border-radius: $border-radius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &.active {
+
+        &::before {
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          bottom: 0;
+          left: -$border-radius;
+          border-width: 0 0px $border-radius $border-radius;
+          border-style: solid;
+          border-bottom-right-radius: 20px;
+          transform: rotate(0);
+          z-index: 2;
+        }
+
+        &::after {
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          bottom: 0;
+          right: -$border-radius;
+          border-width: 0 0px $border-radius $border-radius;
+          border-style: solid;
+          border-bottom-right-radius: 20px;
+          transform: rotate(90deg);
+          z-index: 2;
+        }
+      }
+
+      .square-block-before {
+        position: absolute;
+        content: '';
+        width: $border-radius;
+        height: $border-radius;
+        left: -$border-radius;
+        background-color: inherit;
+        bottom: 0;
+      }
+
+      .square-block-after {
+        position: absolute;
+        content: '';
+        width: $border-radius;
+        height: $border-radius;
+        right: -$border-radius;
+        background-color: inherit;
+        bottom: 0;
+      }
+
+      .tab-divider {
+        width: 0;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 9px;
+      }
+    }
+  }
+}
+
+.chrome-like-wrapper {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}

@@ -1,0 +1,11 @@
+<div class="np-radio-group-wrapper flex-wrap row-flex">
+  <div class="flex-wrap col-flex" *ngIf="label">
+    <label for="np-input" class="np-lbl">
+      <span class="form-required" *ngIf="isRequired">*</span>
+      {{ label }}
+    </label>
+  </div>
+  <div class="flex-wrap row-flex" style="width: auto">
+    <ng-content></ng-content>
+  </div>
+</div>

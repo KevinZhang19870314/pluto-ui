@@ -1,0 +1,48 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-textarea-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-textarea-wrapper {
+    color: np-color($foreground, text);
+
+    .form-required {
+      color: np-color($warn);
+      vertical-align: middle;
+    }
+
+    .error-message {
+      color: np-color($warn);
+    }
+
+    .disabled {
+      background-color: np-color($background, disabled-button) !important;
+    }
+
+    .np-textarea {
+      background-color: np-color($background, control);
+      border: 1px solid np-color($foreground, divider);
+      color: inherit;
+      font-size: 14px;
+    }
+
+    .np-textarea:focus {
+      border-color: np-color($primary) !important;
+    }
+
+    .np-textarea-container {
+      .np-len {
+        color: np-color($foreground, disabled-text);
+      }
+    }
+  }
+}

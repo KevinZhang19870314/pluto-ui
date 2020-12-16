@@ -1,0 +1,93 @@
+@import '../../theme/theming/palette';
+@import '../../theme/theming/theming';
+
+@mixin np-switch-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $is-dark: map-get($theme, is-dark);
+
+  $layout-background-color: np-color($background, background);
+  $layout-foreground-color: np-color($foreground, text, 0.95);
+
+  .np-switch-wrapper {
+    color: np-color($foreground, text);
+
+    .form-required {
+      color: np-color($warn);
+      vertical-align: middle;
+    }
+
+    .error-message {
+      color: np-color($warn);
+    }
+
+    .disabled {
+      // background-color: np-color($background, disabled-button) !important;
+    }
+
+    .np-switch {
+      // background-color: #fff;
+      background-color: np-color($background, control);
+      // border: 1px solid #e5e6e7;
+      border: 1px solid np-color($foreground, divider);
+      color: inherit;
+      font-size: 14px;
+    }
+
+    .np-switch:focus {
+      border-color: np-color($primary) !important;
+    }
+
+    .switch-container {
+
+      .switch {
+        border: 1px solid np-color($foreground, divider);
+        background-color: np-color($background, background);
+        box-shadow: np-color($background, shadow) 0 0 0 0 inset;
+      }
+
+      .switch:before {
+        background-color: np-color($background, background);
+        box-shadow: 0 1px 3px np-color($background, contrast);
+      }
+
+      .switch.checked {
+        border-color: np-color($primary);
+        box-shadow: np-color($primary) 0 0 0 16px inset;
+        background-color: np-color($primary);
+      }
+
+      .switch.checked:before {
+        background: np-color($background, control) !important;
+      }
+
+      .switch.switch-animbg:checked {
+        box-shadow: np-color($background, shadow) 0 0 0 0 inset;
+        background-color: np-color($primary);
+      }
+
+      .switch.switch-anim.checked {
+        box-shadow: np-color($primary) 0 0 0 16px inset;
+        background-color: np-color($primary);
+      }
+
+      .switch.disabled.checked {
+        border-color: np-color($background, disabled-button);
+        box-shadow: np-color($background, disabled-button) 0 0 0 16px inset;
+        background-color: np-color($background, disabled-button);
+      }
+
+      .switch.disabled.checked:before {
+        background: np-color($background, control) !important;
+      }
+
+      .switch.switch-anim.disabled.checked {
+        box-shadow: np-color($background, disabled-button) 0 0 0 16px inset;
+        background-color: np-color($background, disabled-button);
+      }
+    }
+  }
+}

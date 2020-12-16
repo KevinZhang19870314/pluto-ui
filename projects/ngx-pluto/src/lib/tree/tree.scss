@@ -1,0 +1,10 @@
+@import '../../theme/style/variables';
+@import './skin-win8-n/ui.fancytree.min.css';
+
+.np-tree-wrapper {
+
+  .np-kebab-wrapper {
+    display: inline;
+    float: right;
+  }
+}

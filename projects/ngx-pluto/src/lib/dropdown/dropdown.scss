@@ -1,0 +1,125 @@
+.np-dropdown-wrapper {
+  position: relative;
+  align-items: baseline;
+  display: inline-block;
+
+  .select-lbl {
+    margin-right: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .selected-item-wrapper {
+    box-sizing: content-box;
+    display: inline-block;
+    min-width: 80px;
+    padding: 7.5px 6px;
+    cursor: pointer;
+    border-radius: 3px;
+    border-width: 1px;
+    user-select: none;
+    outline: none;
+    font-size: 13px;
+
+    &>.fas.fa-caret-down,
+    &>.fas.fa-caret-up {
+      position: absolute;
+      right: 8px;
+      line-height: 20px;
+    }
+
+    &>.fas.fa-times {
+      position: absolute;
+      right: 23px;
+      line-height: 20px;
+      font-size: 13px;
+      padding: 0 5px;
+    }
+
+    &>.none-badge-count {
+      position: absolute;
+      right: 38px;
+      line-height: 20px;
+      padding: 0 5px;
+    }
+
+    .mul-item-container {
+      display: inline-block;
+
+      .mul-item {
+        padding: 2px 5px;
+        margin-right: 2px;
+
+        .fas.fa-times {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+.np-dropdown-viewport {
+  min-width: 80px;
+  padding: 0 6px;
+  height: 300px;
+  border-radius: 3px;
+
+  .search-container {
+    display: flex;
+    position: relative;
+
+    .fas.fa-search {
+      position: absolute;
+      left: 12px;
+      top: 0;
+      line-height: 50px;
+      font-size: 14px;
+    }
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 8px;
+
+    // Not work, need set style async after open dropdown
+    .np-input-wrapper,
+    .input-container,
+    input {
+      width: 100% !important;
+    }
+  }
+
+  .select-all {
+    margin: 6px;
+  }
+
+  &>cdk-virtual-scroll-viewport {
+    height: 100%;
+    margin-top: 8px;
+
+    .select-item {
+      height: 28px;
+      line-height: 28px;
+      padding: 3px 6px;
+      font-size: 13px;
+      cursor: pointer;
+      align-items: center;
+      margin-bottom: 1px;
+      box-sizing: content-box;
+      white-space: nowrap;
+
+      &>np-checkbox {
+        margin-right: 3px;
+      }
+
+      .np-checkbox-button-wrapper {
+        margin: 0 !important;
+      }
+
+      .np-checkbox-button-wrapper span.input-helper {
+        top: 6px;
+      }
+    }
+  }
+}

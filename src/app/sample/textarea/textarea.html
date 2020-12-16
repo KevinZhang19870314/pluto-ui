@@ -1,0 +1,60 @@
+<div class="lib-title">多行输入框示例</div>
+<div class="t-input-wrapper">
+
+  <pre class="pre-style"><![CDATA[
+    <fieldset style="width: 600px;">
+        <legend>用ngModel绑定的np-textarea组件使用:</legend>
+        <np-textarea [label]="'品牌名称'" [isRequired]="true" [(ngModel)]="inputVal" [errorMessage]="errorMessage"
+          [placeholder]="'请输入您的品牌名称'">
+        </np-textarea>
+        <np-input [label]="'门店名称'" [isRequired]="false" [(ngModel)]="inputVal" [errorMessage]="'门店名称最多10个汉字'"
+          [placeholder]="'请输入您的门店名称'"></np-input>
+      </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>用ngModel绑定的np-textarea组件使用:</legend>
+    <np-textarea [label]="'品牌名称'" [isRequired]="true" [(ngModel)]="inputVal" [errorMessage]="errorMessage"
+      [placeholder]="'请输入您的品牌名称'" [maxLen]="50">
+    </np-textarea>
+    <np-input [label]="'门店名称'" [isRequired]="false" [(ngModel)]="inputVal" [errorMessage]="'门店名称最多10个汉字'"
+      [placeholder]="'请输入您的门店名称'"></np-input>
+  </fieldset>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    <fieldset style="width: 600px;">
+        <legend>结合reactive form使用np-input组件:</legend>
+        <form [formGroup]="testForm">
+          <np-textarea [label]="'门店名称'" formControlName="logoName" [isRequired]="true" [errorMessage]="requiredMessage"
+            [placeholder]="'请输入您的品牌名称'">
+          </np-textarea>
+          <np-input formControlName="shopName" [label]="'门店名称'" [isRequired]="false" [errorMessage]="maxMessage"
+            [placeholder]="'请输入您的门店名称'" [isDisabled]="true"></np-input>
+          <np-checkbox formControlName="cbkTest" labelText="启用"></np-checkbox>
+          <np-radio [radioShape]="'rectangle'" formControlName="radioTest" [items]="checkboxList"
+            [(ngModel)]="selectedItem"></np-radio>
+        </form>
+        <np-button class="form-valid-check-btn" (click)="onFormValidCheck()">检查form valid</np-button>
+        <np-button class="form-valid-check-btn" (click)="onTooglecbkTest()">Toggle cbkTest</np-button>
+      </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>结合reactive form使用np-input组件:</legend>
+    <form [formGroup]="testForm">
+      <np-textarea [label]="'门店名称'" formControlName="logoName" [isRequired]="true" [errorMessage]="requiredMessage"
+        [placeholder]="'请输入您的品牌名称'">
+      </np-textarea>
+      <br />
+      <np-textarea [label]="'门店名称'" [isDisabled]="true" formControlName="logoName" [isRequired]="true"
+        [errorMessage]="requiredMessage" [placeholder]="'请输入您的品牌名称'">
+      </np-textarea>
+      <br />
+      <np-input formControlName="shopName" [label]="'门店名称'" [isRequired]="false" [errorMessage]="maxMessage"
+        [placeholder]="'请输入您的门店名称'" [isDisabled]="true"></np-input>
+      <np-checkbox formControlName="cbkTest" labelText="启用"></np-checkbox>
+    </form>
+    <np-button class="form-valid-check-btn" (click)="onFormValidCheck()">检查form valid</np-button>
+    <np-button class="form-valid-check-btn" (click)="onTooglecbkTest()">Toggle cbkTest</np-button>
+  </fieldset>
+  <br />
+</div>

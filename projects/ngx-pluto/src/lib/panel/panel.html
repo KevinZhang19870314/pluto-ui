@@ -1,0 +1,15 @@
+<div class="panel-header" *ngIf="title || npPanelHeader" [style.margin-top]="title ? '-15px' : ''"
+  [ngClass]="{'np-title': title}">
+  <ng-container *ngIf="title">
+    <np-title [text]="title" [description]="subTitle" [vBar]="false" [bold]="true"></np-title>
+  </ng-container>
+  <ng-container *ngIf="!title">
+    <ng-content select="np-panel-header"></ng-content>
+  </ng-container>
+</div>
+<ng-container *ngIf="npPanelBody">
+  <ng-content select="np-panel-body"></ng-content>
+</ng-container>
+<ng-container *ngIf="npPanelFooter">
+  <ng-content select="np-panel-footer"></ng-content>
+</ng-container>

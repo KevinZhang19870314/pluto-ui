@@ -1,0 +1,77 @@
+<div class="np-dropdown-wrapper flex-wrap row-flex">
+  <label class="select-lbl" *ngIf="settings.lblName">{{ settings.lblName }}</label>
+  <div class="selected-item-wrapper" [style.width.px]="settings.width" [ngClass]="{'disabled': disabled}"
+    (click)="onOpenDropdown($event, dropdown, origin)" #origin tabindex="-1">
+    <!-- Single select -->
+    <ng-container *ngIf="settings.single">
+      <span [ngClass]="{'placeholder': !isItemSelected}">{{ selectedLabel }}</span>
+    </ng-container>
+
+    <!-- Multiple select -->
+    <ng-container *ngIf="!settings.single">
+      <div class="mul-item-container">
+        <ng-container *ngIf="!isItemSelected && selectedItems[0]"><span
+            class="placeholder">{{ selectedItems[0].label }}</span>
+        </ng-container>
+        <ng-container *ngIf="isItemSelected">
+          <span class="mul-item" *ngFor="let selectedItem of selectedBadgeItems; let i=index;">
+            <ng-container>
+              <span>{{ selectedItem.label }}</span>&nbsp;&nbsp;
+              <i class="fas fa-times" *ngIf="isItemSelected" (click)="onRemoveItem($event, selectedItem)"></i>
+            </ng-container>
+          </span>
+        </ng-container>
+      </div>
+    </ng-container>
+    <span class="none-badge-count" *ngIf="noneBadgeCount > 0">{{ '+' + noneBadgeCount }}</span>
+    <i class="fas fa-times" *ngIf="!settings.isRequired && isItemSelected" (click)="onRemoveItems($event)"></i>
+    <i class="fas fa-caret-down" *ngIf="!isDropdownOpen"></i>
+    <i class="fas fa-caret-up" *ngIf="isDropdownOpen"></i>
+  </div>
+
+  <ng-template #dropdown>
+    <div class="np-dropdown-viewport flex-wrap col-flex">
+      <div class="search-container" *ngIf="settings.isShowSearchBox">
+        <np-input class="search-input" placeholder="查询" [(ngModel)]="searchToken" (ngModelChange)="onSearch($event)">
+        </np-input>
+        <i class="fas fa-search"></i>
+      </div>
+      <np-checkbox class="select-all" *ngIf="settings.isShowCheckedAll && !settings.single" [(ngModel)]="isCheckedAll"
+        (inputModelChange)="onSelectAll($event)">全选
+      </np-checkbox>
+      <cdk-virtual-scroll-viewport itemSize="35" [style.width.px]="settings.width" #virtualScrollViewport>
+        <div *ngIf="!items || !items.length || items.length === 0">{{ settings.noData }}</div>
+
+        <!-- Single select -->
+        <ng-container *ngIf="settings.single">
+          <div *cdkVirtualFor="let item of items" [class.active]="isActive(item)" class="select-item"
+            (click)="onSelect(item)">
+            <ng-container *ngIf="!selectItemRef || !selectItemRef.template">{{ item.label }}</ng-container>
+            <ng-container *ngIf="selectItemRef && selectItemRef.template">
+              <ng-container *ngTemplateOutlet="selectItemRef.template; context: { item: item }">
+              </ng-container>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <!-- Multiple select -->
+        <ng-container *ngIf="!settings.single">
+          <div *cdkVirtualFor="let item of items" [class.active]="isActive(item)"
+            class="select-item flex-wrap row-flex">
+            <np-checkbox [(ngModel)]="item.checked" (inputModelChange)="onSelect(item)">
+              <div style="width: 100%;">
+                <ng-container *ngIf="!selectItemRef || !selectItemRef.template">
+                  {{ item.label }}
+                </ng-container>
+                <ng-container *ngIf="selectItemRef && selectItemRef.template">
+                  <ng-container *ngTemplateOutlet="selectItemRef.template; context: { item: item }">
+                  </ng-container>
+                </ng-container>
+              </div>
+            </np-checkbox>
+          </div>
+        </ng-container>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </ng-template>
+</div>

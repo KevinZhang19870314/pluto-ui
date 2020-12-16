@@ -1,0 +1,37 @@
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 0;
+}
+
+.kebab-dropdown-container {
+  padding: 5px 8px;
+  border-radius: 5px;
+
+  &>span {
+    padding: 5px 8px;
+    cursor: pointer;
+  }
+
+  .h-line {
+    margin-bottom: 4px;
+    padding-top: 0px;
+    height: 0;
+  }
+}
+
+.np-kebab-wrapper {
+  &>span {
+    padding: 5px 8px;
+  }
+
+  .interact-expand {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: normal;
+    display: inline-block;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: transform ease-in-out;
+    }
+  }
+}

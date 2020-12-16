@@ -1,0 +1,67 @@
+<div class="lib-title">Tooltip示例</div>
+<div class="t-tooltip-wrapper">
+  <pre class="pre-style"><![CDATA[
+    1. 安装和当前项目版本一致的cdk版本，如6.10.0： npm install @angular/cdk
+    2. 导入css： @import '~@angular/cdk/overlay-prebuilt.css';
+    ......
+    
+    <div style="background: greenyellow; width: 100px; padding: 20px;"
+      npTooltip="<div style='color: blue;'>你好，提示文本<br/ >你好吗？</div>" position="right" bgColor="red" offsetX="-30"
+      offsetY="20">Hover: tooltip
+      with text</div>
+    <br />
+    <br />
+    <div style="background: green; width: 200px; padding: 15px;" npTooltip [template]="testTemplate" position="bottom">
+      Hover: tooltip with template</div>
+    <ng-template #testTemplate>
+      <div class="flex-wrap col-flex" style="padding: 10px;">
+        <div style="margin-bottom: 10px;">
+          <i class="fas fa-circle" style="color:#2CC5C6;"></i>&nbsp;
+          <span style="font-weight: bold;">核销数：100</span>
+        </div>
+        <div>
+          <i class="fas fa-circle" style="color: #4F8DDD;"></i>&nbsp;
+          <span style="font-weight: bold;">发券数：250</span>
+        </div>
+      </div>
+    </ng-template>
+    <br />
+  <br />
+  <br />
+    ]]></pre>
+  <br />
+  <br />
+  <br />
+  <div class="flex-wrap row-flex">
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="top">Hover top</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="right">Hover right</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="bottom">Hover bottom</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="left">Hover left</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="topLeft">Hover topLeft</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="topRight">Hover topRight</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="bottomLeft">Hover bottomLeft</span>
+    <span class="hover-origin" npTooltip="Hello, tooltip!" position="bottomRight">Hover bottomRight</span>
+    <span class="hover-origin" npTooltip="Hello, click me!" trigger="click">Click Me!</span>
+  </div>
+  <div style="background: greenyellow; width: 100px; padding: 20px;"
+    npTooltip="<div style='color: blue;'>你好，提示文本<br/ >你好吗？</div>" position="right" bgColor="red" offsetX="-30"
+    offsetY="20">Hover: tooltip
+    with text</div>
+  <br />
+  <br />
+  <ng-template #testTemplate>
+    <div class="flex-wrap col-flex" style="padding: 10px;">
+      <div style="margin-bottom: 10px;">
+        <i class="fas fa-circle" style="color:#2CC5C6;"></i>&nbsp;
+        <span style="font-weight: bold;">核销数：100</span>
+      </div>
+      <div>
+        <i class="fas fa-circle" style="color: #4F8DDD;"></i>&nbsp;
+        <span style="font-weight: bold;">发券数：250</span>
+      </div>
+    </div>
+  </ng-template>
+  <br />
+  <br />
+  <br />
+</div>

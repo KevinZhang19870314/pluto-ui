@@ -1,0 +1,47 @@
+:host {
+  height: fit-content;
+}
+
+.np-loading-wrapper {
+  height: 196px;
+
+  &>div {
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
+  &>div:nth-child(2) {
+    text-align: center;
+  }
+
+  &>div div {
+    border-radius: 100%;
+    filter: blur(29px);
+    position: absolute;
+  }
+
+  @keyframes cssload-move {
+
+    0%,
+    100% {
+      top: 0%;
+      left: 0%;
+    }
+
+    25% {
+      top: 0%;
+      left: 50%;
+    }
+
+    50% {
+      top: 50%;
+      left: 50%;
+    }
+
+    75% {
+      top: 50%;
+      left: 0%;
+    }
+  }
+}

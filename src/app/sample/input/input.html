@@ -1,0 +1,72 @@
+<div class="lib-title">输入框示例</div>
+<div class="t-input-wrapper">
+
+  <pre class="pre-style"><![CDATA[
+    <fieldset style="width: 600px;">
+      <legend>用ngModel绑定的np-input组件使用:</legend>
+      <np-input [label]="'品牌名称'" [isRequired]="true" [(ngModel)]="inputVal" [errorMessage]="errorMessage"
+        [placeholder]="'请输入您的品牌名称'" [maxLen]="5" [numberOnly]="true"></np-input>
+      <np-input [label]="'商户名称'" [isRequired]="true" [errorMessage]="errorMessage" [placeholder]="'请输入您的商户名称'"
+        [maxLen]="5"></np-input>
+      <np-input [label]="'门店名称'" [isRequired]="false" [(ngModel)]="inputVal" [errorMessage]="'门店名称最多10个汉字'"
+        [placeholder]="'请输入您的门店名称'"></np-input>
+    </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>用ngModel绑定的np-input组件使用:</legend>
+    <np-input [label]="'品牌名称'" [isRequired]="true" [(ngModel)]="inputVal" [errorMessage]="errorMessage"
+      [placeholder]="'请输入您的品牌名称'" [maxLen]="5" [numberOnly]="true"></np-input>
+    <np-input [label]="'商户名称'" [isRequired]="true" [errorMessage]="errorMessage" [placeholder]="'请输入您的商户名称'"
+      [maxLen]="5" [(ngModel)]="inputValWithLenLimit" (onBlur)="onBlur($event)"></np-input>
+    <np-input [label]="'门店名称'" [isRequired]="false" [(ngModel)]="inputVal" [errorMessage]="'门店名称最多10个汉字'"
+      [placeholder]="'请输入您的门店名称'"></np-input>
+  </fieldset>
+  <span>{{ 'inputVal = ' + inputVal }}</span>
+  <br />
+  <span>{{ 'inputValWithLenLimit = ' + inputValWithLenLimit }}</span>
+  <br />
+
+  <pre class="pre-style"><![CDATA[
+    this.testForm = this.fb.group({
+      logoName: [this.logoName, Validators.required],
+      shopName: [{ value: '某门店名称', disabled: true }, Validators.maxLength(10)],
+      cbkTest: [true],
+      radioTest: [{}],
+    })
+
+    ...
+    
+    <fieldset style="width: 600px;">
+      <legend>结合reactive form使用np-input组件:</legend>
+      <form [formGroup]="testForm">
+        <np-input formControlName="logoName" [isRequired]="true" [errorMessage]="requiredMessage"
+          [placeholder]="'请输入您的品牌名称'"></np-input>
+        <br />
+        <np-input formControlName="shopName" [label]="'门店名称'" [isRequired]="false" [errorMessage]="maxMessage"
+          [placeholder]="'请输入您的门店名称'" [isDisabled]="true"></np-input>
+        <np-checkbox formControlName="cbkTest" labelText="启用"></np-checkbox>
+        <np-radio formControlName="radioTest" [items]="checkboxList" [(ngModel)]="selectedItem"></np-radio>
+        <p>{{logoName}}</p>
+      </form>
+      <np-button class="form-valid-check-btn" (click)="onFormValidCheck()">检查form valid</np-button>
+      <np-button class="form-valid-check-btn" (click)="onTooglecbkTest()">Toggle cbkTest</np-button>
+    </fieldset>
+    ]]></pre>
+  <fieldset style="width: 600px;">
+    <legend>结合reactive form使用np-input组件:</legend>
+    <form [formGroup]="testForm">
+      <np-input formControlName="logoName" [isRequired]="true" [errorMessage]="requiredMessage"
+        [placeholder]="'请输入您的品牌名称'"></np-input>
+      <np-input formControlName="height" [label]="'身高'" [isRequired]="true" [placeholder]="'请输入您的身高'" [maxLen]="5"
+        [numberOnly]="true"></np-input>
+      <br />
+      <np-input formControlName="shopName" [label]="'门店名称'" [isRequired]="false" [errorMessage]="maxMessage"
+        [placeholder]="'请输入您的门店名称'" [isDisabled]="true"></np-input>
+      <np-checkbox formControlName="cbkTest" labelText="启用"></np-checkbox>
+      <p>{{ f.logoName.value }}</p>
+    </form>
+    <np-button class="form-valid-check-btn" (click)="onFormValidCheck()">检查form valid</np-button>
+    <np-button class="form-valid-check-btn" (click)="onTooglecbkTest()">Toggle cbkTest</np-button>
+  </fieldset>
+  <br />
+</div>
