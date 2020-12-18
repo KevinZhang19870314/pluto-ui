@@ -3,7 +3,6 @@
 
 @import '../../lib/button/button-theme';
 @import '../../lib/checkbox/checkbox-theme';
-@import '../../lib//menu/menu-theme';
 @import '../../lib/input/input-theme';
 @import '../../lib/textarea/textarea-theme';
 @import '../../lib/tree/tree-theme';
@@ -33,12 +32,12 @@
 @import '../../lib/date-picker/month-picker/month-picker-theme';
 @import '../../lib/date-picker/year-picker/year-picker-theme';
 @import '../../lib/dropdown/dropdown-theme';
+@import '../../lib/sidenav/sidenav-theme';
 
 @mixin np-controls-theme($theme) {
   @include np-core-theme($theme);
   @include np-button-theme($theme);
   @include np-checkbox-theme($theme);
-  @include np-menu-theme($theme);
   @include np-input-theme($theme);
   @include np-textarea-theme($theme);
   @include np-tree-theme($theme);
@@ -68,4 +67,5 @@
   @include np-month-picker-theme($theme);
   @include np-year-picker-theme($theme);
   @include np-dropdown-theme($theme);
+  @include np-sidenav-theme($theme);
 }

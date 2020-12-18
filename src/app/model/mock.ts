@@ -1,3 +1,4 @@
+import { NpSideNavItem } from "projects/ngx-pluto/src";
 
 /**
  * @ignore
@@ -11,116 +12,171 @@ export interface MenuItem {
   level?: string;
   active?: boolean;
 }
-export const MOCKMENUITEMLIST: MenuItem[] = [
-  {
-    displayName: '主页',
-    iconName: 'fa fa-home fa-fw',
-    route: '/home',
-  },
-  {
-    displayName: '组件示例',
-    iconName: 'fas fa-place-of-worship',
-    expanded: true,
-    children: [
-      {
-        displayName: 'title',
-        route: '/title'
-      },
-      {
-        displayName: 'button',
-        route: '/button'
-      },
-      {
-        displayName: 'badge',
-        route: '/badge'
-      },
-      {
-        displayName: 'box',
-        route: '/box'
-      },
-      {
-        displayName: 'tooltip',
-        route: '/tooltip'
-      },
-      {
-        displayName: 'kebab',
-        route: '/kebab'
-      },
-      {
-        displayName: 'input',
-        route: '/input'
-      },
-      {
-        displayName: 'textarea',
-        route: '/textarea'
-      },
-      {
-        displayName: 'date-picker',
-        route: '/date-picker'
-      },
-      {
-        displayName: 'checkbox',
-        route: '/checkbox'
-      },
-      {
-        displayName: 'radio-button',
-        route: '/radio-button'
-      },
-      {
-        displayName: 'switch',
-        route: '/switch'
-      },
-      {
-        displayName: 'panel',
-        route: '/panel'
-      },
-      {
-        displayName: 'dropdown',
-        route: '/dropdown'
-      },
-      {
-        displayName: 'paginator',
-        route: '/paginator'
-      },
-      {
-        displayName: 'progress-bar',
-        route: '/progress-bar'
-      },
-      {
-        displayName: 'circle-bar',
-        route: '/circle-bar'
-      },
-      {
-        displayName: 'tab',
-        route: '/tab'
-      },
-      {
-        displayName: 'draggable-pics',
-        route: '/draggable-pics'
-      },
-      {
-        displayName: 'img-upload',
-        route: '/img-upload'
-      },
-      {
-        displayName: 'cropper',
-        route: '/cropper'
-      },
-      {
-        displayName: 'stepper',
-        route: '/stepper'
-      },
-      {
-        displayName: 'dialog',
-        route: '/dialog'
-      },
-      {
-        displayName: 'table',
-        route: '/table'
-      },
-      {
-        displayName: 'tree',
-        route: '/tree'
-      }]
-  }
-];
+export const MOCKMENUITEMLIST: NpSideNavItem[] = [{
+  id: 'K67d',
+  displayName: '主页',
+  iconName: 'fa fa-home',
+  route: 'home',
+  highlightRoutes: ['home'],
+  children: []
+}, {
+  id: 'HMb0',
+  displayName: '组件示例',
+  iconName: 'fa fa-flag',
+  route: '',
+  highlightRoutes: [],
+  expanded: true,
+  children: [{
+    id: 'wFpY',
+    displayName: '标题',
+    route: 'title',
+    highlightRoutes: ['title'],
+    children: []
+  }, {
+    id: 't1uI',
+    displayName: '按钮',
+    route: 'button',
+    highlightRoutes: ['button'],
+    children: []
+  }, {
+    id: 'R3A6',
+    displayName: 'badge',
+    route: 'badge',
+    highlightRoutes: ['badge'],
+    children: []
+  }, {
+    id: 'jG19',
+    displayName: '盒子面板',
+    route: 'box',
+    highlightRoutes: ['box'],
+    children: []
+  }, {
+    id: 'qHVL',
+    displayName: '提示',
+    route: 'tooltip',
+    highlightRoutes: ['tooltip'],
+    children: []
+  }, {
+    id: 'fbpS',
+    displayName: 'kebab',
+    route: 'kebab',
+    highlightRoutes: ['kebab'],
+    children: []
+  }, {
+    id: 'GYdw',
+    displayName: '输入框',
+    route: 'input',
+    highlightRoutes: ['input'],
+    children: []
+  }, {
+    id: 'YMmc',
+    displayName: '输入区域',
+    route: 'textarea',
+    highlightRoutes: ['textarea'],
+    children: []
+  }, {
+    id: '7eXP',
+    displayName: '日历',
+    route: 'date-picker',
+    highlightRoutes: ['date-picker'],
+    children: []
+  }, {
+    id: 'lUji',
+    displayName: '多选框',
+    route: 'checkbox',
+    highlightRoutes: ['checkbox'],
+    children: []
+  }, {
+    id: 'dy45',
+    displayName: '单选按钮',
+    route: 'radio-button',
+    highlightRoutes: ['radio-button'],
+    children: []
+  }, {
+    id: 'f1gA',
+    displayName: '开关',
+    route: 'switch',
+    highlightRoutes: ['switch'],
+    children: []
+  }, {
+    id: 'D61P',
+    displayName: '面板',
+    route: 'panel',
+    highlightRoutes: ['panel'],
+    children: []
+  }, {
+    id: 'YqFe',
+    displayName: '下拉框',
+    route: 'dropdown',
+    highlightRoutes: ['dropdown'],
+    children: []
+  }, {
+    id: 'mWey',
+    displayName: '分页',
+    route: 'paginator',
+    highlightRoutes: ['paginator'],
+    children: []
+  }, {
+    id: 'Ws1Y',
+    displayName: '进度条',
+    route: 'progress-bar',
+    highlightRoutes: ['progress-bar'],
+    children: []
+  }, {
+    id: '93CN',
+    displayName: 'circle-bar',
+    route: 'circle-bar',
+    highlightRoutes: ['circle-bar'],
+    children: []
+  }, {
+    id: 'O3lc',
+    displayName: 'tab',
+    route: 'tab',
+    highlightRoutes: ['tab'],
+    children: []
+  }, {
+    id: 'IEM1',
+    displayName: '可拖动图片',
+    route: 'draggable-pics',
+    highlightRoutes: ['draggable-pics'],
+    children: []
+  }, {
+    id: 'SwcM',
+    displayName: '图片上传',
+    route: 'img-upload',
+    highlightRoutes: ['img-upload'],
+    children: []
+  }, {
+    id: 'ACaN',
+    displayName: '图片剪裁',
+    route: 'cropper',
+    highlightRoutes: ['cropper'],
+    children: []
+  }, {
+    id: 'Tcym',
+    displayName: 'stepper',
+    route: 'stepper',
+    highlightRoutes: ['stepper'],
+    children: []
+  }, {
+    id: 'cL6u',
+    displayName: '弹出框',
+    route: 'dialog',
+    highlightRoutes: ['dialog'],
+    children: []
+  }, {
+    id: '16C7',
+    displayName: '表格',
+    route: 'table',
+    highlightRoutes: ['table'],
+    children: []
+  }, {
+    id: 'ZzWK',
+    displayName: '树',
+    route: 'tree',
+    highlightRoutes: ['tree'],
+    children: []
+  }]
+}];
+
+

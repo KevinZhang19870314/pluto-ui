@@ -1,8 +1,6 @@
 export * from './lib/button/index';
 export * from './lib/checkbox/index';
-export * from './lib/menu/index';
 export * from './lib/input/index';
-export * from './lib/sidebar/index';
 export * from './lib/tree/index';
 export * from './lib/dialog/index';
 export * from './lib/paginator/index';
@@ -28,3 +26,4 @@ export * from './lib/img-upload/index';
 export * from './lib/cropper/index';
 export * from './lib/date-picker/index';
 export * from './lib/dropdown/index';
+export * from './lib/sidenav/index';

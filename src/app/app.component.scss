@@ -1,8 +1,10 @@
 .app-wrapper {
   position: relative;
 
-  .side-nav-wrapper .menu-item {
-    overflow: initial !important;
+  .side-nav {
+    overflow-y: auto;
+    height: 100vh;
+    width: 220px;
   }
 
   /* width */
@@ -56,8 +58,6 @@
   justify-content: center;
   align-items: center;
 }
-
-.t-menu-wrapper {}
 
 .wrapper {
   display: flex;

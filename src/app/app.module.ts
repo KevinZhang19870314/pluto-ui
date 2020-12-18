@@ -9,9 +9,7 @@ import { AppComponent } from './app.component';
 import {
   NpButtonModule,
   NpCheckboxModule,
-  NpMenuModule,
   NpInputModule,
-  NpSidebarModule,
   NpTreeModule,
   NpPaginatorModule,
   NpSharedModule,
@@ -29,7 +27,8 @@ import {
   NpBoxModule,
   NpDraggablePicsModule,
   NpImgUploadModule,
-  NpDropdownModule
+  NpDropdownModule,
+  NpSideNavModule
 } from '../../projects/ngx-pluto/src';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ButtonComponent } from './sample/button/button.component';
@@ -77,9 +76,7 @@ registerNpDatePickerLocale('zh-cn');
 const NGX_PLUTO_MODULE = [
   NpButtonModule,
   NpCheckboxModule,
-  NpMenuModule,
   NpInputModule,
-  NpSidebarModule.forRoot(),
   NpTreeModule,
   NpSharedModule,
   NpTabModule,
@@ -104,7 +101,8 @@ const NGX_PLUTO_MODULE = [
   NpImgUploadModule,
   NpCropperModule,
   NpDateViaPickerModule,
-  NpDropdownModule
+  NpDropdownModule,
+  NpSideNavModule
 ];
 
 @NgModule({

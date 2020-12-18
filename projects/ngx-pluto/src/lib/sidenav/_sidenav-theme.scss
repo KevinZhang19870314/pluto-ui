@@ -1,7 +1,4 @@
-@import '../../theme/theming/palette';
-@import '../../theme/theming/theming';
-
-@mixin np-menu-theme($theme) {
+@mixin np-sidenav-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
@@ -12,8 +9,17 @@
   $layout-background-color: np-color($background, background);
   $layout-foreground-color: np-color($foreground, text, 0.95);
 
-  .np-menu-wrapper {}
+  .np-sidenav-wrapper {
+    color: np-color($foreground, text, 0.95);
 
+    .sidenav-item-wrapper {
 
-
+      & .sidenav-item {
+        &:hover {
+          color: np-color($primary);
+          background-color: np-color($background, highlight);
+        }
+      }
+    }
+  }
 }
