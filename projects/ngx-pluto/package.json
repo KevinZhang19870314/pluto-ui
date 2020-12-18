@@ -4,7 +4,7 @@
   "description": "ngx-pluto组件库",
   "repository": {
     "type": "git",
-    "url": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/tree/np-package/ngx-pluto"
+    "url": "https://github.com/KevinZhang19870314/pluto-ui"
   },
   "keywords": [
     "pluto",
@@ -15,9 +15,9 @@
   "author": "kevinzhang19870314",
   "license": "ISC",
   "bugs": {
-    "url": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/issues"
+    "url": "https://github.com/KevinZhang19870314/pluto-ui/issues"
   },
-  "homepage": "https://git.cardinfolink.net/MarketingTeam/lingxi-platform/blob/np-package/ngx-pluto/README.md",
+  "homepage": "https://github.com/KevinZhang19870314/pluto-ui/blob/master/README.md",
   "peerDependencies": {
     "@angular/common": ">=6.0.0",
     "@angular/core": ">=6.0.0",
